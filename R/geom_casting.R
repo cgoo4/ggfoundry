@@ -1,6 +1,8 @@
 #' Arbitrary hand-crafted fillable shapes for ggplot2
 #'
-#' @description In contrast to, for example, [geom_point()] which enables a
+#' @description
+#' `r lifecycle::badge('experimental')`
+#' In contrast to, for example, [geom_point()] which enables a
 #'   scatterplot of *standard shapes* like circles and triangles,
 #'   `geom_casting()` offers alternative sets of *arbitrary shapes* such as
 #'   polygons and "baby geoms", e.g. a tiny violin or box.

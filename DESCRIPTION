@@ -16,9 +16,11 @@ Depends:
 Imports: 
     grid,
     grImport2,
+    lifecycle,
     rlang
 Suggests: 
     dplyr,
+    ggfx,
     ggimage,
     ggtext,
     gt,

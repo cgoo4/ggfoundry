@@ -119,6 +119,7 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 A geom layer that can be added to a ggplot.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 In contrast to, for example, \code{\link[=geom_point]{geom_point()}} which enables a
 scatterplot of \emph{standard shapes} like circles and triangles,
 \code{geom_casting()} offers alternative sets of \emph{arbitrary shapes} such as
