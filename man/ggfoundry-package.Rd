@@ -10,6 +10,15 @@
 
 A 'ggplot2' extension that supports arbitrary hand-crafted fillable shapes. New shapes may be feature requested via a Github issue.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/cgoo4/ggfoundry}
+  \item \url{https://cgoo4.github.io/ggfoundry/}
+  \item Report bugs at \url{https://github.com/cgoo4/ggfoundry/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Carl Goodwin \email{carl.goodwin@quantumjitter.com}
 
