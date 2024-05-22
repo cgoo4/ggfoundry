@@ -1,0 +1,37 @@
+Package: ggfoundry
+Type: Package
+Title: Shape Foundry & Geom for 'ggplot2'
+Version: 0.1.0
+Authors@R: person("Carl", "Goodwin", email = "carl.goodwin@quantumjitter.com",
+  role = c("aut", "cre"))
+Description: A 'ggplot2' extension that supports arbitrary 
+    hand-crafted fillable shapes. New shapes may be feature requested 
+    via a Github issue.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    ggplot2 (>= 3.5.0),
+    R (>= 4.1)
+Imports: 
+    grid,
+    grImport2,
+    rlang
+Suggests: 
+    dplyr,
+    ggimage,
+    ggtext,
+    grConvert,
+    gt,
+    knitr,
+    patchwork,
+    rmarkdown,
+    showtext,
+    stringr,
+    testthat (>= 3.0.0),
+    tibble,
+    tidyr
+Config/testthat/edition: 3
+RoxygenNote: 7.3.1
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr
