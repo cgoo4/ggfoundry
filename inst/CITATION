@@ -1,0 +1,8 @@
+bibentry(
+  "Manual",
+  title = "Shape Foundry for {ggplot2}",
+  author = "Carl Goodwin",
+  year = 2024,
+  url = "https://cgoo4.github.io/ggfoundry/",
+  textVersion = "Goodwin, Carl. 2024. Arbitrary shapes for {ggplot2}. https://cgoo4.github.io/ggfoundry/"
+)
