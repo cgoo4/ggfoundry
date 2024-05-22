@@ -21,7 +21,6 @@ Suggests:
     dplyr,
     ggimage,
     ggtext,
-    grConvert,
     gt,
     knitr,
     patchwork,

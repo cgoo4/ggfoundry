@@ -14,12 +14,12 @@ svg_names <- grep(
 svg_paths <- paste0("inst/extdata/", svg_names)
 
 # Convert raw svg to cairo
-for (i in svg_paths) {
-  s <- sub(".svg", "-cairo.svg", i)
-  if (!file.exists(s)) {
-    grConvert::convertPicture(i, s)
-  }
-}
+# for (i in svg_paths) {
+#   s <- sub(".svg", "-cairo.svg", i)
+#   if (!file.exists(s)) {
+#     grConvert::convertPicture(i, s)
+#   }
+# }
 
 # Remove raw svg
 file.remove(svg_paths)
