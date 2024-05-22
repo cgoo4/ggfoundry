@@ -170,7 +170,7 @@ p1 + p2 + plot_layout(guides = "collect", axes = "collect")
 Where existing symbols are not fillable, there are possible strategies to achieve a similar effect: 
 
 * Have one larger layer with a coloured symbol. Then superimpose a smaller second layer with a differently-coloured symbol.
-* Use photoshop-style special effects provided by the ggfx package, e.g. adding a differently-coloured outer-glow.
+* Use photoshop-style special effects provided by the [ggfx](https://github.com/thomasp85/ggfx) package, e.g. adding a differently-coloured outer-glow.
 
 ```{r cunning}
 library(ggfx)
