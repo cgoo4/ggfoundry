@@ -1,12 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggfoundry
+# ggfoundry <a href="https://cgoo4.github.io/ggfoundry/"><img src="man/figures/logo.PNG" align="right" height="138" alt="ggfoundry website" /></a>
 
 <!-- badges: start -->
 
-# ggfoundry <a href="https://cgoo4.github.io/ggfoundry/"><img src="man/figures/logo.PNG" align="right" height="138" alt="ggfoundry website" /></a>
-
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Codecov test
 coverage](https://codecov.io/gh/cgoo4/ggfoundry/branch/main/graph/badge.svg)](https://app.codecov.io/gh/cgoo4/ggfoundry?branch=main)
 <!-- badges: end -->
