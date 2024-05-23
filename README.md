@@ -11,8 +11,7 @@
 coverage](https://codecov.io/gh/cgoo4/ggfoundry/branch/main/graph/badge.svg)](https://app.codecov.io/gh/cgoo4/ggfoundry?branch=main)
 <!-- badges: end -->
 
-The goal of ggfoundry is to offer arbitrary hand-crafted fillable shapes
-for ggplot2.
+Arbitrary hand-crafted fillable shapes for ggplot2.
 
 New shapes may be feature requested via a Github issue.
 

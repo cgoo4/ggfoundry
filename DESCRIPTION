@@ -23,7 +23,6 @@ Suggests:
     ggfx,
     ggimage,
     ggtext,
-    gt,
     knitr,
     patchwork,
     rmarkdown,

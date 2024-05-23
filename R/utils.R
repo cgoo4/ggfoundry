@@ -11,8 +11,8 @@ cast_shape <- \(shape, colour, fill, size, angle, x, y) {
 
   gTree(
     children = gList(
-      cast_layers(paste0(path, "/", file_fill), fill, size, angle, x, y),
-      cast_layers(paste0(path, "/", file_col), colour, size, angle, x, y)
+      cast_layers(paste0(path, "/", file_col), colour, size, angle, x, y),
+      cast_layers(paste0(path, "/", file_fill), fill, size, angle, x, y)
     )
   )
 }

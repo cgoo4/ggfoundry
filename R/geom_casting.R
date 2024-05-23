@@ -1,18 +1,10 @@
 #' Arbitrary hand-crafted fillable shapes for ggplot2
 #'
-#' @description
-#' `r lifecycle::badge('experimental')`
-#' In contrast to, for example, [geom_point()] which enables a
-#'   scatterplot of *standard shapes* like circles and triangles,
-#'   `geom_casting()` offers alternative sets of *arbitrary shapes* such as
-#'   polygons and "baby geoms", e.g. a tiny violin or box.
+#' @description `r lifecycle::badge('experimental')`
 #'
-#'   In contrast to [ggimage::geom_image()] which can plot a *complex picture*
-#'   with its original colours and shades, `geom_casting()` uses ggplot
-#'   aesthetics to control the colour and fill of *custom "symbols"* variable by
-#'   group.
+#' Arbitrary hand-crafted colourable and fillable shapes for ggplot2.
 #'
-#'   New shapes may be feature requested via a Github issue.
+#' New shapes may be feature requested via a Github issue.
 #'
 #' @details Behind the scenes, a pair of hand-drawn vector images (outline &
 #'   fill) are converted into Cairo graphics library SVG files, then into grid

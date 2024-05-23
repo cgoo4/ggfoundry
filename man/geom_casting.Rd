@@ -120,15 +120,8 @@ A geom layer that can be added to a ggplot.
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
-In contrast to, for example, \code{\link[=geom_point]{geom_point()}} which enables a
-scatterplot of \emph{standard shapes} like circles and triangles,
-\code{geom_casting()} offers alternative sets of \emph{arbitrary shapes} such as
-polygons and "baby geoms", e.g. a tiny violin or box.
 
-In contrast to \code{\link[ggimage:geom_image]{ggimage::geom_image()}} which can plot a \emph{complex picture}
-with its original colours and shades, \code{geom_casting()} uses ggplot
-aesthetics to control the colour and fill of \emph{custom "symbols"} variable by
-group.
+Arbitrary hand-crafted colourable and fillable shapes for ggplot2.
 
 New shapes may be feature requested via a Github issue.
 }
