@@ -25,10 +25,9 @@ Install the development version of ggfoundry from
 pak::pak("cgoo4/ggfoundry")
 ```
 
-## Example
+## Basic example
 
-This is a basic example. See [get
-started](https://cgoo4.github.io/ggfoundry/) for more details.
+See [get started](https://cgoo4.github.io/ggfoundry/) for more details.
 
 ``` r
 library(ggfoundry)

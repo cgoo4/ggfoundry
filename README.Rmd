@@ -33,11 +33,11 @@ Install the development version of ggfoundry from [GitHub](https://github.com/):
 pak::pak("cgoo4/ggfoundry")
 ```
 
-## Example
+## Basic example
 
-This is a basic example. See [get started](https://cgoo4.github.io/ggfoundry/) for more details.
+See [get started](https://cgoo4.github.io/ggfoundry/) for more details.
 
-```{r example}
+```{r example, fig.retina=3}
 library(ggfoundry)
 
 ggplot(mtcars, aes(wt, mpg, fill = factor(cyl))) +

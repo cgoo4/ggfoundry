@@ -22,6 +22,7 @@ Suggests:
     dplyr,
     ggfx,
     ggimage,
+    ggpp,
     ggtext,
     knitr,
     patchwork,

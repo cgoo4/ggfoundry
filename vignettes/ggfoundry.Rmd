@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ## Motivation
 
-ggfoundry was a little inspired by Stack Overflow posts seeking specific shapes. But, in truth, mostly by a personal interest in getting acquainted with grid graphics (the underpinnings of ggplot2).
+ggfoundry was inspired a little by Stack Overflow posts seeking specific shapes. But, in truth, mostly by a personal interest in getting acquainted with grid graphics (the underpinnings of ggplot2).
 
 ## Shape landscape
 
@@ -26,9 +26,10 @@ Yes, there is already a seemingly near-infinite number of shapes out there, the 
 
 -   The shapes most familiar to users of ggplot (some fillable) are described [here](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point);
 -   Colourable [unicodes](https://www.compart.com/en/unicode/category/So) and [icons](https://fontawesome.com/icons/) like fontawesome extend the options;
--   And [ggimage](https://github.com/GuangchuangYu/ggimage) enables the use of whole pictures.
+-   [ggimage](https://github.com/GuangchuangYu/ggimage) enables the use of whole pictures;
+-   And then there is the Do-It-Yourself approach: Conjuring up grobs (grid graphical objects); perhaps with a sprinkle of trigonometry.
 
-But sometimes you still can't find the one you want! Or at least you can't manipulate it in the way you'd like.
+But sometimes you just can't find what you want. Or manipulate it in the way you would like.
 
 ggfoundry offers arbitrary hand-crafted colourable and fillable shapes for ggplot2. 
 
@@ -38,20 +39,17 @@ New shapes may be feature requested via a Github issue.
 
 These artisanal symbols begin life as hand-drawn vector images with two layers: an outline and a fill. Each SVG pair is converted to Cairo graphics format, forged at extreme temperatures into objects of class "Picture", and finally delicately cast as a `gTree` representation of the original shape. But not quite back to where we started, because they are now editable.
 
-When cooled and finely burnished, the gTree and all its grob (grid graphical object) children, may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
-
-```{r setup}
-library(ggfoundry)
-library(tibble)
-library(patchwork)
-library(ggimage)
-```
+When cooled and finely burnished, the gTree and all its grob children, may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
 
 ## Contrast with unicodes
 
 The extensive range of [unicodes](https://www.compart.com/en/unicode/category/So) is a great option. They are colourable and appear in the legend.
 
 ```{r unicodes, fig.width = 7, fig.height = 5}
+library(ggfoundry)
+library(tibble)
+library(patchwork)
+
 random_walk <- \(x, y, z) cumsum(rnorm(x, mean = y, sd = sqrt(z)))
 
 set.seed(123)
@@ -129,6 +127,8 @@ showtext_auto(enable = FALSE)
 ggimage is a great option for full images, e.g. png files. Country flags, company logos and sports team badges are good example use-cases, as rendering the full image as-is is often the desired outcome.
 
 ```{r ggimage}
+library(ggimage)
+
 df <- tribble(
   ~x, ~y,
   5, 5,
@@ -192,7 +192,7 @@ p <- df |>
 p1 <- p +
   geom_casting(size = 0.7, aes(colour = factor(x))) +
   geom_text(aes(label = x, colour = factor(x)), show.legend = FALSE) +
-  annotate("label", x = 5.5, y = 8, label = "Crosses") +
+  annotate("label", x = 5, y = 6.5, label = "Crosses") +
   scale_shape_manual(values = c("cross2", "cross1")) +
   labs(
     title = "ggfoundry",
@@ -223,6 +223,48 @@ p3 <- p +
   )
 
 p1 + p2 + p3 + plot_layout(guides = "collect", axes = "collect")
+```
+
+## Contrast with DIY
+
+```{r diy, message=FALSE, warning=FALSE}
+library(ggpp)
+library(grid)
+
+df <- tibble(
+  x = 5:6, y = 5:6,
+  grob = list(circleGrob(r = 0.7, gp = gpar(
+    col = "#fde725",
+    fill = "#440154",
+    lwd = 3
+  )))
+)
+
+p <- df |>
+  ggplot(aes(x, y, shape = factor(x), fill = factor(x))) +
+  geom_col(alpha = 0.5) +
+  scale_y_continuous(limits = c(NA, 7)) +
+  scale_fill_viridis_d() +
+  scale_colour_viridis_d(direction = -1) +
+  theme_bw()
+
+p1 <- p +
+  geom_casting(size = 0.7, aes(colour = factor(x))) +
+  annotate("label", x = 5.5, y = 8, label = "Circles") +
+  scale_shape_manual(values = c("circleL", "circleR")) +
+  labs(
+    title = "ggfoundry",
+    subtitle = "Hand-crafted fillable shapes"
+    )
+
+p2 <- p +
+  geom_grob(aes(x, y, label = grob)) +
+  labs(
+    title = "Grob DIY",
+    subtitle = "Lower-level graphics"
+  )
+
+p1 + p2 + plot_layout(guides = "collect", axes = "collect")
 ```
 
 ## Available shapes
