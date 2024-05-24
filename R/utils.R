@@ -5,14 +5,13 @@
 #' @format NULL
 #' @usage NULL
 cast_shape <- \(shape, colour, fill, size, angle, x, y) {
-  path <- system.file("extdata", package = "ggfoundry")
-  file_fill <- list.files(path, pattern = paste0(".*-", shape, "_fill-cairo.svg"))
-  file_col <- list.files(path, pattern = paste0(".*-", shape, "_col-cairo.svg"))
+  col_grob <- picture_lst[[paste0(shape, "_col")]]
+  fill_grob <- picture_lst[[paste0(shape, "_fill")]]
 
   gTree(
     children = gList(
-      cast_layers(paste0(path, "/", file_col), colour, size, angle, x, y),
-      cast_layers(paste0(path, "/", file_fill), fill, size, angle, x, y)
+      cast_layers(col_grob, colour, size, angle, x, y),
+      cast_layers(fill_grob, fill, size, angle, x, y)
     )
   )
 }
@@ -22,18 +21,14 @@ cast_shape <- \(shape, colour, fill, size, angle, x, y) {
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-cast_layers <- \(shape, col, size, angle, x, y) {
-  readPicture(shape) |>
+cast_layers <- \(picture, col, size, angle, x, y) {
+  picture |>
     symbolsGrob(x = x, y = y, size = size, angle = angle) |>
     removeGrob("Poly", grep = TRUE, global = TRUE) |>
     editGrob(
       "Path",
       gp = gpar(col = col, fill = col),
       grep = TRUE, global = TRUE, warn = FALSE
-    ) |>
-    editGrob(
-      regmatches(shape, regexpr("(?<=_).*(?=\\.)", shape, perl = TRUE)),
-      warn = FALSE
     )
 }
 
