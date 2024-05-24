@@ -227,6 +227,8 @@ p1 + p2 + p3 + plot_layout(guides = "collect", axes = "collect")
 
 ## Contrast with DIY
 
+Making your own grob with grid graphics is a further option. Then use [ggpp](https://github.com/aphalo/ggpp) and `geom_grob()` to add the appropriate layer. A circle is used here as a very basic example.
+
 ```{r diy, message=FALSE, warning=FALSE}
 library(ggpp)
 library(grid)
