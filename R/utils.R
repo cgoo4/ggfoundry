@@ -5,8 +5,8 @@
 #' @format NULL
 #' @usage NULL
 cast_shape <- \(shape, colour, fill, size, angle, x, y) {
-  col_grob <- picture_lst[[paste0(shape, "_col")]]
-  fill_grob <- picture_lst[[paste0(shape, "_fill")]]
+  col_grob <- ggfoundry:::picture_lst[[paste0(shape, "_col")]]
+  fill_grob <- ggfoundry:::picture_lst[[paste0(shape, "_fill")]]
 
   gTree(
     children = gList(
