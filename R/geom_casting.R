@@ -86,11 +86,7 @@ GeomCasting <- ggproto("GeomCasting", Geom,
 
     grobs <- lapply(lst, \(df) {
 
-      # valid_shapes <- sub(".*-(.*)_.*", "\\1",
-      #   list.files(system.file("extdata", package = "ggfoundry"))
-      # )
-
-      valid_shapes <- unique(sub("(.*)_.*", "\\1", names(picture_lst)))
+      valid_shapes <- unique(sub(".*-(.*)_.*", "\\1", names(picture_lst)))
 
       if (is_empty(which(df$shape[1] %in% valid_shapes))) {
         msg <- paste0("Is this an available shape: '", df$shape[1], "'?")

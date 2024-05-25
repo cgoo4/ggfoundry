@@ -285,7 +285,7 @@ library(stringr)
 
 ```{r sets, echo = FALSE}
 
-df <- list.files(system.file("extdata", package = "ggfoundry")) |>
+df <- names(ggfoundry:::picture_lst) |>
   as_tibble() |>
   mutate(
     shape = str_extract(value, "(?<=-).*(?=_)"),
