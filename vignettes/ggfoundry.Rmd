@@ -67,7 +67,7 @@ df <- tibble(
 p <- df |>
   ggplot(aes(x, y, shape = group, colour = group, fill = group)) +
   geom_line(show.legend = FALSE) +
-  scale_colour_manual(values = c("darkred", "darkgreen", "darkblue")) +
+  scale_colour_manual(values = c("darkred", "darkblue", "darkgreen")) +
   scale_fill_manual(values = c("pink", "lightgreen", "skyblue")) +
   theme_bw()
 
@@ -81,8 +81,8 @@ p1 <- p +
     )
 
 p2 <- p +
-  geom_point(size = 5) +
-  scale_shape_manual(values = c("\U058D", "\U23C0", "\U23F2")) +
+  geom_point(size = 4) +
+  scale_shape_manual(values = c("\u25BC","\u25CF","\u25B2")) +
   labs(
     title = "geom_point with unicodes",
     subtitle = "Range of colourable-only symbols"
