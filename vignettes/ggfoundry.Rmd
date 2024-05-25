@@ -49,7 +49,7 @@ The extensive range of [unicodes](https://www.compart.com/en/unicode/category/So
 library(ggfoundry)
 library(tibble)
 library(patchwork)
-library(ragg)
+library(systemfonts)
 
 random_walk <- \(x, y, z) cumsum(rnorm(x, mean = y, sd = sqrt(z)))
 
