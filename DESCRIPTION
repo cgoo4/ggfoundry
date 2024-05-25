@@ -24,6 +24,7 @@ Suggests:
     ggimage,
     ggpp,
     ggtext,
+    httr,
     knitr,
     patchwork,
     rmarkdown,
