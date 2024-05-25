@@ -19,7 +19,7 @@ New shapes may be feature requested via a Github issue.
 ## Installation
 
 Install the development version of ggfoundry from
-[GitHub](https://github.com/):
+[GitHub](https://github.com/cgoo4/ggfoundry):
 
 ``` r
 # install.packages("pak")
@@ -28,7 +28,9 @@ pak::pak("cgoo4/ggfoundry")
 
 ## Basic example
 
-See [get started](https://cgoo4.github.io/ggfoundry/) for more details.
+See [get
+started](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html) for
+more details.
 
 ``` r
 library(ggfoundry)

@@ -93,7 +93,7 @@ p1 + p2 + plot_layout(guides = "collect", axes = "collect")
 
 ## Contrast with ggtext / icons
 
-Icons are also a great option, e.g. for brands. One way to use these as ggplot points is via the showtext and ggtext packages. They too are colourable, but the fill is for the surrounding label rather than the symbol itself. The legend reflects the use of the richtext geom, i.e. shows letters.
+Icons are also a great option, e.g. for brands. One way to use these as ggplot points is via the [showtext](https://github.com/yixuan/showtext) and [ggtext](https://github.com/wilkelab/ggtext) packages. They too are colourable, but the fill is for the surrounding label rather than the symbol itself. The legend reflects the use of the richtext geom, i.e. shows letters.
 
 ```{r ggtext, message=FALSE}
 library(showtext)
@@ -123,7 +123,7 @@ showtext_auto(enable = FALSE)
 
 ## Contrast with ggimage
 
-ggimage is a great option for full images, e.g. png files. Country flags, company logos and sports team badges are good example use-cases, as rendering the full image as-is is often the desired outcome.
+[ggimage](https://github.com/GuangchuangYu/ggimage) is a great option for full images, e.g. png files. Country flags, company logos and sports team badges are good example use-cases, as rendering the full image as-is is often the desired outcome.
 
 ```{r ggimage}
 library(ggimage)
@@ -283,7 +283,7 @@ After travelling the mountains, seas and forests of the world in search of that 
 
 These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the set is purely for grouping shapes in the documentation.
 
-```{r sets, echo = FALSE}
+```{r sets, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(tidyr)
 library(dplyr)
