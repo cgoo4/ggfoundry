@@ -95,7 +95,10 @@ GeomCasting <- ggproto("GeomCasting", Geom,
         abort(msg)
       }
 
-      print(length(picture_lst))
+      if (length(picture_lst) < 26) {
+        msg <- paste0("Missing sysdata.rda")
+        abort(msg)
+      }
 
       cast_shape(
         shape = df$shape[1],
