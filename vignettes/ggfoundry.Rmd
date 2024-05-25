@@ -12,7 +12,8 @@ vignette: >
 ```{r options, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  out.width = "100%"
 )
 ```
 
@@ -186,7 +187,8 @@ p <- df |>
   scale_y_continuous(limits = c(NA, 7)) +
   scale_fill_viridis_d() +
   scale_colour_viridis_d(direction = -1) +
-  theme_bw()
+  theme_bw() +
+  theme(plot.subtitle = element_text(size = 10))
 
 p1 <- p +
   geom_casting(size = 0.7, aes(colour = factor(x))) +
@@ -279,9 +281,9 @@ p1 + p2 + plot_layout(guides = "collect", axes = "collect")
 
 In summary, ggfoundry may be the destination of "last resort"! 
 
-After travelling the mountains, seas and forests of the world in search of that elusive shape (or small set), a hand-made grob may be the fillable "Holy Grail" sought via a Github issue.
+After travelling the mountains, seas and forests of the world in search of that elusive shape (or small set), a hand-made grob may be the fillable "Holy Grail" sought via a [Github issue](https://github.com/cgoo4/ggfoundry/issues).
 
-These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the set is purely for grouping shapes in the documentation.
+These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the "set" is purely for grouping shapes in the documentation.
 
 ```{r sets, echo=FALSE, message=FALSE, warning=FALSE}
 
