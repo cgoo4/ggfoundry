@@ -95,6 +95,8 @@ GeomCasting <- ggproto("GeomCasting", Geom,
         abort(msg)
       }
 
+      print(length(picture_lst))
+
       cast_shape(
         shape = df$shape[1],
         colour = alpha(df$colour[1], df$alpha[1]),
