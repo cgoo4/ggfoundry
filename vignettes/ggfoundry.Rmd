@@ -82,7 +82,7 @@ p1 <- p +
 
 p2 <- p +
   geom_point(size = 5) +
-  scale_shape_manual(values=c("\U25BC","\U25CF","\U25B2")) +
+  scale_shape_manual(values = c("\U058D", "\U23C0", "\U23F2")) +
   labs(
     title = "geom_point with unicodes",
     subtitle = "Range of colourable-only symbols"
