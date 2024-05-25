@@ -19,6 +19,7 @@ Imports:
     lifecycle,
     rlang
 Suggests: 
+    cowplot,
     dplyr,
     ggfx,
     ggimage,
