@@ -4,7 +4,6 @@
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-#' @export
 cast_shape <- \(shape, colour, fill, size, angle, x, y) {
   col_grob <- picture_lst[[paste0(shape, "_col")]]
   fill_grob <- picture_lst[[paste0(shape, "_fill")]]
@@ -22,7 +21,6 @@ cast_shape <- \(shape, colour, fill, size, angle, x, y) {
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-#' @export
 cast_layers <- \(picture, col, size, angle, x, y) {
   picture |>
     symbolsGrob(x = x, y = y, size = size, angle = angle) |>
