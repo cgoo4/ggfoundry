@@ -234,11 +234,18 @@ library(grid)
 
 df <- tibble(
   x = 5:6, y = 5:6,
-  grob = list(circleGrob(r = 0.7, gp = gpar(
-    col = "#fde725",
-    fill = "#440154",
-    lwd = 3
-  )))
+  grob = c(
+    list(circleGrob(r = 0.7, gp = gpar(
+      col = "#fde725",
+      fill = "#440154",
+      lwd = 4
+    ))),
+    list(circleGrob(r = 0.7, gp = gpar(
+      col = "#440154",
+      fill = "#fde725",
+      lwd = 4
+    )))
+  )
 )
 
 p <- df |>
@@ -276,13 +283,11 @@ After travelling the mountains, seas and forests of the world in search of that 
 
 These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the set is purely for grouping shapes in the documentation.
 
-```{r libraries, include = FALSE}
+```{r sets, echo = FALSE}
+
 library(tidyr)
 library(dplyr)
 library(stringr)
-```
-
-```{r sets, echo = FALSE}
 
 df <- names(ggfoundry:::picture_lst) |>
   as_tibble() |>
