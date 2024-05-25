@@ -179,7 +179,7 @@ great option. They are colourable and appear in the legend.</p>
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="ggfoundry_files/figure-html/unicodes-1.png" width="672"></p>
+<p><img src="ggfoundry_files/figure-html/unicodes-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="contrast-with-ggtext-icons">Contrast with ggtext / icons<a class="anchor" aria-label="anchor" href="#contrast-with-ggtext-icons"></a>
@@ -211,7 +211,7 @@ i.e. shows letters.</p>
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="ggfoundry_files/figure-html/ggtext-1.png" width="700"></p>
+<p><img src="ggfoundry_files/figure-html/ggtext-1.png" width="100%"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/showtext/man/showtext_auto.html" class="external-link">showtext_auto</a></span><span class="op">(</span>enable <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
@@ -260,7 +260,7 @@ the full image as-is is often the desired outcome.</p>
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="ggfoundry_files/figure-html/ggimage-1.png" width="700"></p>
+<p><img src="ggfoundry_files/figure-html/ggimage-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="contrast-with-cunning-strategies">Contrast with cunning strategies<a class="anchor" aria-label="anchor" href="#contrast-with-cunning-strategies"></a>
@@ -289,7 +289,8 @@ differently-coloured outer-glow.</li>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_colour_viridis_d</a></span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.subtitle <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_casting.html">geom_casting</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.7</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -325,7 +326,7 @@ differently-coloured outer-glow.</li>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="va">p3</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="ggfoundry_files/figure-html/cunning-1.png" width="700"></p>
+<p><img src="ggfoundry_files/figure-html/cunning-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="contrast-with-diy">Contrast with DIY<a class="anchor" aria-label="anchor" href="#contrast-with-diy"></a>
@@ -379,7 +380,7 @@ here as a very basic example.</p>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="ggfoundry_files/figure-html/diy-1.png" width="700"></p>
+<p><img src="ggfoundry_files/figure-html/diy-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="available-shapes">Available shapes<a class="anchor" aria-label="anchor" href="#available-shapes"></a>
@@ -387,11 +388,11 @@ here as a very basic example.</p>
 <p>In summary, ggfoundry may be the destination of “last resort”!</p>
 <p>After travelling the mountains, seas and forests of the world in
 search of that elusive shape (or small set), a hand-made grob may be the
-fillable “Holy Grail” sought via a Github issue.</p>
+fillable “Holy Grail” sought via a <a href="https://github.com/cgoo4/ggfoundry/issues" class="external-link">Github issue</a>.</p>
 <p>These modest starter sets are included with the package. You can “mix
-and match” shapes from different sets; the set is purely for grouping
+and match” shapes from different sets; the “set” is purely for grouping
 shapes in the documentation.</p>
-<p><img src="ggfoundry_files/figure-html/sets-1.png" width="700"></p>
+<p><img src="ggfoundry_files/figure-html/sets-1.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
