@@ -71,24 +71,24 @@ p <- df |>
   scale_fill_manual(values = c("pink", "lightgreen", "skyblue")) +
   theme_bw()
 
-p +
+(p1 <- p +
   geom_casting(size = 0.15) +
   annotate("label", x = 2.5, y = 22, label = "Baby\ngeoms") +
   scale_shape_manual(values = c("violin", "box", "dendro")) +
   labs(
     title = "ggfoundry",
     subtitle = "On-request colourable fillable shapes"
-    )
+    ))
 
-p +
+(p2 <- p +
   geom_point(size = 5) +
   scale_shape_manual(values = c("\u058D", "\u23C0", "\u23F2")) +
   labs(
     title = "geom_point with unicodes",
     subtitle = "Range of colourable-only symbols"
-    )
+    ))
 
-# p1 + p2 + plot_layout(guides = "collect", axes = "collect")
+p1 + p2 + plot_layout(guides = "collect", axes = "collect")
 ```
 
 ## Contrast with ggtext / icons
@@ -118,6 +118,7 @@ p2 <- p +
     )
 
 p1 + p2 + plot_layout(guides = "collect", axes = "collect")
+cowplot::plot_grid(p1, p2)
 
 showtext_auto(enable = FALSE)
 ```
