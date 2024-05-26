@@ -64,7 +64,7 @@ geom_casting <- \(mapping = NULL, data = NULL,
   )
 }
 
-#' Geom object for casting a shape
+#' Geom object for casting a shape (not used directly by end user)
 #'
 #' @rdname geom_casting
 #' @format NULL

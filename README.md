@@ -18,8 +18,14 @@ New shapes may be feature requested via a Github issue.
 
 ## Installation
 
-Install the development version of ggfoundry from
-[GitHub](https://github.com/cgoo4/ggfoundry):
+``` r
+install.packages("ggfoundry")
+```
+
+## Development version
+
+To get a bug fix, or to use a feature from the development version, you
+can install ggfoundry from GitHub.
 
 ``` r
 # install.packages("pak")

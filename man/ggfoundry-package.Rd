@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-A 'ggplot2' extension that supports arbitrary hand-crafted fillable shapes. New shapes may be feature requested via a Github issue.
+A 'ggplot2' extension that supports arbitrary hand-crafted colourable & fillable shapes. New shapes may be feature requested via a Github issue.
 }
 \seealso{
 Useful links:
@@ -20,7 +20,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Carl Goodwin \email{carl.goodwin@quantumjitter.com}
+\strong{Maintainer}: Carl Goodwin \email{carl.goodwin@quantumjitter.com} [copyright holder]
 
 }
 \keyword{internal}
