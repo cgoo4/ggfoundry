@@ -28,8 +28,8 @@ To get a bug fix, or to use a feature from the development version, you
 can install ggfoundry from GitHub.
 
 ``` r
-# install.packages("pak")
-pak::pak("cgoo4/ggfoundry")
+# install.packages("devtools")
+devtools::install_github("cgoo4/ggfoundry")
 ```
 
 ## Basic example
