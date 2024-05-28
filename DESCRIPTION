@@ -1,7 +1,7 @@
 Package: ggfoundry
 Type: Package
 Title: Shape Foundry & Geom for 'ggplot2'
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: person("Carl", "Goodwin", email = "carl.goodwin@quantumjitter.com",
   role = c("aut", "cre", "cph"))
 Description: A 'ggplot2' extension that supports arbitrary 
