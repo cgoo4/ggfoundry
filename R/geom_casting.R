@@ -23,7 +23,21 @@
 #'
 #' @inheritParams ggplot2::geom_point
 #'
-#' @eval rd_aesthetics("geom", "casting")
+#' @section Aesthetics:
+#' \code{geom_casting()} understands the following aesthetics (required aesthetics are in bold):
+#' \itemize{
+#'  \item \strong{\code{x}}
+#'  \item \strong{\code{y}}
+#'  \item \code{alpha}
+#'  \item \code{angle}
+#'  \item \code{colour}
+#'  \item \code{fill}
+#'  \item \code{group}
+#'  \item \code{shape}
+#'  \item \code{size}
+#' }
+#' Learn more about setting these aesthetics
+#' in \code{vignette("ggplot2-specs")}
 #'
 #' @export
 #'

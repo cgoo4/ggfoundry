@@ -6,13 +6,6 @@
 \alias{GeomCasting}
 \alias{cast_shape}
 \alias{cast_layers}
-\alias{as_lower}
-\alias{as_upper}
-\alias{camelize}
-\alias{find_global}
-\alias{check_subclass}
-\alias{rd_aesthetics_item}
-\alias{rd_aesthetics}
 \title{Arbitrary hand-crafted fillable shapes for ggplot2}
 \usage{
 geom_casting(
@@ -155,9 +148,8 @@ also respected.
 \item \code{shape}
 \item \code{size}
 }
-
 Learn more about setting these aesthetics
-in \code{vignette("ggplot2-specs")}.
+in \code{vignette("ggplot2-specs")}
 }
 
 \examples{
