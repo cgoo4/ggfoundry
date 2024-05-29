@@ -308,6 +308,7 @@ shapes <- df$shape
 
 names(shapes) <- 
   c("circleF", "circleL", "circleR", 
+    "jar", "tube",
     "cross1", "cross2", 
     "box", "dendro", "ribbon", "violin", 
     "heptagon", "hexagon", "octagon", "pentagon"
