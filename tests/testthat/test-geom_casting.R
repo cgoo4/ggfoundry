@@ -20,3 +20,9 @@ test_that("bad shape", {
   )
 })
 
+test_that("available sets & shapes", {
+  expect_snapshot(
+    shapes_cast()
+  )
+})
+

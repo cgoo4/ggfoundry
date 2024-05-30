@@ -2,6 +2,7 @@
 
 export(GeomCasting)
 export(geom_casting)
+export(shapes_cast)
 import(ggplot2)
 import(grImport2)
 import(grid)
