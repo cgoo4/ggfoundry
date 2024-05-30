@@ -103,7 +103,10 @@ GeomCasting <- ggproto("GeomCasting", Geom,
       valid_shapes <- unique(sub(".*-(.*)_.*", "\\1", names(picture_lst)))
 
       if (is_empty(which(df$shape[1] %in% valid_shapes))) {
-        msg <- paste0("Is this an available shape: '", df$shape[1], "'?")
+        msg <- paste0(
+          df$shape[1],
+          " may be a typo or currently in the development version?"
+          )
         abort(msg)
       }
 

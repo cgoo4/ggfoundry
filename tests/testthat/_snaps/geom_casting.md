@@ -7,5 +7,5 @@
       ! Problem while converting geom to grob.
       i Error occurred in the 1st layer.
       Caused by error in `FUN()`:
-      ! Is this an available shape: 'non-shape'?
+      ! non-shape may be a typo or currently in the development version?
 
