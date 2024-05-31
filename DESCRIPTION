@@ -25,6 +25,7 @@ Suggests:
     ggimage,
     ggpp,
     ggtext,
+    hexbin,
     httr,
     knitr,
     paletteer,
