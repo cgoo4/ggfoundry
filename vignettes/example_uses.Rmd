@@ -1,0 +1,90 @@
+---
+title: "Showcasing ggfoundry"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Example Uses}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ggfoundry)
+library(tibble)
+library(forcats)
+library(stringr)
+suppressPackageStartupMessages(library(dplyr))
+library(paletteer)
+library(scales)
+```
+
+## Exhibit a palette
+
+As rendered in this [blog post](https://www.quantumjitter.com/project/box/), container shapes are useful if you'd like to display a loaded palette (perhaps with associated hex codes).
+
+```{r tube, fig.height=3}
+n <- 5
+palette <- "vangogh::StarryNight"
+
+cols <- paletteer_d(palette, n = n)
+
+tibble(x = 1:n, y = 1) |>
+  ggplot(aes(x, y, fill = fct_inorder(cols))) +
+  geom_casting(shape = "tube", size = 1.1) +
+  geom_label(aes(label = cols |> str_remove("FF$")),
+             size = 3, vjust = 1.6, fill = "white") +
+  annotate(
+    "text",
+    x = (n + 1) / 2, y = 2,
+    label = palette,
+    colour = "grey70",
+    alpha = 0.8,
+    size = 6
+  ) +
+  scale_fill_manual(values = as.character(cols)) +
+  scale_x_continuous(limits = c(0.5, n + 0.5)) +
+  scale_y_continuous(limits = c(0, 2.5)) +
+  theme_void() +
+  theme(legend.position = "none")
+```
+
+## Sunflower plot
+
+Using the palette exhibited above, and inspired by this [python Stack Overflow answer](https://stackoverflow.com/questions/22162557/sunflower-scatter-plot-using-matplotlib), sunflower shapes combined with `geom_hex()` make possible this kind of ggplot. 
+
+Each additional petal reflects an increased range in the count values as shown in the legend. And the choice of ggplot2 cut, i.e. `cut_number()`, `cut_interval()` or `cut_width()`, provides flexibility in how these ranges are constructed.
+
+```{r sunflower, fig.height=6}
+shapes <- shapes_cast() |>
+  filter(str_detect(set, "flower")) |>
+  pull(shape)
+
+ggplot(diamonds, aes(carat, price)) +
+  geom_hex(bins = 10, colour = cols[3]) +
+  geom_casting(
+    aes(
+      shape = cut_number(after_stat(count), 8, dig.lab = 4),
+      group = cut_number(after_stat(count), 8)
+    ),
+    size = 0.12, bins = 10, stat = "binhex", colour = cols[1], fill = cols[4]
+  ) +
+  scale_shape_manual(values = shapes[1:10]) +
+  scale_y_continuous(labels = label_currency(scale_cut = cut_short_scale())) +
+  scale_fill_gradient(
+    low = cols[2], high = cols[1],
+    labels = label_number(scale_cut = append(cut_short_scale(), 1))
+  ) +
+  labs(
+    title = "Sunflower Plot",
+    shape = "Count\nIntervals",
+    fill = "Counts", y = "Price", x = "Carat"
+  ) +
+  theme_bw()
+```
+
