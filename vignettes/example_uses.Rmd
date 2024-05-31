@@ -1,5 +1,5 @@
 ---
-title: "Showcasing ggfoundry"
+title: "Showcase"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Example Uses}
@@ -62,7 +62,7 @@ Each additional petal reflects an increased range in the count values as shown i
 
 ```{r sunflower, fig.height=6}
 shapes <- shapes_cast() |>
-  filter(str_detect(set, "flower")) |>
+  filter(set == "flower") |>
   pull(shape)
 
 ggplot(diamonds, aes(carat, price)) +
@@ -74,7 +74,7 @@ ggplot(diamonds, aes(carat, price)) +
     ),
     size = 0.12, bins = 10, stat = "binhex", colour = cols[1], fill = cols[4]
   ) +
-  scale_shape_manual(values = shapes[1:10]) +
+  scale_shape_manual(values = shapes) +
   scale_y_continuous(labels = label_currency(scale_cut = cut_short_scale())) +
   scale_fill_gradient(
     low = cols[2], high = cols[1],
