@@ -1,4 +1,7 @@
 url: https://cgoo4.github.io/ggfoundry/
 template:
   bootstrap: 5
+  bootswatch: lux
+  bslib:
+    pkgdown-nav-height: 100px
 
