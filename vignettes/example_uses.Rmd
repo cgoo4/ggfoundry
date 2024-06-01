@@ -2,7 +2,7 @@
 title: "Showcase"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Example Uses}
+  %\VignetteIndexEntry{Showcase}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

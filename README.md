@@ -10,6 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![Codecov test
 coverage](https://codecov.io/gh/cgoo4/ggfoundry/branch/main/graph/badge.svg)](https://app.codecov.io/gh/cgoo4/ggfoundry?branch=main)
 [![R-CMD-check](https://github.com/cgoo4/ggfoundry/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cgoo4/ggfoundry/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ggfoundry)](https://CRAN.R-project.org/package=ggfoundry)
 <!-- badges: end -->
 
 Arbitrary hand-crafted fillable shapes for ggplot2.
