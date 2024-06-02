@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggfoundry <a href="https://cgoo4.github.io/ggfoundry/"><img src="man/figures/logo.PNG" align="right" height="138" alt="ggfoundry website" /></a>
+# ggfoundry <a href="https://cgoo4.github.io/ggfoundry/"><img src="man/figures/logo.png" align="right" height="138" alt="ggfoundry website" /></a>
 
 <!-- badges: start -->
 
