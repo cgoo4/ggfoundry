@@ -40,7 +40,7 @@ New shapes may be feature requested via a Github issue.
 
 These artisanal symbols begin life as hand-drawn vector images with two layers: an outline and a fill. Each SVG pair is converted to Cairo graphics format, forged at extreme temperatures into objects of class "Picture", and finally delicately cast as a `gTree` representation of the original shape. But not quite back to where we started, because they are now editable.
 
-When cooled and finely burnished, the gTree and all its grob children, may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
+When cooled and finely burnished, the `gTree` and all its grob children, may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
 
 ## Contrast with unicodes
 
@@ -285,7 +285,7 @@ In summary, ggfoundry may be the destination of "last resort"!
 
 After travelling the mountains, seas and forests of the world in search of that elusive shape (or small set), a hand-made grob may be the fillable "Holy Grail" sought via a [Github issue](https://github.com/cgoo4/ggfoundry/issues).
 
-These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the "set" is purely for grouping shapes in the documentation.
+These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the "set" is for grouping shapes in the documentation and for use in `shapes_cast()` to filter for the desired shapes.
 
 ```{r sets, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -299,11 +299,11 @@ df <- shapes_cast() |>
 
 df |> 
   ggplot(aes(x, set)) +
-  geom_text(aes(label = shape), vjust = 3, colour = "grey70") +
+  geom_text(aes(label = shape), nudge_y = -0.5, colour = "grey70", size = 3) +
   geom_casting(aes(shape = shape), size = 0.2, fill = "skyblue") +
   scale_shape_manual(values = as.character(df$shape)) +
-  scale_x_continuous(expand = expansion(add = 0.33)) +
-  scale_y_discrete(expand = expansion(add = 0.5)) +
+  scale_x_continuous(expand = expansion(add = 0.5)) +
+  scale_y_discrete(expand = expansion(add = 0.7)) +
   labs(x = NULL, y = NULL, caption = "sunflowers 1-8 available") +
   theme_minimal() +
   theme(
