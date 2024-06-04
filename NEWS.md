@@ -1,10 +1,10 @@
 # ggfoundry (development version)
 
-* Add shapes jar & tube (container set) [#1](https://github.com/cgoo4/ggfoundry/issues/1)
-* Improve invalid-shape error message [#2](https://github.com/cgoo4/ggfoundry/issues/2)
-* Add `shapes_cast()` [#3](https://github.com/cgoo4/ggfoundry/issues/3)
-* Add shapes sunflower 1-8 (flower set) [#4](https://github.com/cgoo4/ggfoundry/issues/4)
-* Add a "showcase"" vignette [#4](https://github.com/cgoo4/ggfoundry/issues/4)
+* 2 shapes ("jar" & "tube") added to the "container" set (#1).
+* 8 shapes ("sunflower1" to "sunflower8") added to the "flower" set (#4).
+* Invalid-shape error message notes shape may be in DEV (#2).
+* New `shapes_cast()` creates a data frame of available sets & shapes (#3).
+* Showcase vignette added.
 
 # ggfoundry 0.1.1
 

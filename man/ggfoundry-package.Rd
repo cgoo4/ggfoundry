@@ -6,8 +6,6 @@
 \alias{ggfoundry-package}
 \title{ggfoundry: Shape Foundry & Geom for 'ggplot2'}
 \description{
-\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
-
 A 'ggplot2' extension that supports arbitrary hand-crafted colourable & fillable shapes. New shapes may be feature requested via a Github issue.
 }
 \seealso{
