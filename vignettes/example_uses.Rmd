@@ -22,11 +22,14 @@ library(stringr)
 suppressPackageStartupMessages(library(dplyr))
 library(paletteer)
 library(scales)
+library(palmerpenguins)
 ```
 
 ## Exhibit a palette
 
-As rendered in this [blog post](https://www.quantumjitter.com/project/box/), container shapes are useful if you'd like to display a loaded palette (perhaps with associated hex codes).
+A large collection of palettes are brought together under a single interface by the [paletteer package](https://emilhvitfeldt.github.io/paletteer/). It's used here to load the Van Gogh palette "Starry Night".
+
+As also rendered in this [blog post](https://www.quantumjitter.com/project/box/), a ggfoundry container-set shape may then be used by `geom_casting()` to display the loaded palette (optionally with associated hex codes). 
 
 ```{r tube, fig.height=3}
 n <- 5
@@ -86,5 +89,37 @@ ggplot(diamonds, aes(carat, price)) +
     fill = "Counts", y = "Price", x = "Carat"
   ) +
   theme_bw()
+```
+
+## Shapes identified by the data
+
+In the sunflower plot, `scale_shape_manual()` specifies the desired shapes. Alternatively, the data may already specify their identity as illustrated below using Allison Horst's [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) dataset and ggfoundry's penguin-set shapes.
+
+```{r}
+count_df <- penguins |> 
+  filter(!is.na(body_mass_g)) |> 
+  mutate(
+    species = str_to_lower(species),
+    cut_mass = cut_width(body_mass_g, width = 500, dig.lab = 4)
+    ) |> 
+  count(species, island, cut_mass) 
+
+count_df |> 
+  ggplot(aes(species, cut_mass, fill = species)) +
+  geom_casting(aes(shape = species), size = 0.25) +
+  geom_text(aes(label = n), size = 3, nudge_y = 0.2, nudge_x = 0.1) +
+  scale_discrete_identity(aesthetics = "shape", guide = "legend") +
+  facet_wrap(~island, scales = "free_x") +
+  labs(
+    title = "Palmer Penguins", 
+    subtitle = "Counts by Species, Island & Body Mass Ranges",
+    shape = NULL, fill = NULL, x = NULL, y = "Body Mass (g)"
+    ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank()
+    ) +
+  guides(shape = guide_legend(override.aes = list(size = 8)))
 ```
 
