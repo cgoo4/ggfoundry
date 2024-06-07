@@ -7,6 +7,7 @@ vignette: >
   %\VignetteIndexEntry{ggfoundry}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+bibliography: references.bib
 ---
 
 ```{r options, include = FALSE}
@@ -32,7 +33,7 @@ Yes, there is already a seemingly near-infinite number of shapes out there, the 
 
 But sometimes you just can't find what you want. Or manipulate it in the way you would like.
 
-ggfoundry offers arbitrary hand-crafted colourable and fillable shapes for ggplot2. 
+ggfoundry offers arbitrary hand-crafted colourable and fillable shapes for ggplot2.
 
 New shapes may be feature requested via a Github issue.
 
@@ -40,7 +41,11 @@ New shapes may be feature requested via a Github issue.
 
 These artisanal symbols begin life as hand-drawn vector images with two layers: an outline and a fill. Each SVG pair is converted to Cairo graphics format, forged at extreme temperatures into objects of class "Picture", and finally delicately cast as a `gTree` representation of the original shape. But not quite back to where we started, because they are now editable.
 
-When cooled and finely burnished, the `gTree` and all its grob children, may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
+When cooled and finely burnished, the `gTree` and all its grob children may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
+
+## **Acknowledgements**
+
+Without the pivotal grConvert [@grConvert] and grImport2 [@grImport2] packages, the foundry process would not have been viable. And only thanks to the work behind ggplot2 [@ggplot2], may the shapes cast be so beautifully visualised.
 
 ## Contrast with unicodes
 
@@ -169,10 +174,10 @@ p1 + p2 + plot_layout(guides = "collect", axes = "collect")
 
 ## Contrast with cunning strategies
 
-Where existing symbols are not fillable, there are possible strategies to achieve a similar effect using only colour and compromising a little on the legend: 
+Where existing symbols are not fillable, there are possible strategies to achieve a similar effect using only colour and compromising a little on the legend:
 
-* Have one larger layer with a coloured symbol. Then superimpose a smaller second layer with a differently-coloured symbol.
-* Use photoshop-style special effects provided by the [ggfx](https://github.com/thomasp85/ggfx) package, e.g. adding a differently-coloured outer-glow.
+-   Have one larger layer with a coloured symbol. Then superimpose a smaller second layer with a differently-coloured symbol.
+-   Use photoshop-style special effects provided by the [ggfx](https://github.com/thomasp85/ggfx) package, e.g. adding a differently-coloured outer-glow.
 
 ```{r cunning, warning=FALSE}
 library(ggfx)
@@ -281,7 +286,7 @@ p1 + p2 + plot_layout(guides = "collect", axes = "collect")
 
 ## Available shapes
 
-In summary, ggfoundry may be the destination of "last resort"! 
+In summary, ggfoundry may be the destination of "last resort"!
 
 After travelling the mountains, seas and forests of the world in search of that elusive shape (or small set), a hand-made grob may be the fillable "Holy Grail" sought via a [Github issue](https://github.com/cgoo4/ggfoundry/issues).
 
@@ -314,5 +319,3 @@ df |>
     legend.position = "none"
     )
 ```
-
-
