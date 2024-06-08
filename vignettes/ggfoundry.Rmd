@@ -43,10 +43,6 @@ These artisanal symbols begin life as hand-drawn vector images with two layers: 
 
 When cooled and finely burnished, the `gTree` and all its grob children may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
 
-## **Acknowledgements**
-
-Without the pivotal grConvert [@grConvert] and grImport2 [@grImport2] packages, the foundry process would not have been viable. And only thanks to the work behind ggplot2 [@ggplot2], may the shapes cast be so beautifully visualised.
-
 ## Contrast with unicodes
 
 The extensive range of [unicodes](https://www.compart.com/en/unicode/category/So) is a great option. They are colourable and appear in the legend.
@@ -319,3 +315,7 @@ df |>
     legend.position = "none"
     )
 ```
+
+## Acknowledgements
+
+Without the pivotal grConvert [@grConvert] and grImport2 [@grImport2] packages, the foundry process would not have been viable. And only thanks to the work behind ggplot2 [@ggplot2], may the shapes cast be so beautifully visualised.
