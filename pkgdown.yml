@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   example_uses: example_uses.html
   ggfoundry: ggfoundry.html
-last_built: 2024-06-09T17:09Z
+last_built: 2024-06-09T17:48Z
 urls:
   reference: https://cgoo4.github.io/ggfoundry/reference
   article: https://cgoo4.github.io/ggfoundry/articles
