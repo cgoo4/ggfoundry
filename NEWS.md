@@ -1,4 +1,4 @@
-# ggfoundry (development version)
+# ggfoundry 0.2.0
 
 -   2 shapes ("jar" & "tube") added to a "container" set (#1).
 -   8 shapes ("sunflower1" to "sunflower8") added to a "flower" set (#4).
