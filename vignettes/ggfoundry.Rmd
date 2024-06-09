@@ -288,7 +288,7 @@ After travelling the mountains, seas and forests of the world in search of that 
 
 These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the "set" is for grouping shapes in the documentation and for use in `shapes_cast()` to filter for the desired shapes.
 
-```{r sets, echo=FALSE, message=FALSE, warning=FALSE}
+```{r sets, echo=FALSE, message=FALSE, warning=FALSE, fig.height=6}
 
 library(dplyr)
 library(forcats)
@@ -301,7 +301,7 @@ df <- shapes_cast() |>
 df |> 
   ggplot(aes(x, set)) +
   geom_text(aes(label = shape), nudge_y = -0.5, colour = "grey70", size = 3) +
-  geom_casting(aes(shape = shape), size = 0.2, fill = "skyblue") +
+  geom_casting(aes(shape = shape), size = 0.19, fill = "skyblue") +
   scale_shape_manual(values = as.character(df$shape)) +
   scale_x_continuous(expand = expansion(add = 0.5)) +
   scale_y_discrete(expand = expansion(add = 0.7)) +
