@@ -1,3 +1,5 @@
+# ggfoundry (development version)
+
 # ggfoundry 0.2.0
 
 -   2 shapes ("jar" & "tube") added to a "container" set (#1).
