@@ -1,0 +1,29 @@
+Package: ggfoundry
+Type: Package
+Title: Shape Foundry & Geom for 'ggplot2'
+Version: 0.1.1
+Authors@R: person("Carl", "Goodwin", email = "carl.goodwin@quantumjitter.com",
+  role = c("aut", "cre", "cph"))
+Description: A 'ggplot2' extension that supports arbitrary 
+    hand-crafted colourable & fillable shapes. New shapes may be feature 
+    requested via a Github issue.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: ggplot2 (>= 3.5.0), R (>= 4.1)
+Imports: grid, grImport2, lifecycle, rlang
+Suggests: dplyr, ggfx, ggimage, ggpp, ggtext, httr, knitr, patchwork,
+        rmarkdown, showtext, stringr, testthat (>= 3.0.0), tibble,
+        tidyr
+Config/testthat/edition: 3
+RoxygenNote: 7.3.1
+VignetteBuilder: knitr
+URL: https://github.com/cgoo4/ggfoundry,
+        https://cgoo4.github.io/ggfoundry/
+BugReports: https://github.com/cgoo4/ggfoundry/issues
+NeedsCompilation: no
+Packaged: 2024-05-27 16:43:14 UTC; carlgoodwin
+Author: Carl Goodwin [aut, cre, cph]
+Maintainer: Carl Goodwin <carl.goodwin@quantumjitter.com>
+Repository: CRAN
+Date/Publication: 2024-05-28 11:40:02 UTC
+Built: R 4.4.0; ; 2024-05-28 17:16:09 UTC; unix
