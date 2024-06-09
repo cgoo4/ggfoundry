@@ -118,12 +118,12 @@ GeomCasting <- ggproto("GeomCasting", Geom,
   draw_panel = \(self, data, panel_params, coord,
     na.rm = FALSE, nudge_x = 0, nudge_y = 0) {
     coords <- coord$transform(data, panel_params)
+    coords <- subset(coords, x >= 0 & x <= 1 & y >= 0 & y <= 1)
 
     lst <- split(coords, coords$group)
 
     grobs <- lapply(lst, \(df) {
 
-      # valid_shapes <- unique(sub(".*-(.*)_.*", "\\1", names(picture_lst)))
       valid_shapes <- shapes_cast()$shape
 
       if (is_empty(which(df$shape[1] %in% valid_shapes))) {

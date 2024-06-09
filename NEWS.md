@@ -6,6 +6,7 @@
 -   Invalid-shape error message notes shape may be in DEV (#2).
 -   New `shapes_cast()` creates a data frame of available sets & shapes (#3).
 -   Reduced `sysdata.rda` size by 23% switching from "bkzip2" to "xz" (#6).
+-   Fixed shapes outside plotting area when "zooming" (#7).
 -   Showcase vignette added.
 
 # ggfoundry 0.1.1
