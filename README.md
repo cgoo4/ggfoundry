@@ -12,6 +12,7 @@ coverage](https://codecov.io/gh/cgoo4/ggfoundry/branch/main/graph/badge.svg)](ht
 [![R-CMD-check](https://github.com/cgoo4/ggfoundry/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cgoo4/ggfoundry/actions/workflows/R-CMD-check.yaml)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggfoundry)](https://CRAN.R-project.org/package=ggfoundry)
+[![DOI](https://img.shields.io/badge/doi-10.32614/CRAN.package.ggfoundry-skyblue.svg)](https://doi.org/10.32614/CRAN.package.ggfoundry)
 <!-- badges: end -->
 
 Arbitrary hand-crafted fillable shapes for ggplot2.
