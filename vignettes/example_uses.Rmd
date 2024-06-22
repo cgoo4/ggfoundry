@@ -29,7 +29,7 @@ library(palmerpenguins)
 
 A large collection of palettes are brought together under a single interface by the [paletteer package](https://emilhvitfeldt.github.io/paletteer/). It's used here to load the Van Gogh palette "Starry Night".
 
-As also rendered in this [blog post](https://www.quantumjitter.com/project/box/), a ggfoundry container-set shape may then be used by `geom_casting()` to display the loaded palette (optionally with associated hex codes). 
+As also rendered in this [blog post](https://www.quantumjitter.com/project/box/), a ggfoundry container-set shape may then be used by `geom_casting()` to display the loaded palette with associated hex codes.
 
 ```{r palette, fig.height=3}
 n <- 5
@@ -42,7 +42,7 @@ display_palette(fill = pal, n = n, pal_name = pal_name)
 
 ## Sunflower plot
 
-Using the palette exhibited above, and inspired by this [python Stack Overflow answer](https://stackoverflow.com/questions/22162557/sunflower-scatter-plot-using-matplotlib), sunflower shapes combined with `geom_hex()` make possible this kind of ggplot. 
+Using the palette exhibited above, and inspired by this [python Stack Overflow answer](https://stackoverflow.com/questions/22162557/sunflower-scatter-plot-using-matplotlib), sunflower shapes combined with `geom_hex()` make possible this kind of ggplot.
 
 Each additional petal reflects an increased range in the count values as shown in the legend. And the choice of ggplot2 cut, i.e. `cut_number()`, `cut_interval()` or `cut_width()`, provides flexibility in how these ranges are constructed.
 
@@ -74,7 +74,7 @@ ggplot(diamonds, aes(carat, price)) +
   theme_bw()
 ```
 
-## Shapes identified by the data
+## Shapes identified by data
 
 In the sunflower plot, `scale_shape_manual()` specifies the desired shapes. Alternatively, the data may already specify their identity as illustrated below using Allison Horst's [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) dataset and ggfoundry's penguin-set shapes.
 
@@ -105,4 +105,3 @@ count_df |>
     ) +
   guides(shape = guide_legend(override.aes = list(size = 8)))
 ```
-
