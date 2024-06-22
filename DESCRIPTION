@@ -14,6 +14,7 @@ Depends:
     ggplot2 (>= 3.5.0),
     R (>= 4.1)
 Imports: 
+    cli,
     grid,
     grImport2,
     lifecycle,
@@ -34,6 +35,7 @@ Suggests:
     rmarkdown,
     scales,
     showtext,
+    spelling,
     stringr,
     testthat (>= 3.0.0),
     tibble
@@ -43,3 +45,4 @@ Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 URL: https://github.com/cgoo4/ggfoundry, https://cgoo4.github.io/ggfoundry/
 BugReports: https://github.com/cgoo4/ggfoundry/issues
+Language: en-GB

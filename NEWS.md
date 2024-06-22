@@ -1,5 +1,9 @@
 # ggfoundry (development version)
 
+-   New `display_palette()` uses a fillable shape for palette and hex codes.
+-   Uses `cli_abort`, instead of `abort`, for error message handling.
+-   Added use of `use_spell_check()`.
+
 # ggfoundry 0.2.0
 
 -   2 shapes ("jar" & "tube") added to a "container" set (#1).

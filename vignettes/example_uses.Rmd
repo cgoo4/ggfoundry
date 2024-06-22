@@ -31,30 +31,13 @@ A large collection of palettes are brought together under a single interface by 
 
 As also rendered in this [blog post](https://www.quantumjitter.com/project/box/), a ggfoundry container-set shape may then be used by `geom_casting()` to display the loaded palette (optionally with associated hex codes). 
 
-```{r tube, fig.height=3}
+```{r palette, fig.height=3}
 n <- 5
-palette <- "vangogh::StarryNight"
+pal_name <- "vangogh::StarryNight"
 
-cols <- paletteer_d(palette, n = n)
+pal <- paletteer_d(pal_name, n = n)
 
-tibble(x = 1:n, y = 1) |>
-  ggplot(aes(x, y, fill = fct_inorder(cols))) +
-  geom_casting(shape = "tube", size = 1.1) +
-  geom_label(aes(label = cols |> str_remove("FF$")),
-             size = 3, vjust = 1.6, fill = "white") +
-  annotate(
-    "text",
-    x = (n + 1) / 2, y = 2,
-    label = palette,
-    colour = "grey70",
-    alpha = 0.8,
-    size = 6
-  ) +
-  scale_fill_manual(values = as.character(cols)) +
-  scale_x_continuous(limits = c(0.5, n + 0.5)) +
-  scale_y_continuous(limits = c(0, 2.5)) +
-  theme_void() +
-  theme(legend.position = "none")
+display_palette(fill = pal, n = n, pal_name = pal_name)
 ```
 
 ## Sunflower plot
@@ -69,18 +52,18 @@ shapes <- shapes_cast() |>
   pull(shape)
 
 ggplot(diamonds, aes(carat, price)) +
-  geom_hex(bins = 10, colour = cols[3]) +
+  geom_hex(bins = 10, colour = pal[3]) +
   geom_casting(
     aes(
       shape = cut_number(after_stat(count), 8, dig.lab = 4),
       group = cut_number(after_stat(count), 8)
     ),
-    size = 0.12, bins = 10, stat = "binhex", colour = cols[1], fill = cols[4]
+    size = 0.12, bins = 10, stat = "binhex", colour = pal[1], fill = pal[4]
   ) +
   scale_shape_manual(values = shapes) +
   scale_y_continuous(labels = label_currency(scale_cut = cut_short_scale())) +
   scale_fill_gradient(
-    low = cols[2], high = cols[1],
+    low = pal[2], high = pal[1],
     labels = label_number(scale_cut = append(cut_short_scale(), 1))
   ) +
   labs(

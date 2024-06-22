@@ -127,11 +127,10 @@ GeomCasting <- ggproto("GeomCasting", Geom,
       valid_shapes <- shapes_cast()$shape
 
       if (is_empty(which(df$shape[1] %in% valid_shapes))) {
-        msg <- paste0(
-          df$shape[1],
-          " may be a typo or currently in the development version?"
-          )
-        abort(msg)
+        cli_abort(c(
+          "`shape` is not a valid character string.",
+          "i" = "Is {df$shape[1]} a typo? Or in the development version?"
+        ))
       }
 
       cast_shape(
@@ -164,3 +163,61 @@ GeomCasting <- ggproto("GeomCasting", Geom,
     )
   }
 )
+
+#' Display a palette using fillable shapes
+#'
+#' @description `r lifecycle::badge('experimental')`
+#'
+#'   Creates a visualisation of a chosen palette with each colour in the
+#'   selected fillable shape.
+#'
+#' @export
+#'
+#' @param fill The colour of the shape fill.
+#'
+#' @param n Integer number of colours in the palette.
+#'
+#' @param pal_name A character string for the name of the palette.
+#'
+#' @param colour The colour of the shape outline.
+#'
+#' @param color The color of the shape outline.
+#'
+#' @param shape A character string for the name of the shape, e.g. "jar".
+#'
+#' @param shape_size Modifies the appearance of the shape.
+#'
+#' @param label_size Modifies the appearance of the shape's label.
+#'
+#' @return A ggplot2 object.
+#'
+#' @examples
+#' display_palette(c("red", "blue"), n = 2, pal_name = "Example")
+display_palette <- \(fill, n, pal_name, colour = "grey30",
+                     color = colour, shape = "jar",
+                     shape_size = 1, label_size = shape_size * 3.5){
+
+  x <- 1:n
+  y <- 1
+  label <- sub("FF$", "", as.character(fill), perl = TRUE)
+
+  data.frame(x = x, y = y) |>
+    ggplot(aes(x, y, fill = factor(fill, levels = fill))) +
+    geom_casting(shape = shape, size = shape_size, colour = colour) +
+    geom_label(aes(label = label),
+      size = label_size, vjust = 2, fill = alpha("white", 0.7)
+    ) +
+    annotate(
+      "text",
+      x = (n + 1) / 2, y = 2,
+      label = pal_name,
+      colour = "grey30",
+      alpha = 0.8,
+      size = 6
+    ) +
+    scale_fill_manual(values = as.character(fill)) +
+    scale_x_continuous(limits = c(0.5, n + 0.5)) +
+    scale_y_continuous(limits = c(0, 2.5)) +
+    theme_void() +
+    theme(legend.position = "none")
+}
