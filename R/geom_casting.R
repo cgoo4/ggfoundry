@@ -193,7 +193,7 @@ GeomCasting <- ggproto("GeomCasting", Geom,
 #'
 #' @examples
 #' display_palette(c("red", "blue"), n = 2, pal_name = "Example")
-display_palette <- \(fill, n, pal_name, colour = "grey30",
+display_palette <- \(fill, n, pal_name, colour = "grey50",
                      color = colour, shape = "jar",
                      shape_size = 1, label_size = shape_size * 3.5){
 
@@ -211,7 +211,7 @@ display_palette <- \(fill, n, pal_name, colour = "grey30",
       "text",
       x = (n + 1) / 2, y = 2,
       label = pal_name,
-      colour = "grey30",
+      colour = "grey50",
       alpha = 0.8,
       size = 6
     ) +

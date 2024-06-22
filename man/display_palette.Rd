@@ -8,7 +8,7 @@ display_palette(
   fill,
   n,
   pal_name,
-  colour = "grey30",
+  colour = "grey50",
   color = colour,
   shape = "jar",
   shape_size = 1,
