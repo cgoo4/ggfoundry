@@ -35,11 +35,13 @@
       33      geom     dendro
       35      geom     ribbon
       37      geom     violin
-      39   penguin     adelie
-      41   penguin  chinstrap
-      43   penguin     gentoo
-      45   polygon   heptagon
-      47   polygon    hexagon
-      49   polygon    octagon
-      51   polygon   pentagon
+      39      leaf   hibiscus
+      41      leaf        oak
+      43   penguin     adelie
+      45   penguin  chinstrap
+      47   penguin     gentoo
+      49   polygon   heptagon
+      51   polygon    hexagon
+      53   polygon    octagon
+      55   polygon   pentagon
 

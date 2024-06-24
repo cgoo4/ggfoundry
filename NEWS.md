@@ -1,6 +1,7 @@
 # ggfoundry (development version)
 
--   New `display_palette()` uses a fillable shape for palette and hex codes.
+-   2 shapes ("oak" & "hibiscus") added to a "leaf" set (#10).
+-   New `display_palette()` uses a fillable shape for palette & hex codes (#9).
 -   Uses `cli_abort`, instead of `abort`, for error message handling.
 -   Added use of `use_spell_check()`.
 

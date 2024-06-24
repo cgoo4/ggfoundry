@@ -288,7 +288,7 @@ After travelling the mountains, seas and forests of the world in search of that 
 
 These modest starter sets are included with the package. You can "mix and match" shapes from different sets; the "set" is for grouping shapes in the documentation and for use in `shapes_cast()` to filter for the desired shapes.
 
-```{r sets, echo=FALSE, message=FALSE, warning=FALSE, fig.height=6}
+```{r sets, echo=FALSE, message=FALSE, warning=FALSE, fig.height=7}
 
 library(dplyr)
 library(forcats)

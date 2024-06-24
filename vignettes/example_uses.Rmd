@@ -23,6 +23,8 @@ suppressPackageStartupMessages(library(dplyr))
 library(paletteer)
 library(scales)
 library(palmerpenguins)
+library(rpart)
+library(ggdendro)
 ```
 
 ## Exhibit a palette
@@ -105,3 +107,34 @@ count_df |>
     ) +
   guides(shape = guide_legend(override.aes = list(size = 8)))
 ```
+
+## Leafy dendrograms
+
+Adding appropriate filled shapes to a dendrogram can help draw attention to important groupings. Shapes from ggfoundry's "leaf" set are used here to augment a [ggdendro](https://github.com/andrie/ggdendro) plot.
+
+```{r}
+data <- 
+  rpart(Kyphosis ~ Age + Number + Start, data = kyphosis) |> 
+  dendro_data()
+
+ggplot() +
+  geom_segment(
+    aes(x, y, xend = xend, yend = yend),
+    colour = "tan4", data = data$segments,
+  ) +
+  geom_label(
+    aes(x, y, label = label), 
+    size = 3, fill = "seashell", data = data$labels) +
+  geom_casting(aes(x, y, shape = label, fill = label), 
+               colour = "tan4", size = 0.27, data = data$leaf_labels) +
+  scale_shape_manual(values = c("hibiscus", "oak")) +
+  scale_fill_manual(values = c("olivedrab3", "darkorange")) +
+  labs(title = "Leafy Dendrogram", shape = "Kyphosis", fill = "Kyphosis") +
+  theme_dendro() +
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    legend.key.size = unit(2, "line"),
+    legend.position = "top"
+    )
+```
+
