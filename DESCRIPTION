@@ -22,6 +22,7 @@ Imports:
 Suggests: 
     dplyr,
     forcats,
+    ggdendro,
     ggfx,
     ggimage,
     ggpp,
@@ -33,6 +34,7 @@ Suggests:
     palmerpenguins,
     patchwork,
     rmarkdown,
+    rpart,
     scales,
     showtext,
     spelling,
