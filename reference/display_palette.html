@@ -74,13 +74,10 @@ selected fillable shape.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">display_palette</span><span class="op">(</span></span>
 <span>  <span class="va">fill</span>,</span>
-<span>  <span class="va">n</span>,</span>
 <span>  <span class="va">pal_name</span>,</span>
 <span>  colour <span class="op">=</span> <span class="st">"grey50"</span>,</span>
 <span>  color <span class="op">=</span> <span class="va">colour</span>,</span>
-<span>  shape <span class="op">=</span> <span class="st">"jar"</span>,</span>
-<span>  shape_size <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  label_size <span class="op">=</span> <span class="va">shape_size</span> <span class="op">*</span> <span class="fl">3.5</span></span>
+<span>  shape <span class="op">=</span> <span class="st">"jar"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -90,32 +87,22 @@ selected fillable shape.</p>
 <dd><p>The colour of the shape fill.</p></dd>
 
 
-<dt>n</dt>
-<dd><p>Integer number of colours in the palette.</p></dd>
-
-
 <dt>pal_name</dt>
 <dd><p>A character string for the name of the palette.</p></dd>
 
 
 <dt>colour</dt>
-<dd><p>The colour of the shape outline.</p></dd>
+<dd><p>The colour of the shape outline. Defaults to mid-grey to better
+support a website's light and dark mode.</p></dd>
 
 
 <dt>color</dt>
-<dd><p>The color of the shape outline.</p></dd>
+<dd><p>The color of the shape outline. Defaults to mid-grey to better
+support a website's light and dark mode.</p></dd>
 
 
 <dt>shape</dt>
 <dd><p>A character string for the name of the shape, e.g. "jar".</p></dd>
-
-
-<dt>shape_size</dt>
-<dd><p>Modifies the appearance of the shape.</p></dd>
-
-
-<dt>label_size</dt>
-<dd><p>Modifies the appearance of the shape's label.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -127,8 +114,25 @@ selected fillable shape.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">display_palette</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span><span class="op">)</span>, n <span class="op">=</span> <span class="fl">2</span>, pal_name <span class="op">=</span> <span class="st">"Example"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">display_palette</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"skyblue"</span>, <span class="st">"lightgreen"</span>, <span class="st">"pink"</span>, <span class="st">"bisque"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Custom Palette Names"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="display_palette-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu">display_palette</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#9986A5"</span>, <span class="st">"#79402E"</span>, <span class="st">"#CCBA72"</span>, <span class="st">"#0F0D0E"</span>, <span class="st">"#D9D0D3"</span>, <span class="st">"#8D8680"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Vector of Hex Codes"</span>,</span></span>
+<span class="r-in"><span>  shape <span class="op">=</span> <span class="st">"tube"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-plt img"><img src="display_palette-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu">display_palette</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"#423C29"</span>, <span class="st">"#333031"</span>, <span class="st">"#8F898B"</span>, <span class="st">"#D2C9CB"</span>, <span class="st">"#AFA7A5"</span>, <span class="st">"#8D8680"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"#9986A5"</span>, <span class="st">"#8A666E"</span>, <span class="st">"#7B4638"</span>, <span class="st">"#976C46"</span>, <span class="st">"#BCA365"</span>, <span class="st">"#988A56"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Multiple Rows"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-plt img"><img src="display_palette-3.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
