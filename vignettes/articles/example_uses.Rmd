@@ -27,19 +27,18 @@ library(rpart)
 library(ggdendro)
 ```
 
-## Exhibit a palette
+## Display a palette
 
 A large collection of palettes are brought together under a single interface by the [paletteer package](https://emilhvitfeldt.github.io/paletteer/). It's used here to load the Van Gogh palette "Starry Night".
 
-As also rendered in this [blog post](https://www.quantumjitter.com/project/box/), a ggfoundry container-set shape may then be used by `geom_casting()` to display the loaded palette with associated hex codes.
+`display_palette()` shows the loaded palette with associated hex codes using the default shape `jar` from the ggfoundry `container` set. The outline colour defaults to mid-grey for better dark-mode support as per this [example post](https://www.quantumjitter.com/project/box/).
 
-```{r palette, fig.height=3}
-n <- 5
+```{r palette}
 pal_name <- "vangogh::StarryNight"
 
-pal <- paletteer_d(pal_name, n = n)
+pal <- paletteer_d(pal_name)
 
-display_palette(fill = pal, n = n, pal_name = pal_name)
+display_palette(pal, pal_name)
 ```
 
 ## Sunflower plot

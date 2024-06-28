@@ -175,49 +175,59 @@ GeomCasting <- ggproto("GeomCasting", Geom,
 #'
 #' @param fill The colour of the shape fill.
 #'
-#' @param n Integer number of colours in the palette.
-#'
 #' @param pal_name A character string for the name of the palette.
 #'
-#' @param colour The colour of the shape outline.
+#' @param colour The colour of the shape outline. Defaults to mid-grey to better
+#'   support a website's light and dark mode.
 #'
-#' @param color The color of the shape outline.
+#' @param color The color of the shape outline. Defaults to mid-grey to better
+#'   support a website's light and dark mode.
 #'
 #' @param shape A character string for the name of the shape, e.g. "jar".
-#'
-#' @param shape_size Modifies the appearance of the shape.
-#'
-#' @param label_size Modifies the appearance of the shape's label.
 #'
 #' @return A ggplot2 object.
 #'
 #' @examples
-#' display_palette(c("red", "blue"), n = 2, pal_name = "Example")
-display_palette <- \(fill, n, pal_name, colour = "grey50",
-                     color = colour, shape = "jar",
-                     shape_size = 1, label_size = shape_size * 3.5){
+#' display_palette(
+#'   c("skyblue", "lightgreen", "pink", "bisque"),
+#'   "Custom Palette Names"
+#'   )
+#' display_palette(
+#'   c("#9986A5", "#79402E", "#CCBA72", "#0F0D0E", "#D9D0D3", "#8D8680"),
+#'   "Vector of Hex Codes",
+#'   shape = "tube"
+#'   )
+#' display_palette(
+#'   c(
+#'     "#423C29", "#333031", "#8F898B", "#D2C9CB", "#AFA7A5", "#8D8680",
+#'     "#9986A5", "#8A666E", "#7B4638", "#976C46", "#BCA365", "#988A56"
+#'     ),
+#'   "Multiple Rows"
+#'   )
+display_palette <- \(fill, pal_name, colour = "grey50",
+                     color = colour, shape = "jar"){
 
-  x <- 1:n
-  y <- 1
+  n <- length(fill)
+  x <- (1:n - 1) %% 6 + 1
+  y <- (1:n - 1) %/% 6 + 1
   label <- sub("FF$", "", as.character(fill), perl = TRUE)
 
   data.frame(x = x, y = y) |>
     ggplot(aes(x, y, fill = factor(fill, levels = fill))) +
-    geom_casting(shape = shape, size = shape_size, colour = colour) +
-    geom_label(aes(label = label),
-      size = label_size, vjust = 2, fill = alpha("white", 0.7)
-    ) +
+    geom_casting(shape = shape, size = 0.5, colour = colour) +
+    geom_label(aes(label = label), vjust = 2, fill = alpha("white", 0.7)) +
     annotate(
       "text",
-      x = (n + 1) / 2, y = 2,
+      x = max(x) / 2 + 0.5,
+      y = max(y) + 1,
       label = pal_name,
       colour = "grey50",
       alpha = 0.8,
       size = 6
     ) +
     scale_fill_manual(values = as.character(fill)) +
-    scale_x_continuous(limits = c(0.5, n + 0.5)) +
-    scale_y_continuous(limits = c(0, 2.5)) +
+    scale_x_continuous(expand = expansion(add = c(1, 1))) +
+    scale_y_continuous(expand = expansion(add = c(1, 1))) +
     theme_void() +
     theme(legend.position = "none")
 }

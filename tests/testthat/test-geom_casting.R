@@ -45,7 +45,7 @@ test_that("Display a palette", {
   file <- tempfile(fileext = ".png")
 
   p <- display_palette(
-    c("red", "blue"), 2, "Example", colour = "grey", shape = "jar"
+    c("red", "blue"), "Example", colour = "grey", shape = "jar"
     )
 
   ggsave(file, p, "png")

@@ -6,31 +6,24 @@
 \usage{
 display_palette(
   fill,
-  n,
   pal_name,
   colour = "grey50",
   color = colour,
-  shape = "jar",
-  shape_size = 1,
-  label_size = shape_size * 3.5
+  shape = "jar"
 )
 }
 \arguments{
 \item{fill}{The colour of the shape fill.}
 
-\item{n}{Integer number of colours in the palette.}
-
 \item{pal_name}{A character string for the name of the palette.}
 
-\item{colour}{The colour of the shape outline.}
+\item{colour}{The colour of the shape outline. Defaults to mid-grey to better
+support a website's light and dark mode.}
 
-\item{color}{The color of the shape outline.}
+\item{color}{The color of the shape outline. Defaults to mid-grey to better
+support a website's light and dark mode.}
 
 \item{shape}{A character string for the name of the shape, e.g. "jar".}
-
-\item{shape_size}{Modifies the appearance of the shape.}
-
-\item{label_size}{Modifies the appearance of the shape's label.}
 }
 \value{
 A ggplot2 object.
@@ -42,5 +35,20 @@ Creates a visualisation of a chosen palette with each colour in the
 selected fillable shape.
 }
 \examples{
-display_palette(c("red", "blue"), n = 2, pal_name = "Example")
+display_palette(
+  c("skyblue", "lightgreen", "pink", "bisque"),
+  "Custom Palette Names"
+  )
+display_palette(
+  c("#9986A5", "#79402E", "#CCBA72", "#0F0D0E", "#D9D0D3", "#8D8680"),
+  "Vector of Hex Codes",
+  shape = "tube"
+  )
+display_palette(
+  c(
+    "#423C29", "#333031", "#8F898B", "#D2C9CB", "#AFA7A5", "#8D8680",
+    "#9986A5", "#8A666E", "#7B4638", "#976C46", "#BCA365", "#988A56"
+    ),
+  "Multiple Rows"
+  )
 }

@@ -23,7 +23,7 @@ cast_shape <- \(shape, colour, fill, size, angle, x, y) {
 #' @usage NULL
 cast_layers <- \(picture, col, size, angle, x, y) {
   picture |>
-    symbolsGrob(x = x, y = y, size = size, angle = angle) |>
+    symbolsGrob(x = x, y = y, size = size, angle = angle, default.units = "npc") |>
     removeGrob("Poly", grep = TRUE, global = TRUE) |>
     editGrob(
       "Path",
