@@ -9,7 +9,7 @@ display_palette(
   pal_name,
   colour = "grey50",
   color = colour,
-  shape = "jar"
+  shape = c("jar", "tube")
 )
 }
 \arguments{
@@ -17,11 +17,8 @@ display_palette(
 
 \item{pal_name}{A character string for the name of the palette.}
 
-\item{colour}{The colour of the shape outline. Defaults to mid-grey to better
-support a website's light and dark mode.}
-
-\item{color}{The color of the shape outline. Defaults to mid-grey to better
-support a website's light and dark mode.}
+\item{colour, color}{The colour of the shape outline. Defaults to mid-grey to
+better support a website's light and dark mode.}
 
 \item{shape}{A character string for the name of the shape, e.g. "jar".}
 }
@@ -42,7 +39,8 @@ display_palette(
 display_palette(
   c("#9986A5", "#79402E", "#CCBA72", "#0F0D0E", "#D9D0D3", "#8D8680"),
   "Vector of Hex Codes",
-  shape = "tube"
+  shape = "tube",
+  colour = "black"
   )
 display_palette(
   c(

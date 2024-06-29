@@ -177,11 +177,8 @@ GeomCasting <- ggproto("GeomCasting", Geom,
 #'
 #' @param pal_name A character string for the name of the palette.
 #'
-#' @param colour The colour of the shape outline. Defaults to mid-grey to better
-#'   support a website's light and dark mode.
-#'
-#' @param color The color of the shape outline. Defaults to mid-grey to better
-#'   support a website's light and dark mode.
+#' @param colour,color The colour of the shape outline. Defaults to mid-grey to
+#'   better support a website's light and dark mode.
 #'
 #' @param shape A character string for the name of the shape, e.g. "jar".
 #'
@@ -195,7 +192,8 @@ GeomCasting <- ggproto("GeomCasting", Geom,
 #' display_palette(
 #'   c("#9986A5", "#79402E", "#CCBA72", "#0F0D0E", "#D9D0D3", "#8D8680"),
 #'   "Vector of Hex Codes",
-#'   shape = "tube"
+#'   shape = "tube",
+#'   colour = "black"
 #'   )
 #' display_palette(
 #'   c(
@@ -205,8 +203,10 @@ GeomCasting <- ggproto("GeomCasting", Geom,
 #'   "Multiple Rows"
 #'   )
 display_palette <- \(fill, pal_name, colour = "grey50",
-                     color = colour, shape = "jar"){
+                     color = colour, shape = c("jar", "tube")){
 
+  shape = shape[1]
+  colour = color
   n <- length(fill)
   x <- (1:n - 1) %% 6 + 1
   y <- (1:n - 1) %/% 6 + 1
