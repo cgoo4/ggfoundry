@@ -99,7 +99,6 @@ showtext_auto(enable = FALSE)
 [ggimage](https://github.com/GuangchuangYu/ggimage) is a great option for full images, e.g. png files. Country flags, company logos and sports team badges are good example use-cases, as rendering the full image as-is is often the desired outcome.
 
 ```{r ggimage}
-library(magick)
 library(ggimage)
 
 df <- tribble(

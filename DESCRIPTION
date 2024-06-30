@@ -22,6 +22,7 @@ Imports:
 Suggests: 
     dplyr,
     forcats,
+    ggimage,
     httr,
     knitr,
     rmarkdown,
