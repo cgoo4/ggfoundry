@@ -1,16 +1,12 @@
 ---
 title: "Showcase"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Showcase}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  out.width = "100%"
 )
 ```
 
@@ -31,7 +27,7 @@ library(ggdendro)
 
 A large collection of palettes are brought together under a single interface by the [paletteer package](https://emilhvitfeldt.github.io/paletteer/). It's used here to load the Van Gogh palette "Starry Night".
 
-`display_palette()` shows the loaded palette with associated hex codes using the default shape `jar` from the ggfoundry `container` set. The outline colour defaults to mid-grey for better dark-mode support as per this [example post](https://www.quantumjitter.com/project/box/).
+ggfoundry's `display_palette()` shows the loaded palette with associated hex codes using the default shape `jar` from the `container` set. The outline colour defaults to mid-grey for better dark-mode support as per this [example post](https://www.quantumjitter.com/project/box/).
 
 ```{r palette}
 pal_name <- "vangogh::StarryNight"

@@ -17,7 +17,8 @@ status](https://www.r-pkg.org/badges/version/ggfoundry)](https://CRAN.R-project.
 
 Arbitrary hand-crafted fillable shapes for ggplot2.
 
-New shapes may be feature requested via a Github issue.
+New shapes may be feature requested via a [Github
+issue](https://github.com/cgoo4/ggfoundry/issues).
 
 ## Installation
 
@@ -31,15 +32,17 @@ To get a bug fix, or to use a feature from the development version, you
 can install ggfoundry from GitHub.
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("cgoo4/ggfoundry")
+# install.packages("pak")
+pak::pak("cgoo4/ggfoundry")
 ```
 
 ## Basic example
 
-See [get
-started](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html) for
-more details.
+See the [get
+started](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html)
+vignette and supporting package-website articles for more details,
+including available shapes, a showcase of examples and how ggfoundry
+contrasts with alternative strategies.
 
 ``` r
 library(ggfoundry)
