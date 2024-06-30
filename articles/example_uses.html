@@ -51,6 +51,7 @@
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/contrast.html">Contrast with Alternatives</a>
     <a class="dropdown-item" href="../articles/example_uses.html">Showcase</a>
   </div>
 </li>
@@ -115,17 +116,17 @@
 <p>A large collection of palettes are brought together under a single
 interface by the <a href="https://emilhvitfeldt.github.io/paletteer/" class="external-link">paletteer package</a>.
 It’s used here to load the Van Gogh palette “Starry Night”.</p>
-<p><code><a href="../reference/display_palette.html">display_palette()</a></code> shows the loaded palette with
-associated hex codes using the default shape <code>jar</code> from the
-ggfoundry <code>container</code> set. The outline colour defaults to
-mid-grey for better dark-mode support as per this <a href="https://www.quantumjitter.com/project/box/" class="external-link">example post</a>.</p>
+<p>ggfoundry’s <code><a href="../reference/display_palette.html">display_palette()</a></code> shows the loaded palette
+with associated hex codes using the default shape <code>jar</code> from
+the <code>container</code> set. The outline colour defaults to mid-grey
+for better dark-mode support as per this <a href="https://www.quantumjitter.com/project/box/" class="external-link">example post</a>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pal_name</span> <span class="op">&lt;-</span> <span class="st">"vangogh::StarryNight"</span></span>
 <span></span>
 <span><span class="va">pal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html" class="external-link">paletteer_d</a></span><span class="op">(</span><span class="va">pal_name</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/display_palette.html">display_palette</a></span><span class="op">(</span><span class="va">pal</span>, <span class="va">pal_name</span><span class="op">)</span></span></code></pre></div>
-<p><img src="example_uses_files/figure-html/palette-1.png" width="700"></p>
+<p><img src="example_uses_files/figure-html/palette-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="sunflower-plot">Sunflower plot<a class="anchor" aria-label="anchor" href="#sunflower-plot"></a>
@@ -164,7 +165,7 @@ constructed.</p>
 <span>    fill <span class="op">=</span> <span class="st">"Counts"</span>, y <span class="op">=</span> <span class="st">"Price"</span>, x <span class="op">=</span> <span class="st">"Carat"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="example_uses_files/figure-html/sunflower-1.png" width="700"></p>
+<p><img src="example_uses_files/figure-html/sunflower-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="shapes-identified-by-data">Shapes identified by data<a class="anchor" aria-label="anchor" href="#shapes-identified-by-data"></a>
@@ -199,7 +200,7 @@ dataset and ggfoundry’s penguin-set shapes.</p>
 <span>    axis.ticks.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
 <span>    <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>override.aes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="example_uses_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+<p><img src="example_uses_files/figure-html/unnamed-chunk-2-1.png" width="100%"></p>
 </div>
 <div class="section level2">
 <h2 id="leafy-dendrograms">Leafy dendrograms<a class="anchor" aria-label="anchor" href="#leafy-dendrograms"></a>
@@ -231,7 +232,7 @@ used here to augment a <a href="https://github.com/andrie/ggdendro" class="exter
 <span>    legend.key.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">2</span>, <span class="st">"line"</span><span class="op">)</span>,</span>
 <span>    legend.position <span class="op">=</span> <span class="st">"top"</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
-<p><img src="example_uses_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<p><img src="example_uses_files/figure-html/unnamed-chunk-3-1.png" width="100%"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
