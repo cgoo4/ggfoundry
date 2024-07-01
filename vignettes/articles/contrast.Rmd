@@ -1,5 +1,5 @@
 ---
-title: "Contrast with Alternatives"
+title: "Contrast with alternatives"
 ---
 
 ```{r, include = FALSE}

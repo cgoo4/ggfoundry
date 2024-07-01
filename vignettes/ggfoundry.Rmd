@@ -33,7 +33,7 @@ Yes, there is already a seemingly near-infinite number of shapes out there:
 
 But sometimes you just can't find what you want. Nor manipulate it in the way you would like.
 
-ggfoundry offers arbitrary hand-crafted colourable and fillable shapes for ggplot2 and is reviewed side-by-side with other options in [contrast with alternatives](https://cgoo4.github.io/ggfoundry/articles/example_uses.html).
+ggfoundry offers arbitrary hand-crafted colourable and fillable shapes for ggplot2 and is reviewed side-by-side with other options in [contrast with alternatives](https://cgoo4.github.io/ggfoundry/articles/contrast).
 
 ## Foundry process
 
