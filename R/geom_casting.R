@@ -94,7 +94,7 @@ geom_casting <- \(mapping = NULL, data = NULL,
 #' shapes_cast()
 shapes_cast <- \(){
   df <- data.frame(
-    set = sub("(.*)-.*", "\\1", names(picture_lst)),
+    set = sub("(.*?)-.*", "\\1", names(picture_lst)),
     shape = sub(".*-(.*)_.*", "\\1", names(picture_lst))
   )
 
