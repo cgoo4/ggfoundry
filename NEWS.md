@@ -5,6 +5,7 @@
 -   Uses `cli_abort`, instead of `abort`, for error message handling.
 -   Converted showcase vignette to article (#11).
 -   Moved contrast section of get started vignette to article (#12).
+-   File conversion from `SVG` to `Picture` objects now at build time (#13).
 -   Added use of `use_spell_check()`.
 
 # ggfoundry 0.2.0
