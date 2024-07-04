@@ -5,6 +5,7 @@
 -   Added a radial dendrogram with rotated leaves to the showcase article (#14).
 -   New `display_palette()` uses a fillable shape for palette & hex codes (#9).
 -   Uses `cli_abort`, instead of `abort`, for error message handling.
+-   Refactor snapshot tests to use layer data rather than `png` files (#15).
 -   Converted showcase vignette to article (#11).
 -   Moved contrast section of get started vignette to article (#12).
 -   File conversion from `SVG` to `Picture` objects now at build time (#13).

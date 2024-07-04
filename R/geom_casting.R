@@ -2,9 +2,9 @@
 #'
 #' @description `r lifecycle::badge('experimental')`
 #'
-#' Arbitrary hand-crafted colourable and fillable shapes for ggplot2.
+#'   Arbitrary hand-crafted colourable and fillable shapes for ggplot2.
 #'
-#' New shapes may be feature requested via a Github issue.
+#'   New shapes may be feature requested via a Github issue.
 #'
 #' @details Behind the scenes, a pair of hand-drawn vector images (outline &
 #'   fill) are converted into Cairo graphics library SVG files, then into grid
@@ -18,13 +18,13 @@
 #'   shapes are associated with a number, e.g. a circle is 19, whereas
 #'   `geom_casting()` shapes are associated only with character strings.
 #'
-#'   In addition to the supported aesthetics below, `nudge_x` and `nudge_y` are
-#'   also respected.
+#'   In addition to the supported aesthetics below, `nudge_x`, `nudge_y`,
+#'   `hjust` and `vjust` are also respected.
 #'
 #' @inheritParams ggplot2::geom_point
 #'
-#' @section Aesthetics:
-#' \code{geom_casting()} understands the following aesthetics (required aesthetics are in bold):
+#' @section Aesthetics: \code{geom_casting()} understands the following
+#'   aesthetics (required aesthetics are in bold):
 #' \itemize{
 #'  \item \strong{\code{x}}
 #'  \item \strong{\code{y}}
@@ -36,8 +36,8 @@
 #'  \item \code{shape}
 #'  \item \code{size}
 #' }
-#' Learn more about setting these aesthetics
-#' in \code{vignette("ggplot2-specs")}
+#'   Learn more about setting these aesthetics in
+#'   \code{vignette("ggplot2-specs")}
 #'
 #' @export
 #'

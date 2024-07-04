@@ -139,10 +139,12 @@ Using ggfoundry's `angle` and `vjust` arguments, we could visualise a radial den
 data <- hclust(dist(USArrests), "ave") |>
   dendro_data(type = "rectangle")
 
+num_leaves <- nrow(data$labels)
+
 leaves <- data$labels |>
   mutate(
-    angle = seq(75, -255, length.out = 50),
-    shape_angle = seq(162, -165, length.out = 50),
+    angle = seq(75, -255, length.out = num_leaves),
+    shape_angle = seq(162, -165, length.out = num_leaves),
     cluster = if_else(x <= 16, "one", "two")
   )
 
