@@ -105,7 +105,7 @@ count_df |>
 
 ## Leafy dendrograms
 
-Adding appropriate filled shapes to a dendrogram can help draw attention to important groupings. Shapes from ggfoundry's "leaf" set are used here to augment a [ggdendro](https://github.com/andrie/ggdendro) plot.
+Adding appropriate filled shapes to a dendrogram can help draw attention to important groupings. Shapes from ggfoundry's "leaf" set are used here to augment a [ggdendro](https://github.com/andrie/ggdendro) plot of an [rpart](https://github.com/bethatkinson/rpart) tree.
 
 ```{r}
 data <- 
@@ -131,5 +131,38 @@ ggplot() +
     legend.key.size = unit(2, "line"),
     legend.position = "top"
     )
+```
+
+Using ggfoundry's `angle` and `vjust` arguments, we could visualise a radial dendrogram with the leaves rotated consistent with the branches.
+
+```{r warning=FALSE, fig.height=7}
+data <- hclust(dist(USArrests), "ave") |>
+  dendro_data(type = "rectangle")
+
+leaves <- data$labels |>
+  mutate(
+    angle = seq(75, -255, length.out = 50),
+    shape_angle = seq(162, -165, length.out = 50),
+    cluster = if_else(x <= 16, "one", "two")
+  )
+
+ggplot() +
+  geom_segment(
+    aes(x = x, y = y, xend = xend, yend = yend),
+    data = segment(data)
+  ) +
+  geom_text(
+    aes(x = x, y = y, label = label, angle = angle),
+    size = 3, hjust = 0, nudge_y = 20, data = leaves
+  ) +
+  geom_casting(
+    aes(x, y, angle = shape_angle, group = x, fill = cluster, shape = cluster), 
+    vjust = 0.7, size = 0.08, data = leaves
+  ) +
+  scale_y_reverse() +
+  scale_fill_manual(values = c("pink", "lightgreen")) +
+  scale_shape_manual(values = c("oak", "hibiscus")) +
+  coord_radial() +
+  theme_dendro()
 ```
 

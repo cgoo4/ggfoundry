@@ -1,6 +1,8 @@
 # ggfoundry (development version)
 
 -   2 shapes ("oak" & "hibiscus") added to a "leaf" set (#10).
+-   Added support for `hjust` and `vjust` arguments to `geom_casting()` (#14).
+-   Added a radial dendrogram with rotated leaves to the showcase article (#14).
 -   New `display_palette()` uses a fillable shape for palette & hex codes (#9).
 -   Uses `cli_abort`, instead of `abort`, for error message handling.
 -   Converted showcase vignette to article (#11).

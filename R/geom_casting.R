@@ -112,11 +112,13 @@ GeomCasting <- ggproto("GeomCasting", Geom,
   non_missing_aes = c("size", "shape", "colour", "fill"),
   default_aes = aes(
     shape = "violin", size = 0.1, colour = "black",
-    alpha = NA, angle = 0, fill = "pink"
+    alpha = NA, angle = 0, fill = "pink",
   ),
 
   draw_panel = \(self, data, panel_params, coord,
-    na.rm = FALSE, nudge_x = 0, nudge_y = 0) {
+    na.rm = FALSE, nudge_x = 0, nudge_y = 0, hjust = 0.5, vjust = 0.5) {
+    data$x <- data$x + nudge_x
+    data$y <- data$y + nudge_y
     coords <- coord$transform(data, panel_params)
     coords <- subset(coords, x >= 0 & x <= 1 & y >= 0 & y <= 1)
 
@@ -139,8 +141,10 @@ GeomCasting <- ggproto("GeomCasting", Geom,
         fill = fill_alpha(df$fill[1], df$alpha[1]),
         size = df$size[1],
         angle = df$angle[1],
-        x = df$x + nudge_x,
-        y = df$y + nudge_y
+        x = df$x,
+        y = df$y,
+        hjust = hjust,
+        vjust = vjust
       )
     })
 
@@ -159,7 +163,9 @@ GeomCasting <- ggproto("GeomCasting", Geom,
       size = 1,
       angle = 0,
       x = 0.5,
-      y = 0.5
+      y = 0.5,
+      hjust = 0.5,
+      vjust = 0.5
     )
   }
 )
