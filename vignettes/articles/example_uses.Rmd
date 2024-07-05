@@ -136,17 +136,25 @@ ggplot() +
 Using ggfoundry's `angle` and `vjust` arguments, we could visualise a radial dendrogram with the leaves rotated consistent with the branches.
 
 ```{r warning=FALSE, fig.height=7}
-data <- hclust(dist(USArrests), "ave") |>
+data <- hclust(dist(USArrests), "ave") |> 
   dendro_data(type = "rectangle")
 
+cluster <- hclust(dist(USArrests), "ave") |> 
+  cutree(k = 2) |> 
+  as_tibble(rownames = "label") |> 
+  mutate(cluster = factor(value), .keep = "unused")
+
 num_leaves <- nrow(data$labels)
+offset <- 15 # Degrees by which the first branch is rotated
+from <-  90 - offset # First text label
+by <- -(360 - (2 * offset)) / (num_leaves - 1) # Degrees between labels
 
 leaves <- data$labels |>
   mutate(
-    angle = seq(75, -255, length.out = num_leaves),
-    shape_angle = seq(162, -165, length.out = num_leaves),
-    cluster = if_else(x <= 16, "one", "two")
-  )
+    angle = seq(from = from, by = by, length.out = num_leaves), 
+    shape_angle = seq(from + 90, by = by, length.out = num_leaves),
+  ) |> 
+  left_join(cluster, join_by(label))
 
 ggplot() +
   geom_segment(

@@ -5,3 +5,4 @@
 inst/doc
 docs
 ^data-raw$
+.DS_Store
