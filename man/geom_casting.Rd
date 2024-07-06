@@ -126,7 +126,7 @@ graphical objects (grobs) for use in a ggplot2 layer.
 By default, the "violin" shape is used.
 
 If the shape is mapped to a variable, e.g. \code{aes(shape = factor(cyl))}, then
-\code{\link[=scale_shape_manual]{scale_shape_manual()}} is also required to explicitly name the desired
+\code{scale_shape_manual()} is also required to explicitly name the desired
 shapes as a character vector (see examples). This is because standard
 shapes are associated with a number, e.g. a circle is 19, whereas
 \code{geom_casting()} shapes are associated only with character strings.

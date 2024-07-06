@@ -13,7 +13,7 @@ A data frame of available sets and shapes.
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 Create a data frame of available shapes and associated sets. This may be
-filtered and used as a vector of strings in \code{scale_shape_manual}.
+filtered and used as a vector of strings in \code{scale_shape_manual()}.
 }
 \examples{
 # Returns a data frame of available shapes

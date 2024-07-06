@@ -13,7 +13,7 @@
 #'   By default, the "violin" shape is used.
 #'
 #'   If the shape is mapped to a variable, e.g. `aes(shape = factor(cyl))`, then
-#'   [scale_shape_manual()] is also required to explicitly name the desired
+#'   `scale_shape_manual()` is also required to explicitly name the desired
 #'   shapes as a character vector (see examples). This is because standard
 #'   shapes are associated with a number, e.g. a circle is 19, whereas
 #'   `geom_casting()` shapes are associated only with character strings.
@@ -83,7 +83,7 @@ geom_casting <- \(mapping = NULL, data = NULL,
 #' @description `r lifecycle::badge('experimental')`
 #'
 #'   Create a data frame of available shapes and associated sets. This may be
-#'   filtered and used as a vector of strings in `scale_shape_manual`.
+#'   filtered and used as a vector of strings in `scale_shape_manual()`.
 #'
 #' @export
 #'
