@@ -1,4 +1,4 @@
-# ggfoundry (development version)
+# ggfoundry 0.3.0
 
 -   2 shapes ("oak" & "hibiscus") added to a "leaf" set (#10).
 -   Added support for `hjust` and `vjust` arguments to `geom_casting()` (#14).
