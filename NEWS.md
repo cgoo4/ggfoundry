@@ -2,8 +2,6 @@
 
 # ggfoundry 0.3.1
 
-# ggfoundry 0.3.0
-
 -   2 shapes ("oak" & "hibiscus") added to a "leaf" set (#10).
 -   Added support for `hjust` and `vjust` arguments to `geom_casting()` (#14).
 -   Added a radial dendrogram with rotated leaves to the showcase article (#14).
@@ -15,7 +13,7 @@
 -   File conversion from `SVG` to `Picture` objects now at build time (#13).
 -   Added use of `use_spell_check()`.
 
-# ggfoundry 0.2.0
+# ggfoundry 0.2.1
 
 -   2 shapes ("jar" & "tube") added to a "container" set (#1).
 -   8 shapes ("sunflower1" to "sunflower8") added to a "flower" set (#4).
