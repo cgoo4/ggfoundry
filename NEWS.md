@@ -1,3 +1,5 @@
+# ggfoundry 0.3.1
+
 # ggfoundry 0.3.0
 
 -   2 shapes ("oak" & "hibiscus") added to a "leaf" set (#10).
