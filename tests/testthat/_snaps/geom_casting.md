@@ -91,7 +91,7 @@
     Output
       [1] 1 4
 
-# Display a palette
+# display a palette
 
     Code
       layer_data(p, 1)
@@ -99,4 +99,16 @@
         fill x y PANEL group shape size colour alpha angle
       1  red 1 1     1     1   jar  0.5   grey    NA     0
       2 blue 2 1     1     2   jar  0.5   grey    NA     0
+
+---
+
+    Code
+      layer_data(p, 2)
+    Output
+        label x y PANEL group colour      fill size angle hjust vjust alpha family
+      1   red 1 1     1    -1  black #FFFFFFB2 3.88     0   0.5     2    NA       
+      2  blue 2 1     1    -1  black #FFFFFFB2 3.88     0   0.5     2    NA       
+        fontface lineheight
+      1        1        1.2
+      2        1        1.2
 

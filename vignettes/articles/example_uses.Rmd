@@ -6,6 +6,7 @@ title: "Showcase"
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
+  message = FALSE,
   out.width = "100%"
 )
 ```
@@ -15,7 +16,7 @@ library(ggfoundry)
 library(tibble)
 library(forcats)
 library(stringr)
-suppressPackageStartupMessages(library(dplyr))
+library(dplyr)
 library(paletteer)
 library(scales)
 library(palmerpenguins)
@@ -105,7 +106,11 @@ count_df |>
 
 ## Leafy dendrograms
 
-Adding appropriate filled shapes to a dendrogram can help draw attention to important groupings. Shapes from ggfoundry's "leaf" set are used here to augment a [ggdendro](https://github.com/andrie/ggdendro) plot of an [rpart](https://github.com/bethatkinson/rpart) tree.
+Adding appropriate filled shapes to a dendrogram can help draw attention to important groupings. 
+
+### Cartesian
+
+Shapes from ggfoundry's "leaf" set are used here to augment a [ggdendro](https://github.com/andrie/ggdendro) plot of an [rpart](https://github.com/bethatkinson/rpart) tree.
 
 ```{r}
 data <- 
@@ -124,7 +129,10 @@ ggplot() +
                colour = "tan4", size = 0.27, data = data$leaf_labels) +
   scale_shape_manual(values = c("hibiscus", "oak")) +
   scale_fill_manual(values = c("olivedrab3", "darkorange")) +
-  labs(title = "Leafy Dendrogram", shape = "Kyphosis", fill = "Kyphosis") +
+  labs(
+    title = "Leafy Dendrogram (Cartesian)", 
+    shape = "Kyphosis", fill = "Kyphosis"
+    ) +
   theme_dendro() +
   theme(
     plot.title = element_text(hjust = 0.5),
@@ -132,6 +140,8 @@ ggplot() +
     legend.position = "top"
     )
 ```
+
+### Radial
 
 Using ggfoundry's `angle` and `vjust` arguments, we could visualise a radial dendrogram with the leaves rotated consistent with the branches.
 
@@ -172,7 +182,13 @@ ggplot() +
   scale_y_reverse() +
   scale_fill_manual(values = c("pink", "lightgreen")) +
   scale_shape_manual(values = c("oak", "hibiscus")) +
+  labs(title = "Leafy Dendrogram (Radial)") +
   coord_radial() +
-  theme_dendro()
+  theme_dendro() + 
+  theme(
+    plot.title = element_text(hjust = 0.5),
+    legend.key.size = unit(2, "line"),
+    legend.position = "top"
+    )
 ```
 

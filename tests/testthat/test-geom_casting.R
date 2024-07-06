@@ -31,12 +31,13 @@ test_that("shapes clipped when zooming", {
   expect_snapshot(p[["coordinates"]][["limits"]][["x"]])
 })
 
-test_that("Display a palette", {
+test_that("display a palette", {
 
   p <- display_palette(
     c("red", "blue"), "Example", colour = "grey", shape = "jar"
   )
 
   expect_snapshot(layer_data(p, 1))
+  expect_snapshot(layer_data(p, 2))
 })
 
