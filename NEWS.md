@@ -13,7 +13,7 @@
 -   File conversion from `SVG` to `Picture` objects now at build time (#13).
 -   Added use of `use_spell_check()`.
 
-# ggfoundry 0.2.1
+# ggfoundry 0.2.0
 
 -   2 shapes ("jar" & "tube") added to a "container" set (#1).
 -   8 shapes ("sunflower1" to "sunflower8") added to a "flower" set (#4).
