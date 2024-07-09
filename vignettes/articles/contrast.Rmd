@@ -1,11 +1,12 @@
 ---
-title: "Contrast with alternatives"
+title: Contrast with alternatives
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
+  message = FALSE,
   out.width = "100%"
 )
 ```
