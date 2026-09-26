@@ -46,7 +46,7 @@ pak::pak("cgoo4/ggfoundry")
 
 See the [get started](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html) vignette and supporting package-website articles for more details, including available shapes, a showcase of examples and how ggfoundry contrasts with alternative strategies.
 
-```{r example, fig.retina=3}
+```{r example, fig.retina=3, fig.alt="Scatter plot of car weight against fuel economy for 32 cars, with fillable violin, box and dendrogram shapes cast in sky blue, light green and pink according to the number of cylinders."}
 library(ggfoundry)
 
 ggplot(mtcars, aes(wt, mpg, fill = factor(cyl))) +

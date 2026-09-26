@@ -1,24 +1,24 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
 
 # ggfoundry <a href="https://cgoo4.github.io/ggfoundry/"><img src="man/figures/logo.png" align="right" height="138" alt="ggfoundry website" /></a>
 
 <!-- badges: start -->
-
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Codecov test
-coverage](https://codecov.io/gh/cgoo4/ggfoundry/branch/main/graph/badge.svg)](https://app.codecov.io/gh/cgoo4/ggfoundry?branch=main)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test coverage](https://codecov.io/gh/cgoo4/ggfoundry/branch/main/graph/badge.svg)](https://app.codecov.io/gh/cgoo4/ggfoundry?branch=main)
 [![R-CMD-check](https://github.com/cgoo4/ggfoundry/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cgoo4/ggfoundry/actions/workflows/R-CMD-check.yaml)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/ggfoundry)](https://CRAN.R-project.org/package=ggfoundry)
+[![CRAN status](https://www.r-pkg.org/badges/version/ggfoundry)](https://CRAN.R-project.org/package=ggfoundry)
 [![DOI](https://img.shields.io/badge/doi-10.32614/CRAN.package.ggfoundry-skyblue.svg)](https://doi.org/10.32614/CRAN.package.ggfoundry)
 <!-- badges: end -->
 
 Arbitrary hand-crafted fillable shapes for ggplot2.
 
-New shapes may be feature requested via a [Github
-issue](https://github.com/cgoo4/ggfoundry/issues).
+New shapes may be feature requested via a [Github issue](https://github.com/cgoo4/ggfoundry/issues).
 
 ## Installation
 
@@ -28,8 +28,7 @@ install.packages("ggfoundry")
 
 ## Development version
 
-To get a bug fix, or to use a feature from the development version, you
-can install ggfoundry from GitHub.
+To get a bug fix, or to use a feature from the development version, you can install ggfoundry from GitHub.
 
 ``` r
 # install.packages("pak")
@@ -38,18 +37,12 @@ pak::pak("cgoo4/ggfoundry")
 
 ## Basic example
 
-See the [get
-started](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html)
-vignette and supporting package-website articles for more details,
-including available shapes, a showcase of examples and how ggfoundry
-contrasts with alternative strategies.
+See the [get started](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html) vignette and supporting package-website articles for more details, including available shapes, a showcase of examples and how ggfoundry contrasts with alternative strategies.
+
 
 ``` r
 library(ggfoundry)
 #> Loading required package: ggplot2
-```
-
-``` r
 
 ggplot(mtcars, aes(wt, mpg, fill = factor(cyl))) +
   geom_casting(aes(shape = factor(cyl))) +
@@ -58,4 +51,8 @@ ggplot(mtcars, aes(wt, mpg, fill = factor(cyl))) +
   theme_bw()
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" />
+<div class="figure">
+<img src="man/figures/README-example-1.png" alt="Scatter plot of car weight against fuel economy for 32 cars, with fillable violin, box and dendrogram shapes cast in sky blue, light green and pink according to the number of cylinders." width="100%" />
+<p class="caption">plot of chunk example</p>
+</div>
+
