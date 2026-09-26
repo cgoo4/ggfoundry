@@ -139,11 +139,13 @@ bowls |>
   scale_shape_manual(
     values = c("bowl0", "bowl1", "bowl2"),
     guide = guide_legend(
-      override.aes = list(fill = c("#440154", "#21908C", "#FDE725")),
+      override.aes = list(fill = c("#240691", "#C8437B", "#F8DF25")),
       keyheight = unit(2.5, "lines"), default.unit = "line"
     )
   ) +
-  scale_fill_viridis_c(limits = c(0, 100), begin = 0.04, end = 0.94) +
+  scale_fill_viridis_c(
+    limits = c(0, 100), begin = 0.04, end = 0.94, option = "plasma"
+  ) +
   scale_x_continuous(limits = c(0.35, 7.65), expand = expansion(mult = 0)) +
   scale_y_continuous(limits = c(0, 1.85), expand = expansion(mult = 0)) +
   labs(
