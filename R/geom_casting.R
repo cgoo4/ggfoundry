@@ -6,8 +6,8 @@
 #'
 #'   New shapes may be feature requested via a Github issue.
 #'
-#' @details Behind the scenes, a pair of hand-drawn vector images (outline &
-#'   fill) are converted into Cairo graphics library SVG files, then into grid
+#' @details Behind the scenes, a pair of vector images (outline & fill) are
+#'   converted into Cairo graphics library SVG files, then into grid
 #'   graphical objects (grobs) for use in a ggplot2 layer.
 #'
 #'   By default, the "violin" shape is used.
@@ -17,6 +17,12 @@
 #'   shapes as a character vector (see examples). This is because standard
 #'   shapes are associated with a number, e.g. a circle is 19, whereas
 #'   `geom_casting()` shapes are associated only with character strings.
+#'
+#'   Aesthetics that vary per observation, e.g. a continuous `fill`, are
+#'   respected for each individual shape, whether grouping is implicit or
+#'   explicitly shared with `group = 1`. A `fill` of `"transparent"` renders
+#'   the outline only: for shapes such as the "bowl" set, this hides the steam
+#'   while retaining the bowl outline.
 #'
 #'   In addition to the supported aesthetics below, `nudge_x`, `nudge_y`,
 #'   `hjust` and `vjust` are also respected.
@@ -57,12 +63,22 @@
 #' ggplot(mtcars, aes(wt, mpg, fill = factor(cyl))) +
 #'   geom_casting(aes(shape = factor(cyl))) +
 #'   scale_shape_manual(values = c("violin", "dendro", "box"))
-geom_casting <- \(mapping = NULL, data = NULL,
-  stat = "identity", position = "identity",
+#'
+#' # Continuous fill varies per observation, without a grouping workaround
+#' ggplot(data.frame(x = 1:7, temperature = c(5, 18, 32, 47, 63, 81, 96)),
+#'        aes(x, 1, fill = temperature)) +
+#'   geom_casting(shape = "bowl2", colour = "#272626", size = 0.72) +
+#'   scale_fill_viridis_c(limits = c(0, 100))
+geom_casting <- \(
+  mapping = NULL,
+  data = NULL,
+  stat = "identity",
+  position = "identity",
   ...,
   na.rm = FALSE,
   show.legend = NA,
-  inherit.aes = TRUE) {
+  inherit.aes = TRUE
+) {
   layer(
     data = data,
     mapping = mapping,
@@ -92,7 +108,7 @@ geom_casting <- \(mapping = NULL, data = NULL,
 #' @examples
 #' # Returns a data frame of available shapes
 #' shapes_cast()
-shapes_cast <- \(){
+shapes_cast <- \() {
   df <- data.frame(
     set = sub("(.*?)-.*", "\\1", names(picture_lst)),
     shape = sub(".*-(.*)_.*", "\\1", names(picture_lst))
@@ -107,40 +123,57 @@ shapes_cast <- \(){
 #' @format NULL
 #' @usage NULL
 #' @export
-GeomCasting <- ggproto("GeomCasting", Geom,
+GeomCasting <- ggproto(
+  "GeomCasting",
+  Geom,
   required_aes = c("x", "y"),
   non_missing_aes = c("size", "shape", "colour", "fill"),
   default_aes = aes(
-    shape = "violin", size = 0.1, colour = "black",
-    alpha = NA, angle = 0, fill = "pink",
+    shape = "violin",
+    size = 0.1,
+    colour = "black",
+    alpha = NA,
+    angle = 0,
+    fill = "pink",
   ),
 
-  draw_panel = \(self, data, panel_params, coord,
-    na.rm = FALSE, nudge_x = 0, nudge_y = 0, hjust = 0.5, vjust = 0.5) {
+  draw_panel = \(
+    self,
+    data,
+    panel_params,
+    coord,
+    na.rm = FALSE,
+    nudge_x = 0,
+    nudge_y = 0,
+    hjust = 0.5,
+    vjust = 0.5
+  ) {
     data$x <- data$x + nudge_x
     data$y <- data$y + nudge_y
     coords <- coord$transform(data, panel_params)
     coords <- subset(coords, x >= 0 & x <= 1 & y >= 0 & y <= 1)
 
-    lst <- split(coords, coords$group)
+    # Each observation is cast with its own aesthetics: continuous mappings
+    # must vary per row, even within a user-specified shared group.
+    valid_shapes <- shapes_cast()$shape
+    bad_shapes <- unique(coords$shape[!coords$shape %in% valid_shapes])
 
-    grobs <- lapply(lst, \(df) {
+    if (!is_empty(bad_shapes)) {
+      cli_abort(c(
+        "`shape` is not a valid character string.",
+        "i" = "Is {bad_shapes[1]} a typo? Or in the development version?"
+      ))
+    }
 
-      valid_shapes <- shapes_cast()$shape
-
-      if (is_empty(which(df$shape[1] %in% valid_shapes))) {
-        cli_abort(c(
-          "`shape` is not a valid character string.",
-          "i" = "Is {df$shape[1]} a typo? Or in the development version?"
-        ))
-      }
+    grobs <- lapply(seq_len(nrow(coords)), \(i) {
+      df <- coords[i, ]
 
       cast_shape(
-        shape = df$shape[1],
-        colour = alpha(df$colour[1], df$alpha[1]),
-        fill = fill_alpha(df$fill[1], df$alpha[1]),
-        size = df$size[1],
-        angle = df$angle[1],
+        shape = df$shape,
+        colour = alpha(df$colour, df$alpha),
+        fill = fill_alpha(df$fill, df$alpha),
+        size = df$size,
+        angle = df$angle,
         x = df$x,
         y = df$y,
         hjust = hjust,
@@ -208,11 +241,15 @@ GeomCasting <- ggproto("GeomCasting", Geom,
 #'     ),
 #'   "Multiple Rows"
 #'   )
-display_palette <- \(fill, pal_name, colour = "grey50",
-                     color = colour, shape = c("jar", "tube")){
-
-  shape = shape[1]
-  colour = color
+display_palette <- \(
+  fill,
+  pal_name,
+  colour = "grey50",
+  color = colour,
+  shape = c("jar", "tube")
+) {
+  shape <- shape[1]
+  colour <- color
   n <- length(fill)
   x <- (1:n - 1) %% 6 + 1
   y <- (1:n - 1) %/% 6 + 1

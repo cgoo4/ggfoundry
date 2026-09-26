@@ -1,5 +1,8 @@
 # ggfoundry (development version)
 
+-   3 shapes ("bowl0", "bowl1" & "bowl2") added to a "container" set. Bowl body & steam share the `fill`; bowl & porridge outline use the `colour`; a transparent `fill` hides the steam while retaining the outline.
+-   Aesthetics varying per observation, e.g. a continuous `fill`, are now respected for every shape, without requiring a `group = id` workaround, including when a shared group is explicit.
+
 # ggfoundry 0.3.1
 
 -   2 shapes ("oak" & "hibiscus") added to a "leaf" set (#10).

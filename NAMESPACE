@@ -7,10 +7,12 @@ export(shapes_cast)
 import(ggplot2)
 importFrom(cli,cli_abort)
 importFrom(grImport2,symbolsGrob)
-importFrom(grid,editGrob)
-importFrom(grid,gList)
-importFrom(grid,gTree)
-importFrom(grid,gpar)
-importFrom(grid,removeGrob)
+importFrom(grid,
+  editGrob,
+  gList,
+  gTree,
+  gpar,
+  removeGrob
+)
 importFrom(lifecycle,deprecated)
 importFrom(rlang,is_empty)

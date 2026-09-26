@@ -37,7 +37,7 @@ ggfoundry offers arbitrary hand-crafted colourable and fillable shapes for ggplo
 
 ## Foundry process
 
-These artisanal symbols begin life as hand-drawn vector images with two layers: an outline and a fill. Each SVG pair is converted to Cairo graphics format, forged at extreme temperatures into objects of class "Picture", and finally delicately cast as a `gTree` representation of the original shape. But not quite back to where we started, because they are now editable.
+These artisanal symbols begin life as vector images with two layers: an outline and a fill. Some are hand-drawn; others, such as the "bowl" set, are constructed programmatically. Each SVG pair is converted to Cairo graphics format, forged at extreme temperatures into objects of class "Picture", and finally delicately cast as a `gTree` representation of the original shape. But not quite back to where we started, because they are now editable.
 
 When cooled and finely burnished, the `gTree` and all its grob children may then be manipulated by `geom_casting()` to render the desired ggplot with those special high-end adornments.
 
@@ -83,7 +83,7 @@ Using some made-up data simulating a "random walk", `geom_casting()` adds a laye
 
 When the shape is mapped to a variable, then `scale_shape_manual()` is required to explicitly name the desired shapes as a character vector. This is because standard shapes (as used for example in `geom_point()`) are associated with a number, e.g. a circle is 19, whereas `geom_casting()` shapes are associated only with character strings.
 
-One grob is created for each of the 2 groups. And each grob stores the `x` and `y` coordinates for that group to enable each shape to be rendered at several locations.
+Each shape's appearance is resolved observation by observation, so aesthetics such as `colour`, `fill`, `alpha`, `size` and `angle` may vary continuously across the data, whether grouping is implicit or explicitly shared with `group = 1`.
 
 Using `scale_colour_manual()` and `scale_fill_manual()`, we can also select a custom palette for the shape colours and fills.
 
@@ -113,6 +113,32 @@ df |>
   labs(title = "ggfoundry") +
   theme_bw() +
   theme(plot.subtitle = element_text(size = 10))
+```
+
+## Porridge bowls
+
+The "bowl" set brings three containers to the table: `bowl0`, `bowl1` and `bowl2`, distinguished only by zero, one or two wisps of steam rising from the porridge. The bowl body and the steam share the `fill`, while the bowl and porridge outline take the `colour`. All three variants share the same canvas and bowl position, so they may be swapped freely with `scale_shape_manual()`.
+
+A continuous `fill` maps directly to any numeric variable, with no grouping workaround required. And a `fill` of `"transparent"` hides the steam while the bowl outline remains visible.
+
+```{r bowls, message=FALSE, warning=FALSE}
+
+bowls <- data.frame(
+  x = 1:7,
+  temperature = c(5, 18, 32, 47, 63, 81, 96)
+)
+
+bowls |>
+  ggplot(aes(x, 1, fill = temperature)) +
+  geom_casting(shape = "bowl2", colour = "#272626", size = 0.72) +
+  geom_text(aes(y = 0.35, label = temperature), size = 4) +
+  scale_fill_viridis_c(limits = c(0, 100), begin = 0.04, end = 0.94) +
+  labs(
+    title = "Seven values; one shape; no grouping workaround",
+    fill = "Value"
+  ) +
+  theme_void() +
+  theme(legend.position = "bottom")
 ```
 
 See the [showcase](https://cgoo4.github.io/ggfoundry/articles/example_uses) article to explore other use cases and [contrast with alternatives](https://cgoo4.github.io/ggfoundry/articles/contrast) to review against other options.

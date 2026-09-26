@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g id="surface1">
+    <path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 39 104 C 54 111 77 115 100 115 C 122 115 147 111 161 105 C 156 122 143 138 130 147 C 117 153 84 153 71 147 C 56 138 44 121 39 104 Z M 39 104 " />
+    <path fill-rule="nonzero" fill="rgb(0%, 0%, 0%)" fill-opacity="1" d="M 97 60 C 79 47 108 39 96 23 C 118 37 92 47 102 57 C 105 61 101 64 97 60 Z M 97 60 " />
+  </g>
+</svg>

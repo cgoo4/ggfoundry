@@ -22,5 +22,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Carl Goodwin \email{carl.goodwin@quantumjitter.com} [copyright holder]
 
+Authors:
+\itemize{
+  \item Carl Goodwin \email{carl.goodwin@quantumjitter.com} [copyright holder]
+}
+
 }
 \keyword{internal}
