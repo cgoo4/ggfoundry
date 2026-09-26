@@ -121,7 +121,7 @@ The "bowl" set brings three containers to the table: `bowl0`, `bowl1` and `bowl2
 
 A continuous `fill` maps directly to any numeric variable, with no grouping workaround required. And a `fill` of `"transparent"` hides the steam while the bowl outline remains visible.
 
-```{r bowls, message=FALSE, warning=FALSE}
+```{r bowls, message=FALSE, warning=FALSE, fig.width=11, fig.height=4}
 
 bowls <- data.frame(
   x = 1:7,
@@ -133,6 +133,8 @@ bowls |>
   geom_casting(shape = "bowl2", colour = "#272626", size = 0.72) +
   geom_text(aes(y = 0.35, label = temperature), size = 4) +
   scale_fill_viridis_c(limits = c(0, 100), begin = 0.04, end = 0.94) +
+  scale_x_continuous(limits = c(0.35, 7.65), expand = expansion(mult = 0)) +
+  scale_y_continuous(limits = c(0, 1.85), expand = expansion(mult = 0)) +
   labs(
     title = "Seven values; one shape; no grouping workaround",
     fill = "Value"

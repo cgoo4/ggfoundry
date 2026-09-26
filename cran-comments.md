@@ -18,17 +18,13 @@ would be re-checked at its final version).
    0.3.3, cli 3.6.6, lifecycle 1.0.5, rlang 1.3.0.
  * Declared-minimum compatibility: a full `R CMD check --as-cran` was also
    run in a fresh process with ggplot2 3.5.0 installed in a separate library
-   and placed first on the library path. Result: 0 errors, 0 notes, 1
-   warning, with all functional tests passing (snapshot tests are skipped
+   and placed first on the library path. Result: 0 errors, 0 warnings,
+   0 notes, with all functional tests passing (snapshot tests are skipped
    by testthat in check mode) and the vignette rebuilding cleanly.
- * That warning is specific to the 3.5.0 check: `@inheritParams
-   ggplot2::geom_point` copies text whose cross-reference anchors
-   (`ggplot2:layer_stats`, `ggplot2:layer_positions`,
-   `ggplot2:annotation_borders`) exist only in ggplot2 4.x documentation,
-   so help-page links break for users on the declared minimum. It does not
-   appear when checking against current ggplot2, and is recorded here for
-   the maintainer's decision (pin own param docs, or raise the declared
-   minimum).
+ * Inherited parameter documentation was replaced with local `@param` docs
+   so no cross-reference anchors from ggplot2 4.x-only documentation are
+   emitted; the same check previously warned about missing links under
+   3.5.0 and is now clean on both versions.
  * Cross-platform checks (GitHub Actions matrix of macOS, Windows and Linux
    across R-release, R-devel and oldrel-1) and revdepcheck results are
    pending; they require the authorised release stage and are not claimed

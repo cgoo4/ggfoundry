@@ -27,7 +27,26 @@
 #'   In addition to the supported aesthetics below, `nudge_x`, `nudge_y`,
 #'   `hjust` and `vjust` are also respected.
 #'
-#' @inheritParams ggplot2::geom_point
+#' @param mapping A set of aesthetic mappings created by `aes()`. If
+#'   specified and `inherit.aes = TRUE` (the default), it is combined with
+#'   the default mapping at the top level of the plot.
+#' @param data A data frame to use for the layer. If `NULL` (the default),
+#'   the data inherited from the plot is used.
+#' @param stat The statistical transformation to use on the data for this
+#'   layer. The default is `ggplot2::stat_identity()`.
+#' @param position A position adjustment to use for overlapping points on
+#'   this layer. The default is `ggplot2::position_identity()`.
+#' @param ... Other arguments passed on to the layer. These are often
+#'   aesthetics, used to set an aesthetic to a fixed value, like
+#'   `colour = "red"` or `size = 3`. They may also be parameters to the
+#'   paired geom, such as `nudge_x`, `nudge_y`, `hjust` and `vjust`.
+#' @param na.rm If `FALSE`, the default, missing values are removed with a
+#'   warning. If `TRUE`, missing values are silently removed.
+#' @param show.legend Logical. Should this layer be included in the legends?
+#'   `NA`, the default, includes if any aesthetics are mapped. `FALSE` never
+#'   includes, and `TRUE` always includes.
+#' @param inherit.aes If `FALSE`, overrides the default aesthetics, rather
+#'   than combining with them.
 #'
 #' @section Aesthetics: \code{geom_casting()} understands the following
 #'   aesthetics (required aesthetics are in bold):
@@ -68,7 +87,9 @@
 #' ggplot(data.frame(x = 1:7, temperature = c(5, 18, 32, 47, 63, 81, 96)),
 #'        aes(x, 1, fill = temperature)) +
 #'   geom_casting(shape = "bowl2", colour = "#272626", size = 0.72) +
-#'   scale_fill_viridis_c(limits = c(0, 100))
+#'   scale_fill_viridis_c(limits = c(0, 100)) +
+#'   scale_x_continuous(limits = c(0.35, 7.65), expand = expansion(mult = 0)) +
+#'   scale_y_continuous(limits = c(0, 1.85), expand = expansion(mult = 0))
 geom_casting <- \(
   mapping = NULL,
   data = NULL,
