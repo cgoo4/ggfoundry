@@ -3,7 +3,7 @@
 
 ## usethis namespace: start
 #' @import ggplot2
-#' @importFrom grid gTree gList removeGrob editGrob gpar
+#' @importFrom grid gTree gList removeGrob editGrob gpar unit viewport
 #' @importFrom grImport2 symbolsGrob
 #' @importFrom cli cli_abort
 #' @importFrom lifecycle deprecated

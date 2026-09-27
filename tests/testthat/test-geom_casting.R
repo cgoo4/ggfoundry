@@ -88,8 +88,8 @@ built_layer_grob <- function(p, i = 1) {
   layer_grob(p, i)[[1]]
 }
 
-drawn_rows <- function(data, shape = "jar") {
-  p <- ggplot(data.frame(x = 1, y = 1), aes(x, y)) +
+drawn_rows <- function(data, shape = "jar", base = data.frame(x = 1, y = 1)) {
+  p <- ggplot(base, aes(x, y)) +
     geom_casting(shape = shape)
 
   b <- ggplot_build(p)
@@ -157,7 +157,11 @@ test_that("existing shape honours varied alpha, size & angle per observation", {
 })
 
 test_that("shared aesthetics across a group still render together", {
-  df <- data.frame(fill = "skyblue", size = 0.1, angle = 0)
+  df <- data.frame(
+    fill = "skyblue",
+    size = c(0.05, 0.1, 0.15),
+    angle = c(0, 20, 40)
+  )
 
   grob <- drawn_rows(df)
   cols <- vapply(
@@ -165,6 +169,68 @@ test_that("shared aesthetics across a group still render together", {
     \(row) unique(collect_gp_fills(row$children[[2]])),
     character(1)
   )
-  expect_length(unique(cols), 1)
-  expect_equal(cols[[1]], "#87CEEBFF")
+  expect_length(cols, 3)
+  expect_true(all(cols == "#87CEEBFF"))
+
+  # Each row keeps its own placement from the shared template
+  dims <- vapply(
+    grob$children,
+    \(row) {
+      vp <- shape_viewports(row)[[1]]
+      paste(vp$width, vp$angle)
+    },
+    character(1)
+  )
+  expect_length(unique(dims), 3)
+})
+
+test_that("display_palette accepts repeated colours", {
+  p <- display_palette(c("red", "red", "blue"), "Repeated")
+  expect_snapshot(layer_data(p, 1))
+})
+
+test_that("display_palette rejects an empty palette", {
+  expect_snapshot(display_palette(character(0), "Empty"), error = TRUE)
+})
+
+test_that("outline-only fill = NA retains the outline", {
+  df <- data.frame(x = 1, y = 1, fill = NA)
+
+  grob <- drawn_rows(df, shape = "bowl2")
+  expect_length(grob$children, 1)
+
+  # Outline layer keeps its colour; fill layer (bowl body & steam) is NA
+  outline_fills <- collect_gp_fills(grob$children[[1]]$children[[1]])
+  expect_false(any(outline_fills == "transparent" | is.na(outline_fills)))
+
+  fill_fills <- collect_gp_fills(grob$children[[1]]$children[[2]])
+  expect_true(all(is.na(fill_fills)))
+})
+
+test_that("repeated styles reuse a template but keep per-row placement", {
+  df <- data.frame(
+    x = c(0.9, 1.1, 0.9, 1.1),
+    y = c(0.9, 0.9, 1.1, 1.1),
+    fill = "pink",
+    colour = "black",
+    size = 0.1,
+    angle = 15
+  )
+
+  grob <- drawn_rows(
+    df,
+    shape = "jar",
+    base = data.frame(x = c(0.9, 1.1), y = c(0.9, 1.1))
+  )
+  expect_length(grob$children, 4)
+
+  placements <- vapply(
+    grob$children,
+    \(row) {
+      vp <- shape_viewports(row)[[1]]
+      paste(vp$x, vp$y, vp$angle)
+    },
+    character(1)
+  )
+  expect_length(unique(placements), 4)
 })

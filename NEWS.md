@@ -2,6 +2,9 @@
 
 -   3 shapes ("bowl0", "bowl1" & "bowl2") added to a "container" set. Bowl body & steam share the `fill`; bowl & porridge outline use the `colour`; a transparent `fill` hides the steam while retaining the outline.
 -   Aesthetics varying per observation, e.g. a continuous `fill`, are now respected for every shape, without requiring a `group = id` workaround, including when a shared group is explicit.
+-   Repeated shapes with the same appearance reuse a styled template rather than rebuilding the artwork, substantially reducing grob construction time and memory for dense layers.
+-   A `fill` of `NA` now renders the outline only, instead of dropping the shape with a warning.
+-   `display_palette()` accepts repeated colours, maps each swatch to the intended colour, and gives a clear error for an empty palette.
 
 # ggfoundry 0.3.1
 

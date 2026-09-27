@@ -22,6 +22,12 @@ Imports:
 Suggests: 
     dplyr,
     forcats,
+    knitr,
+    rmarkdown,
+    spelling,
+    stringr,
+    testthat (>= 3.0.0)
+Config/Needs/website:
     ggimage,
     ggfx,
     ggpp,
@@ -32,12 +38,8 @@ Suggests:
     patchwork,
     scales,
     showtext,
-    httr,
-    knitr,
-    rmarkdown,
-    spelling,
-    stringr,
-    testthat (>= 3.0.0)
+    tibble,
+    rpart
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr

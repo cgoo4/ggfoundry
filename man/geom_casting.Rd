@@ -4,6 +4,9 @@
 \alias{geom_casting}
 \alias{GeomCasting}
 \alias{cast_shape}
+\alias{cast_style}
+\alias{place_template}
+\alias{place_viewports}
 \alias{cast_layers}
 \title{Arbitrary hand-crafted fillable shapes for ggplot2}
 \usage{
@@ -34,8 +37,12 @@ this layer. The default is \code{ggplot2::position_identity()}.}
 
 \item{...}{Other arguments passed on to the layer. These are often
 aesthetics, used to set an aesthetic to a fixed value, like
-\code{colour = "red"} or \code{size = 3}. They may also be parameters to the
-paired geom, such as \code{nudge_x}, \code{nudge_y}, \code{hjust} and \code{vjust}.}
+\code{colour = "red"} or \code{size = 0.1}. They may also be parameters to the
+paired geom, such as \code{nudge_x}, \code{nudge_y}, \code{hjust} and \code{vjust}.
+
+\code{size} is panel-relative: it sets the shape's width and height as a
+fraction of the panel, so \code{size = 0.1} spans a tenth of the panel, not
+millimetres.}
 
 \item{na.rm}{If \code{FALSE}, the default, missing values are removed with a
 warning. If \code{TRUE}, missing values are silently removed.}
@@ -56,6 +63,9 @@ A geom layer that can be added to a ggplot.
 Arbitrary hand-crafted colourable and fillable shapes for ggplot2.
 
 New shapes may be feature requested via a Github issue.
+
+Copies the grob tree, editing only the placement viewports; the styled
+picture grobs are shared with the template and left untouched.
 }
 \details{
 Behind the scenes, a pair of vector images (outline & fill) are
@@ -72,9 +82,9 @@ shapes are associated with a number, e.g. a circle is 19, whereas
 
 Aesthetics that vary per observation, e.g. a continuous \code{fill}, are
 respected for each individual shape, whether grouping is implicit or
-explicitly shared with \code{group = 1}. A \code{fill} of \code{"transparent"} renders
-the outline only: for shapes such as the "bowl" set, this hides the steam
-while retaining the bowl outline.
+explicitly shared with \code{group = 1}. A \code{fill} of \code{NA} or \code{"transparent"}
+renders the outline only: for shapes such as the "bowl" set, this hides
+the steam while retaining the bowl outline.
 
 In addition to the supported aesthetics below, \code{nudge_x}, \code{nudge_y},
 \code{hjust} and \code{vjust} are also respected.

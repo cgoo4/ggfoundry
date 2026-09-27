@@ -11,4 +11,7 @@
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
 ^revdep$
+^DATABOT\.md$
 ^vignettes/articles$
+^doc$
+^Meta$

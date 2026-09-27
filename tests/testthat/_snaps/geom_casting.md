@@ -115,3 +115,21 @@
       1   0.5     2    NA        1        1.2      0.25        1
       2   0.5     2    NA        1        1.2      0.25        1
 
+# display_palette accepts repeated colours
+
+    Code
+      layer_data(p, 1)
+    Output
+        x y fill PANEL group shape size colour alpha angle
+      1 1 1  red     1     1   jar  0.5 grey50    NA     0
+      2 2 1  red     1     1   jar  0.5 grey50    NA     0
+      3 3 1 blue     1     2   jar  0.5 grey50    NA     0
+
+# display_palette rejects an empty palette
+
+    Code
+      display_palette(character(0), "Empty")
+    Condition
+      Error in `display_palette()`:
+      ! `fill` must contain at least one colour.
+

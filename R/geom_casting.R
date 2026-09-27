@@ -20,9 +20,9 @@
 #'
 #'   Aesthetics that vary per observation, e.g. a continuous `fill`, are
 #'   respected for each individual shape, whether grouping is implicit or
-#'   explicitly shared with `group = 1`. A `fill` of `"transparent"` renders
-#'   the outline only: for shapes such as the "bowl" set, this hides the steam
-#'   while retaining the bowl outline.
+#'   explicitly shared with `group = 1`. A `fill` of `NA` or `"transparent"`
+#'   renders the outline only: for shapes such as the "bowl" set, this hides
+#'   the steam while retaining the bowl outline.
 #'
 #'   In addition to the supported aesthetics below, `nudge_x`, `nudge_y`,
 #'   `hjust` and `vjust` are also respected.
@@ -38,8 +38,12 @@
 #'   this layer. The default is `ggplot2::position_identity()`.
 #' @param ... Other arguments passed on to the layer. These are often
 #'   aesthetics, used to set an aesthetic to a fixed value, like
-#'   `colour = "red"` or `size = 3`. They may also be parameters to the
+#'   `colour = "red"` or `size = 0.1`. They may also be parameters to the
 #'   paired geom, such as `nudge_x`, `nudge_y`, `hjust` and `vjust`.
+#'
+#'   `size` is panel-relative: it sets the shape's width and height as a
+#'   fraction of the panel, so `size = 0.1` spans a tenth of the panel, not
+#'   millimetres.
 #' @param na.rm If `FALSE`, the default, missing values are removed with a
 #'   warning. If `TRUE`, missing values are silently removed.
 #' @param show.legend Logical. Should this layer be included in the legends?
@@ -148,7 +152,7 @@ GeomCasting <- ggproto(
   "GeomCasting",
   Geom,
   required_aes = c("x", "y"),
-  non_missing_aes = c("size", "shape", "colour", "fill"),
+  non_missing_aes = c("size", "shape", "colour"),
   default_aes = aes(
     shape = "violin",
     size = 0.1,
@@ -186,10 +190,14 @@ GeomCasting <- ggproto(
       ))
     }
 
+    # A styled template is built once per unique shape/colour/fill
+    # combination within this panel draw, then re-placed for every
+    # observation: continuous mappings still vary per row.
+    cache <- new.env(parent = emptyenv())
     grobs <- lapply(seq_len(nrow(coords)), \(i) {
       df <- coords[i, ]
 
-      cast_shape(
+      cast_style(
         shape = df$shape,
         colour = alpha(df$colour, df$alpha),
         fill = fill_alpha(df$fill, df$alpha),
@@ -198,7 +206,8 @@ GeomCasting <- ggproto(
         x = df$x,
         y = df$y,
         hjust = hjust,
-        vjust = vjust
+        vjust = vjust,
+        cache = cache
       )
     })
 
@@ -271,13 +280,16 @@ display_palette <- \(
 ) {
   shape <- shape[1]
   colour <- color
+  if (length(fill) == 0) {
+    cli_abort("`fill` must contain at least one colour.")
+  }
   n <- length(fill)
-  x <- (1:n - 1) %% 6 + 1
-  y <- (1:n - 1) %/% 6 + 1
+  x <- (seq_len(n) - 1) %% 6 + 1
+  y <- (seq_len(n) - 1) %/% 6 + 1
   label <- sub("FF$", "", as.character(fill), perl = TRUE)
 
   data.frame(x = x, y = y) |>
-    ggplot(aes(x, y, fill = factor(fill, levels = fill))) +
+    ggplot(aes(x, y, fill = factor(fill, levels = unique(fill)))) +
     geom_casting(shape = shape, size = 0.5, colour = colour) +
     geom_label(aes(label = label), vjust = 2, fill = alpha("white", 0.7)) +
     annotate(
@@ -289,7 +301,7 @@ display_palette <- \(
       alpha = 0.8,
       size = 6
     ) +
-    scale_fill_manual(values = as.character(fill)) +
+    scale_fill_manual(values = as.character(unique(fill))) +
     scale_x_continuous(expand = expansion(add = c(1, 1))) +
     scale_y_continuous(expand = expansion(add = c(1, 1))) +
     theme_void() +

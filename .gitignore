@@ -6,3 +6,6 @@ inst/doc
 docs
 ^data-raw$
 .DS_Store
+DATABOT.md
+/doc/
+/Meta/

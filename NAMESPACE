@@ -12,7 +12,9 @@ importFrom(grid,
   gList,
   gTree,
   gpar,
-  removeGrob
+  removeGrob,
+  unit,
+  viewport
 )
 importFrom(lifecycle,deprecated)
 importFrom(rlang,is_empty)
