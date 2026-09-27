@@ -226,8 +226,9 @@ p1 + p2 + p3 + plot_layout(guides = "collect", axes = "collect")
 
 Making your own grob with grid graphics is a further option. Then use
 [ggpp](https://github.com/aphalo/ggpp) and
-[`geom_grob()`](https://rdrr.io/pkg/ggpp/man/geom_grob.html) to add the
-appropriate layer. A circle is used here as a very basic example.
+[`geom_grob()`](https://docs.r4photobiology.info/ggpp/reference/geom_grob.html)
+to add the appropriate layer. A circle is used here as a very basic
+example.
 
 ``` r
 

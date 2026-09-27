@@ -72,8 +72,8 @@ df <- shapes_cast() |>
 
 df |> 
   ggplot(aes(x, set)) +
-  geom_text(aes(label = shape), nudge_y = -0.5, colour = "grey70", size = 3) +
-  geom_casting(aes(shape = shape), size = 0.19, fill = "skyblue") +
+  geom_text(aes(label = shape), nudge_y = -0.5, colour = "grey40", size = 3) +
+  geom_casting(aes(shape = shape), size = 0.11, fill = "skyblue") +
   scale_shape_manual(values = as.character(df$shape)) +
   scale_x_continuous(expand = expansion(add = 0.5)) +
   scale_y_discrete(expand = expansion(add = 0.7)) +
@@ -226,7 +226,8 @@ cafe |>
   ggplot(aes(x, 1, fill = roast, shape = vessel)) +
   geom_casting(colour = "#33302D", size = 0.34) +
   scale_shape_manual(
-    values = c("cup", "mug", "takeaway", "coffeebean", "pumpkin", "jackolantern"),
+    values = setNames(cafe$vessel, cafe$vessel),
+    breaks = cafe$vessel,
     guide = guide_legend(
       override.aes = list(
         fill = c("#1B0C42", "#59106E", "#9B2964", "#D74B3F", "#F88A0C", "#F7D441")
@@ -235,12 +236,12 @@ cafe |>
     )
   ) +
   scale_fill_viridis_c(
-    limits = c(0, 100), begin = 0.04, end = 0.94, option = "inferno"
+    limits = c(0, 100), begin = 0.04, end = 0.94, option = "inferno",
+    guide = "none"
   ) +
   scale_x_continuous(limits = c(0.35, 6.65), expand = expansion(mult = 0)) +
   scale_y_continuous(limits = c(0.55, 1.65), expand = expansion(mult = 0)) +
-  labs(title = "Coffee and autumn; continuous fill, independent outline colour",
-       fill = "Roast") +
+  labs(title = "Coffee and autumn; continuous fill, independent outline colour") +
   theme_void() +
   theme(legend.position = "bottom")
 ```

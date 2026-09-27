@@ -1,6 +1,6 @@
 # Changelog
 
-## ggfoundry (development version)
+## ggfoundry 0.4.0
 
 ### New shapes
 

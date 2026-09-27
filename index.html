@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">ggfoundry</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -106,10 +106,12 @@
 </h2>
 <p>See the <a href="https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html">get started</a> vignette and supporting package-website articles for more details, including available shapes, a showcase of examples and how ggfoundry contrasts with alternative strategies.</p>
 <p>How much work buys a cappuccino? The Cappuccino Index relates a small cappuccino’s price to a barista’s reported hourly wage. Here, the ten countries with the largest café samples in the data are ordered by the minutes of wages needed to buy a cup. The cup shape is fixed, while its fill varies continuously with the index.</p>
+<p>The data snapshot lives in the repository at <code>data-raw/cappuccino/cappuccino_index.csv</code>; readers elsewhere can <a href="https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-09-08/cappuccino_index.csv" class="external-link">download the CSV</a> from TidyTuesday and point <code><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv()</a></code> at it instead.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cgoo4/ggfoundry" class="external-link">ggfoundry</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: ggplot2</span></span>
 <span></span>
+<span><span class="co"># Repository snapshot; readers elsewhere may use the TidyTuesday URL above</span></span>
 <span><span class="va">coffee</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"data-raw/cappuccino/cappuccino_index.csv"</span>, fileEncoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span>
 <span><span class="va">coffee</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">coffee</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">coffee</span><span class="op">$</span><span class="va">n</span><span class="op">)</span>, <span class="op">]</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">coffee</span><span class="op">$</span><span class="va">country</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">coffee</span><span class="op">$</span><span class="va">country</span>, <span class="op">-</span><span class="va">coffee</span><span class="op">$</span><span class="va">index</span><span class="op">)</span></span>
