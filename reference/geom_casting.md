@@ -6,6 +6,9 @@ Arbitrary hand-crafted colourable and fillable shapes for ggplot2.
 
 New shapes may be feature requested via a Github issue.
 
+Copies the grob tree, editing only the placement viewports; the styled
+picture grobs are shared with the template and left untouched.
+
 ## Usage
 
 ``` r
@@ -51,8 +54,12 @@ geom_casting(
 
   Other arguments passed on to the layer. These are often aesthetics,
   used to set an aesthetic to a fixed value, like `colour = "red"` or
-  `size = 3`. They may also be parameters to the paired geom, such as
+  `size = 0.1`. They may also be parameters to the paired geom, such as
   `nudge_x`, `nudge_y`, `hjust` and `vjust`.
+
+  `size` is panel-relative: it sets the shape's width and height as a
+  fraction of the panel, so `size = 0.1` spans a tenth of the panel, not
+  millimetres.
 
 - na.rm:
 
@@ -92,9 +99,9 @@ associated only with character strings.
 
 Aesthetics that vary per observation, e.g. a continuous `fill`, are
 respected for each individual shape, whether grouping is implicit or
-explicitly shared with `group = 1`. A `fill` of `"transparent"` renders
-the outline only: for shapes such as the "bowl" set, this hides the
-steam while retaining the bowl outline.
+explicitly shared with `group = 1`. A `fill` of `NA` or `"transparent"`
+renders the outline only: for shapes such as the "bowl" set, this hides
+the steam while retaining the bowl outline.
 
 In addition to the supported aesthetics below, `nudge_x`, `nudge_y`,
 `hjust` and `vjust` are also respected.

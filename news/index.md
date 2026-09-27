@@ -9,6 +9,14 @@
 - Aesthetics varying per observation, e.g. a continuous `fill`, are now
   respected for every shape, without requiring a `group = id`
   workaround, including when a shared group is explicit.
+- Repeated shapes with the same appearance reuse a styled template
+  rather than rebuilding the artwork, substantially reducing grob
+  construction time and memory for dense layers.
+- A `fill` of `NA` now renders the outline only, instead of dropping the
+  shape with a warning.
+- [`display_palette()`](https://cgoo4.github.io/ggfoundry/reference/display_palette.md)
+  accepts repeated colours, maps each swatch to the intended colour, and
+  gives a clear error for an empty palette.
 
 ## ggfoundry 0.3.1
 
