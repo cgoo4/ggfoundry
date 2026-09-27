@@ -12,3 +12,5 @@ DATABOT.md
 
 /.quarto/
 **/*.quarto_ipynb
+
+figure/
