@@ -48,9 +48,12 @@ See the [get started](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.html)
 
 How much work buys a cappuccino? The Cappuccino Index relates a small cappuccino's price to a barista's reported hourly wage. Here, the ten countries with the largest café samples in the data are ordered by the minutes of wages needed to buy a cup. The cup shape is fixed, while its fill varies continuously with the index.
 
+The data snapshot lives in the repository at `data-raw/cappuccino/cappuccino_index.csv`; readers elsewhere can [download the CSV](https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-09-08/cappuccino_index.csv) from TidyTuesday and point `read.csv()` at it instead.
+
 ```{r example, fig.width=8, fig.height=5.7, fig.retina=3, fig.alt="Ranked coffee-cup plot of the Cappuccino Index for the ten countries with the largest cafe samples. Work time ranges from 10.1 minutes in Australia to 29.4 minutes in Poland among the selected countries; darker fill indicates more minutes."}
 library(ggfoundry)
 
+# Repository snapshot; readers elsewhere may use the TidyTuesday URL above
 coffee <- read.csv("data-raw/cappuccino/cappuccino_index.csv", fileEncoding = "UTF-8")
 coffee <- head(coffee[order(-coffee$n), ], 10)
 coffee$country <- reorder(coffee$country, -coffee$index)

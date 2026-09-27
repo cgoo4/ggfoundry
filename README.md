@@ -50,10 +50,17 @@ countries with the largest café samples in the data are ordered by the
 minutes of wages needed to buy a cup. The cup shape is fixed, while its
 fill varies continuously with the index.
 
+The data snapshot lives in the repository at
+`data-raw/cappuccino/cappuccino_index.csv`; readers elsewhere can
+[download the
+CSV](https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-09-08/cappuccino_index.csv)
+from TidyTuesday and point `read.csv()` at it instead.
+
 ``` r
 library(ggfoundry)
 #> Loading required package: ggplot2
 
+# Repository snapshot; readers elsewhere may use the TidyTuesday URL above
 coffee <- read.csv("data-raw/cappuccino/cappuccino_index.csv", fileEncoding = "UTF-8")
 coffee <- head(coffee[order(-coffee$n), ], 10)
 coffee$country <- reorder(coffee$country, -coffee$index)
