@@ -52,13 +52,27 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="ggfoundry-development-version">ggfoundry (development version)<a class="anchor" aria-label="anchor" href="#ggfoundry-development-version"></a></h2>
-<ul><li>3 shapes (“bowl0”, “bowl1” &amp; “bowl2”) added to a “container” set. Bowl body &amp; steam share the <code>fill</code>; bowl &amp; porridge outline use the <code>colour</code>; a transparent <code>fill</code> hides the steam while retaining the outline.</li>
-<li>Aesthetics varying per observation, e.g. a continuous <code>fill</code>, are now respected for every shape, without requiring a <code>group = id</code> workaround, including when a shared group is explicit.</li>
-<li>Repeated shapes with the same appearance reuse a styled template rather than rebuilding the artwork, substantially reducing grob construction time and memory for dense layers.</li>
-<li>A <code>fill</code> of <code>NA</code> now renders the outline only, instead of dropping the shape with a warning.</li>
-<li>
+<div class="section level3">
+<h3 id="new-shapes-development-version">New shapes<a class="anchor" aria-label="anchor" href="#new-shapes-development-version"></a></h3>
+<ul><li>6 shapes added, motivated by <a href="https://ico.org/international-coffee-day/" class="external-link">International Coffee Day</a>: <code>cup</code>, <code>mug</code> &amp; <code>takeaway</code> to the “container” set; <code>coffeebean</code>, <code>pumpkin</code> &amp; <code>jackolantern</code> to a new “food” set. <code>cup</code> &amp; <code>mug</code> steam shares the <code>fill</code>; a transparent <code>fill</code> hides the steam while retaining the outline. These are different vessels, not an ordinal scale.</li>
+<li>3 shapes (“bowl0”, “bowl1” &amp; “bowl2”) added to a “container” set, then redrawn with a wobblier rim, a more irregular mound of porridge and uneven line weight; shape names and aesthetics are unchanged. Bowl body &amp; steam share the <code>fill</code>; bowl &amp; porridge outline use the <code>colour</code>; a transparent <code>fill</code> hides the steam while retaining the outline.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="performance-development-version">Performance<a class="anchor" aria-label="anchor" href="#performance-development-version"></a></h3>
+<ul><li>Repeated shapes with the same appearance reuse a styled template rather than rebuilding the artwork, substantially reducing grob construction time and memory for dense layers.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="improvements-development-version">Improvements<a class="anchor" aria-label="anchor" href="#improvements-development-version"></a></h3>
+<ul><li>
 <code><a href="../reference/display_palette.html">display_palette()</a></code> accepts repeated colours, maps each swatch to the intended colour, and gives a clear error for an empty palette.</li>
 </ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<ul><li>Aesthetics varying per observation, e.g. a continuous <code>fill</code>, are now respected for every shape, without requiring a <code>group = id</code> workaround, including when a shared group is explicit.</li>
+<li>A <code>fill</code> of <code>NA</code> now renders the outline only, instead of dropping the shape with a warning.</li>
+<li>Repeated shapes sharing an identical appearance now each render, after a template-reuse regression collapsed duplicates to a single drawn shape.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.1" id="ggfoundry-031">ggfoundry 0.3.1<a class="anchor" aria-label="anchor" href="#ggfoundry-031"></a></h2><p class="text-muted">CRAN release: 2024-07-06</p>
 <ul><li>2 shapes (“oak” &amp; “hibiscus”) added to a “leaf” set (<a href="https://github.com/cgoo4/ggfoundry/issues/10" class="external-link">#10</a>).</li>

@@ -2,21 +2,43 @@
 
 ## ggfoundry (development version)
 
-- 3 shapes (“bowl0”, “bowl1” & “bowl2”) added to a “container” set. Bowl
+### New shapes
+
+- 6 shapes added, motivated by [International Coffee
+  Day](https://ico.org/international-coffee-day/): `cup`, `mug` &
+  `takeaway` to the “container” set; `coffeebean`, `pumpkin` &
+  `jackolantern` to a new “food” set. `cup` & `mug` steam shares the
+  `fill`; a transparent `fill` hides the steam while retaining the
+  outline. These are different vessels, not an ordinal scale.
+- 3 shapes (“bowl0”, “bowl1” & “bowl2”) added to a “container” set, then
+  redrawn with a wobblier rim, a more irregular mound of porridge and
+  uneven line weight; shape names and aesthetics are unchanged. Bowl
   body & steam share the `fill`; bowl & porridge outline use the
   `colour`; a transparent `fill` hides the steam while retaining the
   outline.
-- Aesthetics varying per observation, e.g. a continuous `fill`, are now
-  respected for every shape, without requiring a `group = id`
-  workaround, including when a shared group is explicit.
+
+### Performance
+
 - Repeated shapes with the same appearance reuse a styled template
   rather than rebuilding the artwork, substantially reducing grob
   construction time and memory for dense layers.
-- A `fill` of `NA` now renders the outline only, instead of dropping the
-  shape with a warning.
+
+### Improvements
+
 - [`display_palette()`](https://cgoo4.github.io/ggfoundry/reference/display_palette.md)
   accepts repeated colours, maps each swatch to the intended colour, and
   gives a clear error for an empty palette.
+
+### Bug fixes
+
+- Aesthetics varying per observation, e.g. a continuous `fill`, are now
+  respected for every shape, without requiring a `group = id`
+  workaround, including when a shared group is explicit.
+- A `fill` of `NA` now renders the outline only, instead of dropping the
+  shape with a warning.
+- Repeated shapes sharing an identical appearance now each render, after
+  a template-reuse regression collapsed duplicates to a single drawn
+  shape.
 
 ## ggfoundry 0.3.1
 

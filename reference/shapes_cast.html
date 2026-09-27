@@ -75,38 +75,44 @@ filtered and used as a vector of strings in <code><a href="https://ggplot2.tidyv
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Returns a data frame of available shapes</span></span></span>
 <span class="r-in"><span><span class="fu">shapes_cast</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          set      shape</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     circle    circleF</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     circle    circleL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     circle    circleR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  container      bowl0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  container      bowl1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 container      bowl2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 container        jar</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 container       tube</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17     cross     cross1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19     cross     cross2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21    flower sunflower1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23    flower sunflower2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25    flower sunflower3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27    flower sunflower4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29    flower sunflower5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31    flower sunflower6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33    flower sunflower7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35    flower sunflower8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37      geom        box</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39      geom     dendro</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41      geom     ribbon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43      geom     violin</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45      leaf   hibiscus</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47      leaf        oak</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49   penguin     adelie</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51   penguin  chinstrap</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53   penguin     gentoo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55   polygon   heptagon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57   polygon    hexagon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59   polygon    octagon</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61   polygon   pentagon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          set        shape</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     circle      circleF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     circle      circleL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     circle      circleR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  container        bowl0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  container        bowl1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 container        bowl2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13 container          cup</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 container          jar</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17 container          mug</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19 container     takeaway</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21 container         tube</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23     cross       cross1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25     cross       cross2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27    flower   sunflower1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29    flower   sunflower2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31    flower   sunflower3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33    flower   sunflower4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35    flower   sunflower5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37    flower   sunflower6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39    flower   sunflower7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41    flower   sunflower8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43      food   coffeebean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45      food jackolantern</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47      food      pumpkin</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49      geom          box</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51      geom       dendro</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53      geom       ribbon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55      geom       violin</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57      leaf     hibiscus</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59      leaf          oak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61   penguin       adelie</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63   penguin    chinstrap</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65   penguin       gentoo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67   polygon     heptagon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69   polygon      hexagon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71   polygon      octagon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73   polygon     pentagon</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

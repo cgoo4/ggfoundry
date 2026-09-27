@@ -185,15 +185,12 @@ bowls |>
     )
   ) +
   scale_fill_viridis_c(
-    limits = c(0, 100), begin = 0.04, end = 0.94, option = "plasma"
+    limits = c(0, 100), begin = 0.04, end = 0.94, option = "plasma",
+    guide = "none"
   ) +
   scale_x_continuous(limits = c(0.35, 7.65), expand = expansion(mult = 0)) +
   scale_y_continuous(limits = c(0, 1.85), expand = expansion(mult = 0)) +
-  labs(
-    title = "Hot, just right or cold; no grouping workaround",
-    shape = "Serving",
-    fill = "Temperature"
-  ) +
+  labs(title = "Hot, just right or cold", shape = "Serving") +
   theme_void() +
   theme(legend.position = "bottom")
 ```
@@ -205,6 +202,50 @@ See the
 article to explore other use cases and [contrast with
 alternatives](https://cgoo4.github.io/ggfoundry/articles/contrast) to
 review against other options.
+
+## Coffee and autumn
+
+Six newcomers arrive with a new “food” set: a `cup`, a `mug` and a
+`takeaway` cup join the “container” set, while a `coffeebean`, a
+`pumpkin` and a `jackolantern` found the “food” set. As with the bowls,
+`cup` and `mug` steam shares the `fill`, so a transparent `fill` hides
+the steam while the outline remains; the `takeaway` sleeve follows the
+`fill`, and the ribs, bean crease, stems and carved faces follow the
+`colour`. They are different vessels, not an ordinal temperature
+classification.
+
+``` r
+
+cafe <- data.frame(
+  x = 1:6,
+  roast = c(8, 24, 42, 60, 78, 95),
+  vessel = c("cup", "mug", "takeaway", "coffeebean", "pumpkin", "jackolantern")
+)
+
+cafe |>
+  ggplot(aes(x, 1, fill = roast, shape = vessel)) +
+  geom_casting(colour = "#33302D", size = 0.34) +
+  scale_shape_manual(
+    values = c("cup", "mug", "takeaway", "coffeebean", "pumpkin", "jackolantern"),
+    guide = guide_legend(
+      override.aes = list(
+        fill = c("#1B0C42", "#59106E", "#9B2964", "#D74B3F", "#F88A0C", "#F7D441")
+      ),
+      nrow = 2, keyheight = unit(2, "lines"), default.unit = "line"
+    )
+  ) +
+  scale_fill_viridis_c(
+    limits = c(0, 100), begin = 0.04, end = 0.94, option = "inferno"
+  ) +
+  scale_x_continuous(limits = c(0.35, 6.65), expand = expansion(mult = 0)) +
+  scale_y_continuous(limits = c(0.55, 1.65), expand = expansion(mult = 0)) +
+  labs(title = "Coffee and autumn; continuous fill, independent outline colour",
+       fill = "Roast") +
+  theme_void() +
+  theme(legend.position = "bottom")
+```
+
+![](ggfoundry_files/figure-html/coffee-autumn-1.png)
 
 ## Acknowledgements
 
