@@ -17,6 +17,7 @@
 
 -   Aesthetics varying per observation, e.g. a continuous `fill`, are now respected for every shape, without requiring a `group = id` workaround, including when a shared group is explicit.
 -   A `fill` of `NA` now renders the outline only, instead of dropping the shape with a warning.
+-   Repeated shapes sharing an identical appearance now each render, after a template-reuse regression collapsed duplicates to a single drawn shape.
 
 # ggfoundry 0.3.1
 

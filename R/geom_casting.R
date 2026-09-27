@@ -197,7 +197,7 @@ GeomCasting <- ggproto(
     grobs <- lapply(seq_len(nrow(coords)), \(i) {
       df <- coords[i, ]
 
-      cast_style(
+      grob <- cast_style(
         shape = df$shape,
         colour = alpha(df$colour, df$alpha),
         fill = fill_alpha(df$fill, df$alpha),
@@ -209,6 +209,10 @@ GeomCasting <- ggproto(
         vjust = vjust,
         cache = cache
       )
+      # Re-placed copies share the template's grob names; grid resolves a
+      # gTree's children by name, so duplicates must be made unique
+      grob$name <- paste0("geom_casting.", i)
+      grob
     })
 
     gTree("geom_casting", children = do.call(gList, grobs))

@@ -144,15 +144,12 @@ bowls |>
     )
   ) +
   scale_fill_viridis_c(
-    limits = c(0, 100), begin = 0.04, end = 0.94, option = "plasma"
+    limits = c(0, 100), begin = 0.04, end = 0.94, option = "plasma",
+    guide = "none"
   ) +
   scale_x_continuous(limits = c(0.35, 7.65), expand = expansion(mult = 0)) +
   scale_y_continuous(limits = c(0, 1.85), expand = expansion(mult = 0)) +
-  labs(
-    title = "Hot, just right or cold; no grouping workaround",
-    shape = "Serving",
-    fill = "Temperature"
-  ) +
+  labs(title = "Hot, just right or cold", shape = "Serving") +
   theme_void() +
   theme(legend.position = "bottom")
 ```

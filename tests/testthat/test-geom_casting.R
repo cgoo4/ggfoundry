@@ -108,6 +108,15 @@ drawn_rows <- function(data, shape = "jar", base = data.frame(x = 1, y = 1)) {
   )
 }
 
+test_that("repeated styles keep unique grob names", {
+  # Grid resolves a gTree's children by name: duplicates would collapse
+  # identically-styled rows to a single drawn shape
+  grob <- drawn_rows(data.frame(alpha = rep(1, 5)), shape = "cross1")
+
+  expect_length(grob$children, 5)
+  expect_length(unique(names(grob$children)), 5)
+})
+
 test_that("continuous fill is drawn per observation", {
   # Implicit grouping
   df <- data.frame(x = 1:7, temp = c(5, 18, 32, 47, 63, 81, 96))
