@@ -2,6 +2,8 @@ url: https://cgoo4.github.io/ggfoundry/
 template:
   light-switch: true
   bootstrap: 5
+  includes:
+    in_header: analytics.html
 
 news:
   releases:
