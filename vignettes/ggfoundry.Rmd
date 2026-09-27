@@ -28,7 +28,7 @@ Yes, there is already a seemingly near-infinite number of shapes out there:
 
 -   Those familiar to ggplot users (some fillable) as described in the [ggplot2 documentation](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point);
 -   Colourable [unicodes](https://www.compart.com/en/unicode/category/So) and [icons](https://fontawesome.com/icons/) like fontawesome;
--   [ggimage](https://github.com/GuangchuangYu/ggimage) enables the use of whole pictures;
+-   [ggimage](https://github.com/YuLab-SMU/ggimage) enables the use of whole pictures;
 -   And then there is the DIY (Do-It-Yourself) approach: Conjuring up grobs (grid graphical objects); perhaps with a sprinkle of trigonometry.
 
 But sometimes you just can't find what you want. Nor manipulate it in the way you would like.
