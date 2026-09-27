@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+<path fill="black" fill-rule="nonzero" d="M45 77 C57 80 68 80 81 81 C99 81 121 82 137 77
+C136 91 139 107 137 120 C137 132 138 144 133 151
+C128 158 112 161 96 160 C80 161 65 160 55 156
+C46 153 47 142 46 130 C43 115 46 104 44 91
+C44 84 45 80 45 77 Z"/>
+<path fill="black" fill-rule="nonzero" d="M72 49 C61 42 64 37 69 31 C73 26 72 21 69 17
+C80 24 80 28 75 34 C70 40 67 43 74 47 C76 50 74 52 72 49 Z"/>
+<path fill="black" fill-rule="nonzero" d="M106 50 C101 46 100 41 105 36 C110 30 112 25 108 21
+C119 29 116 34 111 39 C107 43 105 46 109 49 C112 53 108 54 106 50 Z"/>
+</svg>

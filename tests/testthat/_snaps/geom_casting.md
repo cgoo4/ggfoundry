@@ -54,38 +54,44 @@
     Code
       shapes_cast()
     Output
-               set      shape
-      1     circle    circleF
-      3     circle    circleL
-      5     circle    circleR
-      7  container      bowl0
-      9  container      bowl1
-      11 container      bowl2
-      13 container        jar
-      15 container       tube
-      17     cross     cross1
-      19     cross     cross2
-      21    flower sunflower1
-      23    flower sunflower2
-      25    flower sunflower3
-      27    flower sunflower4
-      29    flower sunflower5
-      31    flower sunflower6
-      33    flower sunflower7
-      35    flower sunflower8
-      37      geom        box
-      39      geom     dendro
-      41      geom     ribbon
-      43      geom     violin
-      45      leaf   hibiscus
-      47      leaf        oak
-      49   penguin     adelie
-      51   penguin  chinstrap
-      53   penguin     gentoo
-      55   polygon   heptagon
-      57   polygon    hexagon
-      59   polygon    octagon
-      61   polygon   pentagon
+               set        shape
+      1     circle      circleF
+      3     circle      circleL
+      5     circle      circleR
+      7  container        bowl0
+      9  container        bowl1
+      11 container        bowl2
+      13 container          cup
+      15 container          jar
+      17 container          mug
+      19 container     takeaway
+      21 container         tube
+      23     cross       cross1
+      25     cross       cross2
+      27    flower   sunflower1
+      29    flower   sunflower2
+      31    flower   sunflower3
+      33    flower   sunflower4
+      35    flower   sunflower5
+      37    flower   sunflower6
+      39    flower   sunflower7
+      41    flower   sunflower8
+      43      food   coffeebean
+      45      food jackolantern
+      47      food      pumpkin
+      49      geom          box
+      51      geom       dendro
+      53      geom       ribbon
+      55      geom       violin
+      57      leaf     hibiscus
+      59      leaf          oak
+      61   penguin       adelie
+      63   penguin    chinstrap
+      65   penguin       gentoo
+      67   polygon     heptagon
+      69   polygon      hexagon
+      71   polygon      octagon
+      73   polygon     pentagon
 
 # shapes clipped when zooming
 

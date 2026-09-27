@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+<path fill="black" fill-rule="nonzero" d="M48 94 C59 97 66 98 79 99 C96 101 120 100 141 94
+C139 105 135 113 132 121 C128 131 119 136 110 139
+C100 143 90 142 81 139 C69 138 61 129 57 118
+C52 109 50 101 48 94 Z"/>
+<path fill="black" fill-rule="nonzero" d="M89 66 C77 58 80 51 87 44 C92 38 92 34 88 28
+C99 35 97 41 92 47 C86 53 83 57 91 63
+C94 66 92 69 89 66 Z"/>
+</svg>

@@ -9,3 +9,6 @@ docs
 DATABOT.md
 /doc/
 /Meta/
+
+/.quarto/
+**/*.quarto_ipynb
