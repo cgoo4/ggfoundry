@@ -2,6 +2,8 @@
 
 ## ggfoundry 0.4.0
 
+CRAN release: 2026-09-27
+
 ### New shapes
 
 - 6 shapes added, motivated by [International Coffee
