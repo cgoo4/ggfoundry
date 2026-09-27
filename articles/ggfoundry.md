@@ -16,7 +16,7 @@ there:
   documentation](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#point);
 - Colourable [unicodes](https://www.compart.com/en/unicode/category/So)
   and [icons](https://fontawesome.com/icons/) like fontawesome;
-- [ggimage](https://github.com/GuangchuangYu/ggimage) enables the use of
+- [ggimage](https://github.com/YuLab-SMU/ggimage) enables the use of
   whole pictures;
 - And then there is the DIY (Do-It-Yourself) approach: Conjuring up
   grobs (grid graphical objects); perhaps with a sprinkle of
