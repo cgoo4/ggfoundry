@@ -22,6 +22,7 @@ Imports:
 Suggests: 
     dplyr,
     forcats,
+    hexbin,
     knitr,
     rmarkdown,
     spelling,
@@ -29,6 +30,7 @@ Suggests:
     testthat (>= 3.0.0)
 Config/Needs/website:
     ggimage,
+    hexbin,
     ggfx,
     ggpp,
     ggtext,
