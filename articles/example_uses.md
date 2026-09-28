@@ -83,10 +83,6 @@ ggplot(diamonds, aes(carat, price)) +
     fill = "Counts", y = "Price", x = "Carat"
   ) +
   theme_bw()
-#> Warning: Computation failed in `stat_binhex()`.
-#> Computation failed in `stat_binhex()`.
-#> Caused by error in `compute_group()`:
-#> ! The package "hexbin" is required for `stat_bin_hex()`.
 ```
 
 ![](example_uses_files/figure-html/sunflower-1.png)
