@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/cgoo4/ggfoundry/blob/main/inst/CITATION)
+[`inst/CITATION`](https://github.com/cgoo4/ggfoundry/blob/v0.4.0/inst/CITATION)
 
 Goodwin, Carl. 2024. Arbitrary shapes for {ggplot2}.
 https://cgoo4.github.io/ggfoundry/
