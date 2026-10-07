@@ -14,6 +14,10 @@ A data frame of available sets and shapes.
 
 Create a data frame of available shapes and associated sets. This may be
 filtered and used as a vector of strings in \code{scale_shape_manual()}.
+
+Shapes are nominal symbols, not an ordered scale. Note that the quill is
+placed by its ink-contact point rather than its centre; see
+\code{\link[=geom_casting]{geom_casting()}}.
 }
 \examples{
 # Returns a data frame of available shapes

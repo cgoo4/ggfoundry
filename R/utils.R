@@ -3,18 +3,24 @@
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-cast_shape <- \(shape, colour, fill, size, angle, x, y, hjust, vjust) {
+cast_shape <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, anchor = TRUE) {
   col_grob <- picture_lst[grepl(paste0(shape, "_col"), names(picture_lst))][[1]]
   fill_grob <- picture_lst[grepl(paste0(shape, "_fill"), names(picture_lst))][[
     1
   ]]
 
-  gTree(
+  grob <- gTree(
     children = gList(
       cast_layers(col_grob, colour, size, angle, x, y, hjust, vjust),
       cast_layers(fill_grob, fill, size, angle, x, y, hjust, vjust)
     )
   )
+
+  if (anchor && identical(shape, "quill")) {
+    grob <- place_template(grob, size, angle, x, y, hjust, vjust,
+                           anchor = shape_anchor(shape))
+  }
+  grob
 }
 
 #' Cast a repeated style from a per-panel template cache
@@ -33,7 +39,8 @@ cast_style <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, cache) {
     cache[[key]] <- template
   }
 
-  place_template(template, size, angle, x, y, hjust, vjust)
+  place_template(template, size, angle, x, y, hjust, vjust,
+                 anchor = shape_anchor(shape))
 }
 
 #' Re-place a styled template for one observation
@@ -44,8 +51,8 @@ cast_style <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, cache) {
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-place_template <- \(grob, size, angle, x, y, hjust, vjust) {
-  grob$vp <- place_viewports(grob$vp, size, angle, x, y, hjust, vjust)
+place_template <- \(grob, size, angle, x, y, hjust, vjust, anchor = c(0.5, 0.5)) {
+  grob$vp <- place_viewports(grob$vp, size, angle, x, y, hjust, vjust, anchor)
 
   if (inherits(grob, "gTree") && !is.null(grob$children)) {
     grob$children <- do.call(
@@ -58,7 +65,8 @@ place_template <- \(grob, size, angle, x, y, hjust, vjust) {
         x = x,
         y = y,
         hjust = hjust,
-        vjust = vjust
+        vjust = vjust,
+        anchor = anchor
       )
     )
   }
@@ -71,7 +79,7 @@ place_template <- \(grob, size, angle, x, y, hjust, vjust) {
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-place_viewports <- \(vp, size, angle, x, y, hjust, vjust) {
+place_viewports <- \(vp, size, angle, x, y, hjust, vjust, anchor = c(0.5, 0.5)) {
   if (is.null(vp)) {
     return(NULL)
   }
@@ -85,9 +93,16 @@ place_viewports <- \(vp, size, angle, x, y, hjust, vjust) {
       x = x,
       y = y,
       hjust = hjust,
-      vjust = vjust
+      vjust = vjust,
+      anchor = anchor
     )
     return(vp)
+  }
+
+  if (identical(vp$name, "picture.scale") && !identical(anchor, c(0.5, 0.5))) {
+    # Quill geometry stays within its canvas; the enclosing plot clips it.
+    # Inner clipping cannot be resolved by grid after rotation.
+    vp$clip <- FALSE
   }
 
   if (identical(vp$name, "picture.shape")) {
@@ -100,6 +115,9 @@ place_viewports <- \(vp, size, angle, x, y, hjust, vjust) {
     vp$angle <- angle
     vp$justification <- just
     vp$valid.just <- just
+    if (!identical(anchor, c(0.5, 0.5))) {
+      vp <- anchor_viewport(vp, size, angle, anchor)
+    }
   }
 
   vp
@@ -118,7 +136,8 @@ cast_layers <- \(picture, col, size, angle, x, y, hjust, vjust) {
       size = size,
       angle = angle,
       just = c(hjust, vjust),
-      default.units = "npc"
+      default.units = "npc",
+      expansion = 0.05
     ) |>
     removeGrob("Poly", grep = TRUE, global = TRUE) |>
     editGrob(

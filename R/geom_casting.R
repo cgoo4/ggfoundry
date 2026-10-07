@@ -22,7 +22,16 @@
 #'   respected for each individual shape, whether grouping is implicit or
 #'   explicitly shared with `group = 1`. A `fill` of `NA` or `"transparent"`
 #'   renders the outline only: for shapes such as the "bowl" set, this hides
-#'   the steam while retaining the bowl outline.
+#'   the steam while retaining the bowl outline. The quill's shaft and ink
+#'   mark use `colour`, so the mark remains visible when its feather fill is
+#'   transparent. For the "halloween" set's skeleton and spiderweb, `fill`
+#'   colours the narrow interiors of bones and threads, so its effect is
+#'   subtler than on a book or ghost.
+#'
+#'   Placement exception: whereas other shapes are centred on their plotting
+#'   coordinate, the quill's ink-contact point is placed there, so the nib
+#'   touches the data point as if writing it. The whole quill is centred in
+#'   legend keys for readability.
 #'
 #'   In addition to the supported aesthetics below, `nudge_x`, `nudge_y`,
 #'   `hjust` and `vjust` are also respected.
@@ -125,6 +134,10 @@ geom_casting <- \(
 #'
 #'   Create a data frame of available shapes and associated sets. This may be
 #'   filtered and used as a vector of strings in `scale_shape_manual()`.
+#'
+#'   Shapes are nominal symbols, not an ordered scale. Note that the quill is
+#'   placed by its ink-contact point rather than its centre; see
+#'   [geom_casting()].
 #'
 #' @export
 #'
@@ -232,7 +245,8 @@ GeomCasting <- ggproto(
       x = 0.5,
       y = 0.5,
       hjust = 0.5,
-      vjust = 0.5
+      vjust = 0.5,
+      anchor = FALSE
     )
   }
 )

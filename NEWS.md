@@ -1,5 +1,11 @@
 # ggfoundry (development version)
 
+## New shapes
+
+-   6 shapes added to a new "writing" set: `bookfront`, `bookopen`, `nib`, `fountainpen`, `inkpot` and `quill`.
+-   5 shapes added to a new "halloween" set: `skeleton`, `ghost`, `spiderweb`, `grimreaper` and `gravestone`. All new shapes retain separate colour and fill layers, including outline-only rendering.
+-   The quill anchors its ink contact to the plotting coordinate, including after rotation and resizing. Legend keys retain central placement.
+
 # ggfoundry 0.4.0
 
 ## New shapes

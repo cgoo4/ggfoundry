@@ -83,15 +83,26 @@
       51      geom       dendro
       53      geom       ribbon
       55      geom       violin
-      57      leaf     hibiscus
-      59      leaf          oak
-      61   penguin       adelie
-      63   penguin    chinstrap
-      65   penguin       gentoo
-      67   polygon     heptagon
-      69   polygon      hexagon
-      71   polygon      octagon
-      73   polygon     pentagon
+      57 halloween        ghost
+      59 halloween   gravestone
+      61 halloween   grimreaper
+      63 halloween     skeleton
+      65 halloween    spiderweb
+      67      leaf     hibiscus
+      69      leaf          oak
+      71   penguin       adelie
+      73   penguin    chinstrap
+      75   penguin       gentoo
+      77   polygon     heptagon
+      79   polygon      hexagon
+      81   polygon      octagon
+      83   polygon     pentagon
+      85   writing    bookfront
+      87   writing     bookopen
+      89   writing  fountainpen
+      91   writing       inkpot
+      93   writing          nib
+      95   writing        quill
 
 # shapes clipped when zooming
 

@@ -33,7 +33,7 @@ can install ggfoundry from GitHub.
 
 ``` r
 # install.packages("pak")
-pak::pak("cgoo4/ggfoundry")
+pak::pak("cgoo4/ggfoundry@Dev")
 ```
 
 ## Basic example
@@ -58,7 +58,6 @@ from TidyTuesday and point `read.csv()` at it instead.
 
 ``` r
 library(ggfoundry)
-#> Loading required package: ggplot2
 
 # Repository snapshot; readers elsewhere may use the TidyTuesday URL above
 coffee <- read.csv("data-raw/cappuccino/cappuccino_index.csv", fileEncoding = "UTF-8")

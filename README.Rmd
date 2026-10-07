@@ -39,7 +39,7 @@ To get a bug fix, or to use a feature from the development version, you can inst
 
 ``` r
 # install.packages("pak")
-pak::pak("cgoo4/ggfoundry")
+pak::pak("cgoo4/ggfoundry@Dev")
 ```
 
 ## Basic example
