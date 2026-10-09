@@ -2,16 +2,16 @@
 
 ## New shapes
 
--   6 shapes added to a new "writing" set: `bookfront`, `bookopen`, `nib`, `fountainpen`, `inkpot` and `quill`.
--   5 shapes added to a new "halloween" set: `skeleton`, `ghost`, `spiderweb`, `grimreaper` and `gravestone`. All new shapes retain separate colour and fill layers, including outline-only rendering.
+-   6 shapes added to a new 'writing' set: `bookfront`, `bookopen`, `nib`, `fountainpen`, `inkpot` and `quill`.
+-   5 shapes added to a new 'halloween' set: `skeleton`, `ghost`, `spiderweb`, `grimreaper` and `gravestone`. All new shapes retain separate colour and fill layers, including outline-only rendering.
 -   The quill anchors its ink contact to the plotting coordinate, including after rotation and resizing. Legend keys retain central placement.
 
 # ggfoundry 0.4.0
 
 ## New shapes
 
--   6 shapes added, motivated by [International Coffee Day](https://ico.org/international-coffee-day/): `cup`, `mug` & `takeaway` to the "container" set; `coffeebean`, `pumpkin` & `jackolantern` to a new "food" set. `cup` & `mug` steam shares the `fill`; a transparent `fill` hides the steam while retaining the outline. These are different vessels, not an ordinal scale.
--   3 shapes ("bowl0", "bowl1" & "bowl2") added to a "container" set, then redrawn with a wobblier rim, a more irregular mound of porridge and uneven line weight; shape names and aesthetics are unchanged. Bowl body & steam share the `fill`; bowl & porridge outline use the `colour`; a transparent `fill` hides the steam while retaining the outline.
+-   6 shapes added, motivated by [International Coffee Day](https://ico.org/international-coffee-day/): `cup`, `mug`, and `takeaway` to the 'container' set; `coffeebean`, `pumpkin`, and `jackolantern` to a new 'food' set. `cup` and `mug` steam shares the `fill`; a transparent `fill` hides the steam while retaining the outline. These are different vessels, not an ordinal scale.
+-   3 shapes ('bowl0', 'bowl1', and 'bowl2') added to a 'container' set, then redrawn with a wobblier rim, a more irregular mound of porridge and uneven line weight; shape names and aesthetics are unchanged. Bowl body and steam share the `fill`; bowl and porridge outline use the `colour`; a transparent `fill` hides the steam while retaining the outline.
 
 ## Performance
 
@@ -29,7 +29,7 @@
 
 # ggfoundry 0.3.1
 
--   2 shapes ("oak" & "hibiscus") added to a "leaf" set (#10).
+-   2 shapes ('oak' and 'hibiscus') added to a 'leaf' set (#10).
 -   Added support for `hjust` and `vjust` arguments to `geom_casting()` (#14).
 -   Added a radial dendrogram with rotated leaves to the showcase article (#14).
 -   New `display_palette()` uses a fillable shape for palette & hex codes (#9).
@@ -42,12 +42,12 @@
 
 # ggfoundry 0.2.0
 
--   2 shapes ("jar" & "tube") added to a "container" set (#1).
--   8 shapes ("sunflower1" to "sunflower8") added to a "flower" set (#4).
--   3 shapes ("gentoo", "chinstrap" & "adelie") added to a "penguin" set (#5).
+-   2 shapes ('jar' and 'tube') added to a 'container' set (#1).
+-   8 shapes ('sunflower1' to 'sunflower8') added to a 'flower' set (#4).
+-   3 shapes ('gentoo', 'chinstrap', and 'adelie') added to a 'penguin' set (#5).
 -   Invalid-shape error message notes shape may be in development version (#2).
 -   New `shapes_cast()` creates a data frame of available sets & shapes (#3).
--   Reduced `sysdata.rda` size by 23% switching from "bkzip2" to "xz" (#6).
+-   Reduced `sysdata.rda` size by 23% switching from 'bkzip2' to 'xz' (#6).
 -   Fixed shapes outside plotting area when zooming (#7).
 -   Showcase vignette added.
 

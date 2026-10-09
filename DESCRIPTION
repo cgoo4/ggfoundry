@@ -3,10 +3,11 @@ Type: Package
 Title: Shape Foundry & Geom for 'ggplot2'
 Version: 0.4.0.9000
 Authors@R: person("Carl", "Goodwin", email = "carl.goodwin@quantumjitter.com",
-  role = c("aut", "cre", "cph"))
+  role = c("aut", "cre", "cph"),
+  comment = c(ORCID = "0009-0009-4836-3840"))
 Description: A 'ggplot2' extension that supports arbitrary 
-    hand-crafted colourable & fillable shapes. New shapes may be feature 
-    requested via a Github issue.
+    hand-crafted colourable and fillable shapes. New shapes may be feature 
+    requested via a GitHub issue.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -25,8 +26,10 @@ Suggests:
     hexbin,
     knitr,
     rmarkdown,
+    readr,
     spelling,
     stringr,
+    tibble,
     testthat (>= 3.0.0)
 Config/Needs/website:
     ggimage,
@@ -41,6 +44,7 @@ Config/Needs/website:
     scales,
     showtext,
     tibble,
+    readr,
     rpart
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
@@ -48,4 +52,4 @@ VignetteBuilder: knitr
 URL: https://github.com/cgoo4/ggfoundry, https://cgoo4.github.io/ggfoundry/
 BugReports: https://github.com/cgoo4/ggfoundry/issues
 Language: en-GB
-Config/roxygen2/version: 8.1.0
+Config/roxygen2/version: 8.1.1
