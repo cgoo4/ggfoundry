@@ -16,10 +16,10 @@ library(ggdendro)
 
 ## Display a palette
 
-A large collection of palettes are brought together under a single
-interface by the [paletteer
+A large collection of palettes is brought together under a single
+interface by the [{paletteer}
 package](https://emilhvitfeldt.github.io/paletteer/). It’s used here to
-load the Van Gogh palette “Starry Night”.
+load the Van Gogh palette *Starry Night*.
 
 ggfoundry’s
 [`display_palette()`](https://cgoo4.github.io/ggfoundry/reference/display_palette.md)
@@ -49,9 +49,9 @@ sunflower shapes combined with
 make possible this kind of ggplot.
 
 Each additional petal reflects an increased range in the count values as
-shown in the legend. And the choice of ggplot2 cut,
+shown in the legend. And the choice of {ggplot2} cut,
 i.e. [`cut_number()`](https://ggplot2.tidyverse.org/reference/cut_interval.html),
-[`cut_interval()`](https://ggplot2.tidyverse.org/reference/cut_interval.html)
+[`cut_interval()`](https://ggplot2.tidyverse.org/reference/cut_interval.html),
 or
 [`cut_width()`](https://ggplot2.tidyverse.org/reference/cut_interval.html),
 provides flexibility in how these ranges are constructed.
@@ -69,18 +69,25 @@ ggplot(diamonds, aes(carat, price)) +
       shape = cut_number(after_stat(count), 8, dig.lab = 4),
       group = cut_number(after_stat(count), 8)
     ),
-    size = 0.12, bins = 10, stat = "binhex", colour = pal[1], fill = pal[4]
+    size = 0.12,
+    bins = 10,
+    stat = "binhex",
+    colour = pal[1],
+    fill = pal[4]
   ) +
   scale_shape_manual(values = shapes) +
   scale_y_continuous(labels = label_currency(scale_cut = cut_short_scale())) +
   scale_fill_gradient(
-    low = pal[2], high = pal[1],
+    low = pal[2],
+    high = pal[1],
     labels = label_number(scale_cut = append(cut_short_scale(), 1))
   ) +
   labs(
     title = "Sunflower Plot",
     shape = "Count\nIntervals",
-    fill = "Counts", y = "Price", x = "Carat"
+    fill = "Counts",
+    y = "Price",
+    x = "Carat"
   ) +
   theme_bw()
 ```
@@ -93,35 +100,38 @@ In the sunflower plot,
 [`scale_shape_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
 specifies the desired shapes. Alternatively, the data may already
 specify their identity as illustrated below using Allison Horst’s
-[palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) dataset
-and ggfoundry’s penguin-set shapes.
+[{palmerpenguins}](https://allisonhorst.github.io/palmerpenguins/)
+dataset and {ggfoundry}’s penguin-set shapes.
 
 ``` r
 
-count_df <- penguins |> 
-  filter(!is.na(body_mass_g)) |> 
+count_df <- penguins |>
+  filter(!is.na(body_mass_g)) |>
   mutate(
     species = str_to_lower(species),
     cut_mass = cut_width(body_mass_g, width = 500, dig.lab = 4)
-    ) |> 
-  count(species, island, cut_mass) 
+  ) |>
+  count(species, island, cut_mass)
 
-count_df |> 
+count_df |>
   ggplot(aes(species, cut_mass, fill = species)) +
   geom_casting(aes(shape = species), size = 0.25) +
   geom_text(aes(label = n), size = 3, nudge_y = 0.2, nudge_x = 0.1) +
   scale_discrete_identity(aesthetics = "shape", guide = "legend") +
   facet_wrap(~island, scales = "free_x") +
   labs(
-    title = "Palmer Penguins", 
+    title = "Palmer Penguins",
     subtitle = "Counts by Species, Island & Body Mass Ranges",
-    shape = NULL, fill = NULL, x = NULL, y = "Body Mass (g)"
-    ) +
+    shape = NULL,
+    fill = NULL,
+    x = NULL,
+    y = "Body Mass (g)"
+  ) +
   theme_bw() +
   theme(
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank()
-    ) +
+  ) +
   guides(shape = guide_legend(override.aes = list(size = 8)))
 ```
 
@@ -134,38 +144,47 @@ to important groupings.
 
 ### Cartesian
 
-Shapes from ggfoundry’s “leaf” set are used here to augment a
-[ggdendro](https://github.com/andrie/ggdendro) plot of an
-[rpart](https://github.com/bethatkinson/rpart) tree.
+Shapes from {ggfoundry}‘s ’leaf’ set are used here to augment a
+[{ggdendro}](https://github.com/andrie/ggdendro) plot of an
+[{rpart}](https://github.com/bethatkinson/rpart) tree.
 
 ``` r
 
-data <- 
-  rpart(Kyphosis ~ Age + Number + Start, data = kyphosis) |> 
+data <-
+  rpart(Kyphosis ~ Age + Number + Start, data = kyphosis) |>
   dendro_data()
 
 ggplot() +
   geom_segment(
     aes(x, y, xend = xend, yend = yend),
-    colour = "tan4", data = data$segments,
+    colour = "tan4",
+    data = data$segments,
   ) +
   geom_label(
-    aes(x, y, label = label), 
-    size = 3, fill = "seashell", data = data$labels) +
-  geom_casting(aes(x, y, shape = label, fill = label), 
-               colour = "tan4", size = 0.27, data = data$leaf_labels) +
+    aes(x, y, label = label),
+    size = 3,
+    fill = "seashell",
+    data = data$labels
+  ) +
+  geom_casting(
+    aes(x, y, shape = label, fill = label),
+    colour = "tan4",
+    size = 0.27,
+    data = data$leaf_labels
+  ) +
   scale_shape_manual(values = c("hibiscus", "oak")) +
   scale_fill_manual(values = c("olivedrab3", "darkorange")) +
   labs(
-    title = "Leafy Dendrogram (Cartesian)", 
-    shape = "Kyphosis", fill = "Kyphosis"
-    ) +
+    title = "Leafy Dendrogram (Cartesian)",
+    shape = "Kyphosis",
+    fill = "Kyphosis"
+  ) +
   theme_dendro() +
   theme(
     plot.title = element_text(hjust = 0.5),
     legend.key.size = unit(2, "line"),
     legend.position = "top"
-    )
+  )
 ```
 
 ![](example_uses_files/figure-html/unnamed-chunk-3-1.png)
@@ -177,24 +196,24 @@ radial dendrogram with the leaves rotated consistent with the branches.
 
 ``` r
 
-data <- hclust(dist(USArrests), "ave") |> 
+data <- hclust(dist(USArrests), "ave") |>
   dendro_data(type = "rectangle")
 
-cluster <- hclust(dist(USArrests), "ave") |> 
-  cutree(k = 2) |> 
-  as_tibble(rownames = "label") |> 
+cluster <- hclust(dist(USArrests), "ave") |>
+  cutree(k = 2) |>
+  as_tibble(rownames = "label") |>
   mutate(cluster = factor(value), .keep = "unused")
 
 num_leaves <- nrow(data$labels)
 offset <- 15 # Degrees by which the first branch is rotated
-from <-  90 - offset # First text label
+from <- 90 - offset # First text label
 by <- -(360 - (2 * offset)) / (num_leaves - 1) # Degrees between labels
 
 leaves <- data$labels |>
   mutate(
-    angle = seq(from = from, by = by, length.out = num_leaves), 
+    angle = seq(from = from, by = by, length.out = num_leaves),
     shape_angle = seq(from + 90, by = by, length.out = num_leaves),
-  ) |> 
+  ) |>
   left_join(cluster, join_by(label))
 
 ggplot() +
@@ -204,23 +223,28 @@ ggplot() +
   ) +
   geom_text(
     aes(x = x, y = y, label = label, angle = angle),
-    size = 3, hjust = 0, nudge_y = 20, data = leaves
+    size = 3,
+    hjust = 0,
+    nudge_y = 20,
+    data = leaves
   ) +
   geom_casting(
-    aes(x, y, angle = shape_angle, group = x, fill = cluster, shape = cluster), 
-    vjust = 0.7, size = 0.08, data = leaves
+    aes(x, y, angle = shape_angle, group = x, fill = cluster, shape = cluster),
+    vjust = 0.7,
+    size = 0.08,
+    data = leaves
   ) +
   scale_y_reverse() +
   scale_fill_manual(values = c("pink", "lightgreen")) +
   scale_shape_manual(values = c("oak", "hibiscus")) +
   labs(title = "Leafy Dendrogram (Radial)") +
   coord_radial() +
-  theme_dendro() + 
+  theme_dendro() +
   theme(
     plot.title = element_text(hjust = 0.5),
     legend.key.size = unit(2, "line"),
     legend.position = "top"
-    )
+  )
 ```
 
 ![](example_uses_files/figure-html/unnamed-chunk-4-1.png)

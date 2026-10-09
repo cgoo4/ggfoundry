@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggfoundry</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,7 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/contrast.html">Contrast with alternatives</a></li>
     <li><a class="dropdown-item" href="../articles/example_uses.html">Showcase</a></li>
+    <li><a class="dropdown-item" href="../articles/halloween-showcase.html">Halloween shapes</a></li>
   </ul></li>
 <li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-news" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">News</button>
@@ -54,11 +55,20 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="development version" id="ggfoundry-development-version">ggfoundry (development version)<a class="anchor" aria-label="anchor" href="#ggfoundry-development-version"></a></h2>
+<div class="section level3">
+<h3 id="new-shapes-development-version">New shapes<a class="anchor" aria-label="anchor" href="#new-shapes-development-version"></a></h3>
+<ul><li>6 shapes added to a new ‘writing’ set: <code>bookfront</code>, <code>bookopen</code>, <code>nib</code>, <code>fountainpen</code>, <code>inkpot</code> and <code>quill</code>.</li>
+<li>5 shapes added to a new ‘halloween’ set: <code>skeleton</code>, <code>ghost</code>, <code>spiderweb</code>, <code>grimreaper</code> and <code>gravestone</code>. All new shapes retain separate colour and fill layers, including outline-only rendering.</li>
+<li>The quill anchors its ink contact to the plotting coordinate, including after rotation and resizing. Legend keys retain central placement.</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.4.0" id="ggfoundry-040">ggfoundry 0.4.0<a class="anchor" aria-label="anchor" href="#ggfoundry-040"></a></h2><p class="text-muted">CRAN release: 2026-09-27</p>
 <div class="section level3">
 <h3 id="new-shapes-0-4-0">New shapes<a class="anchor" aria-label="anchor" href="#new-shapes-0-4-0"></a></h3>
-<ul><li>6 shapes added, motivated by <a href="https://ico.org/international-coffee-day/" class="external-link">International Coffee Day</a>: <code>cup</code>, <code>mug</code> &amp; <code>takeaway</code> to the “container” set; <code>coffeebean</code>, <code>pumpkin</code> &amp; <code>jackolantern</code> to a new “food” set. <code>cup</code> &amp; <code>mug</code> steam shares the <code>fill</code>; a transparent <code>fill</code> hides the steam while retaining the outline. These are different vessels, not an ordinal scale.</li>
-<li>3 shapes (“bowl0”, “bowl1” &amp; “bowl2”) added to a “container” set, then redrawn with a wobblier rim, a more irregular mound of porridge and uneven line weight; shape names and aesthetics are unchanged. Bowl body &amp; steam share the <code>fill</code>; bowl &amp; porridge outline use the <code>colour</code>; a transparent <code>fill</code> hides the steam while retaining the outline.</li>
+<ul><li>6 shapes added, motivated by <a href="https://ico.org/international-coffee-day/" class="external-link">International Coffee Day</a>: <code>cup</code>, <code>mug</code>, and <code>takeaway</code> to the ‘container’ set; <code>coffeebean</code>, <code>pumpkin</code>, and <code>jackolantern</code> to a new ‘food’ set. <code>cup</code> and <code>mug</code> steam shares the <code>fill</code>; a transparent <code>fill</code> hides the steam while retaining the outline. These are different vessels, not an ordinal scale.</li>
+<li>3 shapes (‘bowl0’, ‘bowl1’, and ‘bowl2’) added to a ‘container’ set, then redrawn with a wobblier rim, a more irregular mound of porridge and uneven line weight; shape names and aesthetics are unchanged. Bowl body and steam share the <code>fill</code>; bowl and porridge outline use the <code>colour</code>; a transparent <code>fill</code> hides the steam while retaining the outline.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="performance-0-4-0">Performance<a class="anchor" aria-label="anchor" href="#performance-0-4-0"></a></h3>
@@ -78,7 +88,7 @@
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.1" id="ggfoundry-031">ggfoundry 0.3.1<a class="anchor" aria-label="anchor" href="#ggfoundry-031"></a></h2><p class="text-muted">CRAN release: 2024-07-06</p>
-<ul><li>2 shapes (“oak” &amp; “hibiscus”) added to a “leaf” set (<a href="https://github.com/cgoo4/ggfoundry/issues/10" class="external-link">#10</a>).</li>
+<ul><li>2 shapes (‘oak’ and ‘hibiscus’) added to a ‘leaf’ set (<a href="https://github.com/cgoo4/ggfoundry/issues/10" class="external-link">#10</a>).</li>
 <li>Added support for <code>hjust</code> and <code>vjust</code> arguments to <code><a href="../reference/geom_casting.html">geom_casting()</a></code> (<a href="https://github.com/cgoo4/ggfoundry/issues/14" class="external-link">#14</a>).</li>
 <li>Added a radial dendrogram with rotated leaves to the showcase article (<a href="https://github.com/cgoo4/ggfoundry/issues/14" class="external-link">#14</a>).</li>
 <li>New <code><a href="../reference/display_palette.html">display_palette()</a></code> uses a fillable shape for palette &amp; hex codes (<a href="https://github.com/cgoo4/ggfoundry/issues/9" class="external-link">#9</a>).</li>
@@ -91,12 +101,12 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="ggfoundry-020">ggfoundry 0.2.0<a class="anchor" aria-label="anchor" href="#ggfoundry-020"></a></h2><p class="text-muted">CRAN release: 2024-06-09</p>
-<ul><li>2 shapes (“jar” &amp; “tube”) added to a “container” set (<a href="https://github.com/cgoo4/ggfoundry/issues/1" class="external-link">#1</a>).</li>
-<li>8 shapes (“sunflower1” to “sunflower8”) added to a “flower” set (<a href="https://github.com/cgoo4/ggfoundry/issues/4" class="external-link">#4</a>).</li>
-<li>3 shapes (“gentoo”, “chinstrap” &amp; “adelie”) added to a “penguin” set (<a href="https://github.com/cgoo4/ggfoundry/issues/5" class="external-link">#5</a>).</li>
+<ul><li>2 shapes (‘jar’ and ‘tube’) added to a ‘container’ set (<a href="https://github.com/cgoo4/ggfoundry/issues/1" class="external-link">#1</a>).</li>
+<li>8 shapes (‘sunflower1’ to ‘sunflower8’) added to a ‘flower’ set (<a href="https://github.com/cgoo4/ggfoundry/issues/4" class="external-link">#4</a>).</li>
+<li>3 shapes (‘gentoo’, ‘chinstrap’, and ‘adelie’) added to a ‘penguin’ set (<a href="https://github.com/cgoo4/ggfoundry/issues/5" class="external-link">#5</a>).</li>
 <li>Invalid-shape error message notes shape may be in development version (<a href="https://github.com/cgoo4/ggfoundry/issues/2" class="external-link">#2</a>).</li>
 <li>New <code><a href="../reference/shapes_cast.html">shapes_cast()</a></code> creates a data frame of available sets &amp; shapes (<a href="https://github.com/cgoo4/ggfoundry/issues/3" class="external-link">#3</a>).</li>
-<li>Reduced <code>sysdata.rda</code> size by 23% switching from “bkzip2” to “xz” (<a href="https://github.com/cgoo4/ggfoundry/issues/6" class="external-link">#6</a>).</li>
+<li>Reduced <code>sysdata.rda</code> size by 23% switching from ‘bkzip2’ to ‘xz’ (<a href="https://github.com/cgoo4/ggfoundry/issues/6" class="external-link">#6</a>).</li>
 <li>Fixed shapes outside plotting area when zooming (<a href="https://github.com/cgoo4/ggfoundry/issues/7" class="external-link">#7</a>).</li>
 <li>Showcase vignette added.</li>
 </ul></div>

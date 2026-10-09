@@ -10,3 +10,6 @@
 - [ggfoundry](https://cgoo4.github.io/ggfoundry/articles/ggfoundry.md):
 
   Add a layer of custom fillable shapes to a ggplot.
+
+- [Halloween
+  shapes](https://cgoo4.github.io/ggfoundry/articles/halloween-showcase.md):

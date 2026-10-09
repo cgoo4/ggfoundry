@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggfoundry</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +45,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/contrast.html">Contrast with alternatives</a></li>
     <li><a class="dropdown-item" href="../articles/example_uses.html">Showcase</a></li>
+    <li><a class="dropdown-item" href="../articles/halloween-showcase.html">Halloween shapes</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -95,7 +96,7 @@
 <p>As described in <a href="https://cgoo4.github.io/ggfoundry/articles/ggfoundry">get
 started</a>, there is already a seemingly near-infinite number of shapes
 out there. This article explores some of the alternative approaches
-side-by-side with ggfoundry.</p>
+side-by-side with {ggfoundry}.</p>
 <div class="section level2">
 <h2 id="unicodes">Unicodes<a class="anchor" aria-label="anchor" href="#unicodes"></a>
 </h2>
@@ -136,15 +137,15 @@ great option. They are colourable and appear in the legend.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"ggfoundry"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"On-request colourable fillable shapes"</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"\u25BC"</span>,<span class="st">"\u25CF"</span>,<span class="st">"\u25B2"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"\u25BC"</span>, <span class="st">"\u25CF"</span>, <span class="st">"\u25B2"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"geom_point with unicodes"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Range of colourable-only symbols"</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contrast_files/figure-html/unicodes-1.png" class="r-plt" alt="" width="100%"></p>
@@ -153,10 +154,10 @@ great option. They are colourable and appear in the legend.</p>
 <h2 id="icons">Icons<a class="anchor" aria-label="anchor" href="#icons"></a>
 </h2>
 <p>Icons are also a great option, e.g. for brands. One way to use these
-as ggplot points is via the <a href="https://github.com/yixuan/showtext" class="external-link">showtext</a> and <a href="https://github.com/wilkelab/ggtext" class="external-link">ggtext</a> packages. They too
-are colourable, but the fill is for the surrounding label rather than
-the symbol itself. The legend reflects the use of the richtext geom,
-i.e. shows letters.</p>
+as ggplot points is via the <a href="https://github.com/yixuan/showtext" class="external-link">{showtext}</a> and <a href="https://github.com/wilkelab/ggtext" class="external-link">{ggtext}</a> packages. They
+too are colourable, but the fill is for the surrounding label rather
+than the symbol itself. The legend reflects the use of the richtext
+geom, i.e. shows letters.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/yixuan/showtext" class="external-link">showtext</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggtext/" class="external-link">ggtext</a></span><span class="op">)</span></span>
@@ -168,15 +169,16 @@ i.e. shows letters.</p>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://wilkelab.org/ggtext/reference/geom_richtext.html" class="external-link">geom_richtext</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"&lt;span style='font-family: \"fa-solid\"'&gt;&amp;#xf16c;&lt;/span&gt;"</span><span class="op">)</span>,</span>
-<span>    size <span class="op">=</span> <span class="fl">5</span>, label.colour <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    size <span class="op">=</span> <span class="fl">5</span>,</span>
+<span>    label.colour <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"ggtext with icons"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
-<span>      <span class="st">"Colourable icons; label fill; "</span>, </span>
+<span>      <span class="st">"Colourable icons; label fill; "</span>,</span>
 <span>      <span class="st">"text legend"</span></span>
-<span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="contrast_files/figure-html/ggtext-1.png" class="r-plt" alt="" width="100%"></p>
@@ -187,19 +189,19 @@ i.e. shows letters.</p>
 <div class="section level2">
 <h2 id="images">Images<a class="anchor" aria-label="anchor" href="#images"></a>
 </h2>
-<p><a href="https://github.com/GuangchuangYu/ggimage" class="external-link">ggimage</a> is a
+<p><a href="https://github.com/GuangchuangYu/ggimage" class="external-link">{ggimage}</a> is a
 great option for full images, e.g. png files. Country flags, company
-logos and sports team badges are good example use-cases, as rendering
+logos, and sports team badges are good example use-cases, as rendering
 the full image as-is is often the desired outcome.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/YuLab-SMU/ggimage" class="external-link">ggimage</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
-<span>  <span class="op">~</span><span class="va">x</span>, <span class="op">~</span><span class="va">y</span>,</span>
-<span>  <span class="fl">5</span>, <span class="fl">5</span>,</span>
-<span>  <span class="fl">6</span>, <span class="fl">6</span>,</span>
-<span>  <span class="fl">7</span>, <span class="fl">7</span>,</span>
-<span>  <span class="fl">8</span>, <span class="fl">8</span></span>
+<span>  <span class="op">~</span><span class="va">x</span> , <span class="op">~</span><span class="va">y</span> ,</span>
+<span>   <span class="fl">5</span> ,  <span class="fl">5</span> ,</span>
+<span>   <span class="fl">6</span> ,  <span class="fl">6</span> ,</span>
+<span>   <span class="fl">7</span> ,  <span class="fl">7</span> ,</span>
+<span>   <span class="fl">8</span> ,  <span class="fl">8</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span></span>
@@ -218,16 +220,18 @@ the full image as-is is often the desired outcome.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"ggfoundry"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Arbitrary hand-crafted fillable shapes"</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/ggimage/man/geom_flag.html" class="external-link">geom_flag</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">0.1</span>, image <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"DE"</span>, <span class="st">"FR"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"ggimage"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Any as-is whole picture, e.g. png"</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
-<span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">p1</span> <span class="op">+</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">"collect"</span>, axes <span class="op">=</span> <span class="st">"collect"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in doTryCatch(return(expr), name, parentenv, handler): Invalid image</span></span>
+<span><span class="co">#&gt; path or object provided: NA</span></span></code></pre></div>
 <p><img src="contrast_files/figure-html/ggimage-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level2">
@@ -239,16 +243,16 @@ compromising a little on the legend:</p>
 <ul>
 <li>Have one larger layer with a coloured symbol. Then superimpose a
 smaller second layer with a differently-coloured symbol.</li>
-<li>Use photoshop-style special effects provided by the <a href="https://github.com/thomasp85/ggfx" class="external-link">ggfx</a> package, e.g. adding a
-differently-coloured outer-glow.</li>
+<li>Use Photoshop-style special effects provided by the <a href="https://github.com/thomasp85/ggfx" class="external-link">{ggfx}</a> package, e.g. adding
+a differently-coloured outer-glow.</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggfx.data-imaginist.com" class="external-link">ggfx</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
-<span>  <span class="op">~</span><span class="va">x</span>, <span class="op">~</span><span class="va">y</span>, <span class="op">~</span><span class="va">label</span>,</span>
-<span>  <span class="fl">5</span>, <span class="fl">5</span>, <span class="st">"+"</span>,</span>
-<span>  <span class="fl">6</span>, <span class="fl">6</span>, <span class="st">"x"</span></span>
+<span>  <span class="op">~</span><span class="va">x</span> , <span class="op">~</span><span class="va">y</span> , <span class="op">~</span><span class="va">label</span> ,</span>
+<span>   <span class="fl">5</span> ,  <span class="fl">5</span> , <span class="st">"+"</span>    ,</span>
+<span>   <span class="fl">6</span> ,  <span class="fl">6</span> , <span class="st">"x"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span></span>
@@ -267,26 +271,51 @@ differently-coloured outer-glow.</li>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"ggfoundry"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Hand-crafted fillable shapes"</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">"#22A884"</span>, fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
-<span>            size <span class="op">=</span> <span class="fl">24</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">label</span>, colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>, </span>
-<span>            size <span class="op">=</span> <span class="fl">20</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">"grey60"</span>, nudge_y <span class="op">=</span> <span class="op">-</span><span class="fl">0.15</span>,</span>
-<span>            size <span class="op">=</span> <span class="fl">3</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>,</span>
+<span>    colour <span class="op">=</span> <span class="st">"#22A884"</span>,</span>
+<span>    fontface <span class="op">=</span> <span class="st">"bold"</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">24</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">label</span>, colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>,</span>
+<span>    colour <span class="op">=</span> <span class="st">"grey60"</span>,</span>
+<span>    nudge_y <span class="op">=</span> <span class="op">-</span><span class="fl">0.15</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Cunning strategy 1"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Superimposed layers"</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggfx.data-imaginist.com/reference/with_outer_glow.html" class="external-link">with_outer_glow</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">label</span>, colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    size <span class="op">=</span> <span class="fl">22</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span>, </span>
-<span>  <span class="op">)</span>, sigma <span class="op">=</span> <span class="fl">0</span>, expand <span class="op">=</span> <span class="fl">8</span>, colour <span class="op">=</span> <span class="st">"#22A884"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">"grey60"</span>, nudge_y <span class="op">=</span> <span class="op">-</span><span class="fl">0.15</span>,</span>
-<span>            size <span class="op">=</span> <span class="fl">3</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggfx.data-imaginist.com/reference/with_outer_glow.html" class="external-link">with_outer_glow</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">label</span>, colour <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>      size <span class="op">=</span> <span class="fl">22</span>,</span>
+<span>      show.legend <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>    <span class="op">)</span>,</span>
+<span>    sigma <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>    expand <span class="op">=</span> <span class="fl">8</span>,</span>
+<span>    colour <span class="op">=</span> <span class="st">"#22A884"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">x</span><span class="op">)</span>,</span>
+<span>    colour <span class="op">=</span> <span class="st">"grey60"</span>,</span>
+<span>    nudge_y <span class="op">=</span> <span class="op">-</span><span class="fl">0.15</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Cunning strategy 2"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Photoshop-style outer glow"</span></span>
@@ -299,7 +328,7 @@ differently-coloured outer-glow.</li>
 <h2 id="diy">DIY<a class="anchor" aria-label="anchor" href="#diy"></a>
 </h2>
 <p>Making your own grob with grid graphics is a further option. Then use
-<a href="https://github.com/aphalo/ggpp" class="external-link">ggpp</a> and
+<a href="https://github.com/aphalo/ggpp" class="external-link">{ggpp}</a> and
 <code><a href="https://docs.r4photobiology.info/ggpp/reference/geom_grob.html" class="external-link">geom_grob()</a></code> to add the appropriate layer. A circle is used
 here as a very basic example.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
@@ -307,18 +336,25 @@ here as a very basic example.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span>  x <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">6</span>, y <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">6</span>,</span>
+<span>  x <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">6</span>,</span>
+<span>  y <span class="op">=</span> <span class="fl">5</span><span class="op">:</span><span class="fl">6</span>,</span>
 <span>  grob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grid/grid.circle.html" class="external-link">circleGrob</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">0.7</span>, gp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span></span>
-<span>      col <span class="op">=</span> <span class="st">"#fde725"</span>,</span>
-<span>      fill <span class="op">=</span> <span class="st">"#440154"</span>,</span>
-<span>      lwd <span class="op">=</span> <span class="fl">4</span></span>
-<span>    <span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grid/grid.circle.html" class="external-link">circleGrob</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">0.7</span>, gp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span></span>
-<span>      col <span class="op">=</span> <span class="st">"#440154"</span>,</span>
-<span>      fill <span class="op">=</span> <span class="st">"#fde725"</span>,</span>
-<span>      lwd <span class="op">=</span> <span class="fl">4</span></span>
-<span>    <span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grid/grid.circle.html" class="external-link">circleGrob</a></span><span class="op">(</span></span>
+<span>      r <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>      gp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span></span>
+<span>        col <span class="op">=</span> <span class="st">"#fde725"</span>,</span>
+<span>        fill <span class="op">=</span> <span class="st">"#440154"</span>,</span>
+<span>        lwd <span class="op">=</span> <span class="fl">4</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grid/grid.circle.html" class="external-link">circleGrob</a></span><span class="op">(</span></span>
+<span>      r <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>      gp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/gpar.html" class="external-link">gpar</a></span><span class="op">(</span></span>
+<span>        col <span class="op">=</span> <span class="st">"#440154"</span>,</span>
+<span>        fill <span class="op">=</span> <span class="st">"#fde725"</span>,</span>
+<span>        lwd <span class="op">=</span> <span class="fl">4</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -336,7 +372,7 @@ here as a very basic example.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"ggfoundry"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Hand-crafted fillable shapes"</span></span>
-<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">p</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://docs.r4photobiology.info/ggpp/reference/geom_grob.html" class="external-link">geom_grob</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">grob</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>

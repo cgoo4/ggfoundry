@@ -1,5 +1,18 @@
 # Changelog
 
+## ggfoundry (development version)
+
+### New shapes
+
+- 6 shapes added to a new ‘writing’ set: `bookfront`, `bookopen`, `nib`,
+  `fountainpen`, `inkpot` and `quill`.
+- 5 shapes added to a new ‘halloween’ set: `skeleton`, `ghost`,
+  `spiderweb`, `grimreaper` and `gravestone`. All new shapes retain
+  separate colour and fill layers, including outline-only rendering.
+- The quill anchors its ink contact to the plotting coordinate,
+  including after rotation and resizing. Legend keys retain central
+  placement.
+
 ## ggfoundry 0.4.0
 
 CRAN release: 2026-09-27
@@ -7,15 +20,15 @@ CRAN release: 2026-09-27
 ### New shapes
 
 - 6 shapes added, motivated by [International Coffee
-  Day](https://ico.org/international-coffee-day/): `cup`, `mug` &
-  `takeaway` to the “container” set; `coffeebean`, `pumpkin` &
-  `jackolantern` to a new “food” set. `cup` & `mug` steam shares the
+  Day](https://ico.org/international-coffee-day/): `cup`, `mug`, and
+  `takeaway` to the ‘container’ set; `coffeebean`, `pumpkin`, and
+  `jackolantern` to a new ‘food’ set. `cup` and `mug` steam shares the
   `fill`; a transparent `fill` hides the steam while retaining the
   outline. These are different vessels, not an ordinal scale.
-- 3 shapes (“bowl0”, “bowl1” & “bowl2”) added to a “container” set, then
-  redrawn with a wobblier rim, a more irregular mound of porridge and
-  uneven line weight; shape names and aesthetics are unchanged. Bowl
-  body & steam share the `fill`; bowl & porridge outline use the
+- 3 shapes (‘bowl0’, ‘bowl1’, and ‘bowl2’) added to a ‘container’ set,
+  then redrawn with a wobblier rim, a more irregular mound of porridge
+  and uneven line weight; shape names and aesthetics are unchanged. Bowl
+  body and steam share the `fill`; bowl and porridge outline use the
   `colour`; a transparent `fill` hides the steam while retaining the
   outline.
 
@@ -46,7 +59,7 @@ CRAN release: 2026-09-27
 
 CRAN release: 2024-07-06
 
-- 2 shapes (“oak” & “hibiscus”) added to a “leaf” set
+- 2 shapes (‘oak’ and ‘hibiscus’) added to a ‘leaf’ set
   ([\#10](https://github.com/cgoo4/ggfoundry/issues/10)).
 - Added support for `hjust` and `vjust` arguments to
   [`geom_casting()`](https://cgoo4.github.io/ggfoundry/reference/geom_casting.md)
@@ -72,19 +85,19 @@ CRAN release: 2024-07-06
 
 CRAN release: 2024-06-09
 
-- 2 shapes (“jar” & “tube”) added to a “container” set
+- 2 shapes (‘jar’ and ‘tube’) added to a ‘container’ set
   ([\#1](https://github.com/cgoo4/ggfoundry/issues/1)).
-- 8 shapes (“sunflower1” to “sunflower8”) added to a “flower” set
+- 8 shapes (‘sunflower1’ to ‘sunflower8’) added to a ‘flower’ set
   ([\#4](https://github.com/cgoo4/ggfoundry/issues/4)).
-- 3 shapes (“gentoo”, “chinstrap” & “adelie”) added to a “penguin” set
-  ([\#5](https://github.com/cgoo4/ggfoundry/issues/5)).
+- 3 shapes (‘gentoo’, ‘chinstrap’, and ‘adelie’) added to a ‘penguin’
+  set ([\#5](https://github.com/cgoo4/ggfoundry/issues/5)).
 - Invalid-shape error message notes shape may be in development version
   ([\#2](https://github.com/cgoo4/ggfoundry/issues/2)).
 - New
   [`shapes_cast()`](https://cgoo4.github.io/ggfoundry/reference/shapes_cast.md)
   creates a data frame of available sets & shapes
   ([\#3](https://github.com/cgoo4/ggfoundry/issues/3)).
-- Reduced `sysdata.rda` size by 23% switching from “bkzip2” to “xz”
+- Reduced `sysdata.rda` size by 23% switching from ‘bkzip2’ to ‘xz’
   ([\#6](https://github.com/cgoo4/ggfoundry/issues/6)).
 - Fixed shapes outside plotting area when zooming
   ([\#7](https://github.com/cgoo4/ggfoundry/issues/7)).

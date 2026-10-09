@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ggfoundry</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +45,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/contrast.html">Contrast with alternatives</a></li>
     <li><a class="dropdown-item" href="../articles/example_uses.html">Showcase</a></li>
+    <li><a class="dropdown-item" href="../articles/halloween-showcase.html">Halloween shapes</a></li>
   </ul>
 </li>
 <li class="nav-item dropdown">
@@ -106,9 +107,10 @@
 <div class="section level2">
 <h2 id="display-a-palette">Display a palette<a class="anchor" aria-label="anchor" href="#display-a-palette"></a>
 </h2>
-<p>A large collection of palettes are brought together under a single
-interface by the <a href="https://emilhvitfeldt.github.io/paletteer/" class="external-link">paletteer package</a>.
-It’s used here to load the Van Gogh palette “Starry Night”.</p>
+<p>A large collection of palettes is brought together under a single
+interface by the <a href="https://emilhvitfeldt.github.io/paletteer/" class="external-link">{paletteer}
+package</a>. It’s used here to load the Van Gogh palette <em>Starry
+Night</em>.</p>
 <p>ggfoundry’s <code><a href="../reference/display_palette.html">display_palette()</a></code> shows the loaded palette
 with associated hex codes using the default shape <code>jar</code> from
 the <code>container</code> set. The outline colour defaults to mid-grey
@@ -128,8 +130,8 @@ for better dark-mode support as per this <a href="https://www.quantumjitter.com/
 Stack Overflow answer</a>, sunflower shapes combined with
 <code><a href="https://ggplot2.tidyverse.org/reference/geom_hex.html" class="external-link">geom_hex()</a></code> make possible this kind of ggplot.</p>
 <p>Each additional petal reflects an increased range in the count values
-as shown in the legend. And the choice of ggplot2 cut,
-i.e. <code><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_number()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_interval()</a></code> or
+as shown in the legend. And the choice of {ggplot2} cut,
+i.e. <code><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_number()</a></code>, <code><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_interval()</a></code>, or
 <code><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_width()</a></code>, provides flexibility in how these ranges are
 constructed.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -144,18 +146,25 @@ constructed.</p>
 <span>      shape <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_number</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span>, <span class="fl">8</span>, dig.lab <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>,</span>
 <span>      group <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_number</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html" class="external-link">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span>, <span class="fl">8</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
-<span>    size <span class="op">=</span> <span class="fl">0.12</span>, bins <span class="op">=</span> <span class="fl">10</span>, stat <span class="op">=</span> <span class="st">"binhex"</span>, colour <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, fill <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span>
+<span>    size <span class="op">=</span> <span class="fl">0.12</span>,</span>
+<span>    bins <span class="op">=</span> <span class="fl">10</span>,</span>
+<span>    stat <span class="op">=</span> <span class="st">"binhex"</span>,</span>
+<span>    colour <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    fill <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">shapes</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/label_currency.html" class="external-link">label_currency</a></span><span class="op">(</span>scale_cut <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_short_scale</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html" class="external-link">scale_fill_gradient</a></span><span class="op">(</span></span>
-<span>    low <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, high <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
+<span>    low <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
+<span>    high <span class="op">=</span> <span class="va">pal</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
 <span>    labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">label_number</a></span><span class="op">(</span>scale_cut <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/append.html" class="external-link">append</a></span><span class="op">(</span><span class="fu"><a href="https://scales.r-lib.org/reference/number.html" class="external-link">cut_short_scale</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Sunflower Plot"</span>,</span>
 <span>    shape <span class="op">=</span> <span class="st">"Count\nIntervals"</span>,</span>
-<span>    fill <span class="op">=</span> <span class="st">"Counts"</span>, y <span class="op">=</span> <span class="st">"Price"</span>, x <span class="op">=</span> <span class="st">"Carat"</span></span>
+<span>    fill <span class="op">=</span> <span class="st">"Counts"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Price"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Carat"</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="example_uses_files/figure-html/sunflower-1.png" class="r-plt" alt="" width="100%"></p>
@@ -165,33 +174,36 @@ constructed.</p>
 </h2>
 <p>In the sunflower plot, <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual()</a></code> specifies
 the desired shapes. Alternatively, the data may already specify their
-identity as illustrated below using Allison Horst’s <a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">palmerpenguins</a>
-dataset and ggfoundry’s penguin-set shapes.</p>
+identity as illustrated below using Allison Horst’s <a href="https://allisonhorst.github.io/palmerpenguins/" class="external-link">{palmerpenguins}</a>
+dataset and {ggfoundry}’s penguin-set shapes.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">count_df</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="va">count_df</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">body_mass_g</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
 <span>    species <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/case.html" class="external-link">str_to_lower</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span>,</span>
 <span>    cut_mass <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/cut_interval.html" class="external-link">cut_width</a></span><span class="op">(</span><span class="va">body_mass_g</span>, width <span class="op">=</span> <span class="fl">500</span>, dig.lab <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span>    <span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span>, <span class="va">cut_mass</span><span class="op">)</span> </span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">island</span>, <span class="va">cut_mass</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">count_df</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">count_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">cut_mass</span>, fill <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_casting.html">geom_casting</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="va">species</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">n</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">3</span>, nudge_y <span class="op">=</span> <span class="fl">0.2</span>, nudge_x <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html" class="external-link">scale_discrete_identity</a></span><span class="op">(</span>aesthetics <span class="op">=</span> <span class="st">"shape"</span>, guide <span class="op">=</span> <span class="st">"legend"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">island</span>, scales <span class="op">=</span> <span class="st">"free_x"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Palmer Penguins"</span>, </span>
+<span>    title <span class="op">=</span> <span class="st">"Palmer Penguins"</span>,</span>
 <span>    subtitle <span class="op">=</span> <span class="st">"Counts by Species, Island &amp; Body Mass Ranges"</span>,</span>
-<span>    shape <span class="op">=</span> <span class="cn">NULL</span>, fill <span class="op">=</span> <span class="cn">NULL</span>, x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="st">"Body Mass (g)"</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    shape <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    fill <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    x <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Body Mass (g)"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
 <span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>    axis.ticks.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span>override.aes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="example_uses_files/figure-html/unnamed-chunk-2-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
@@ -203,34 +215,43 @@ attention to important groupings.</p>
 <div class="section level3">
 <h3 id="cartesian">Cartesian<a class="anchor" aria-label="anchor" href="#cartesian"></a>
 </h3>
-<p>Shapes from ggfoundry’s “leaf” set are used here to augment a <a href="https://github.com/andrie/ggdendro" class="external-link">ggdendro</a> plot of an <a href="https://github.com/bethatkinson/rpart" class="external-link">rpart</a> tree.</p>
+<p>Shapes from {ggfoundry}‘s ’leaf’ set are used here to augment a <a href="https://github.com/andrie/ggdendro" class="external-link">{ggdendro}</a> plot of an <a href="https://github.com/bethatkinson/rpart" class="external-link">{rpart}</a> tree.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html" class="external-link">rpart</a></span><span class="op">(</span><span class="va">Kyphosis</span> <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">Number</span> <span class="op">+</span> <span class="va">Start</span>, data <span class="op">=</span> <span class="va">kyphosis</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html" class="external-link">rpart</a></span><span class="op">(</span><span class="va">Kyphosis</span> <span class="op">~</span> <span class="va">Age</span> <span class="op">+</span> <span class="va">Number</span> <span class="op">+</span> <span class="va">Start</span>, data <span class="op">=</span> <span class="va">kyphosis</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://andrie.github.io/ggdendro/reference/dendro_data.html" class="external-link">dendro_data</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html" class="external-link">geom_segment</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, xend <span class="op">=</span> <span class="va">xend</span>, yend <span class="op">=</span> <span class="va">yend</span><span class="op">)</span>,</span>
-<span>    colour <span class="op">=</span> <span class="st">"tan4"</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">segments</span>,</span>
+<span>    colour <span class="op">=</span> <span class="st">"tan4"</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">segments</span>,</span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_label</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>, </span>
-<span>    size <span class="op">=</span> <span class="fl">3</span>, fill <span class="op">=</span> <span class="st">"seashell"</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">labels</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="../reference/geom_casting.html">geom_casting</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, shape <span class="op">=</span> <span class="va">label</span>, fill <span class="op">=</span> <span class="va">label</span><span class="op">)</span>, </span>
-<span>               colour <span class="op">=</span> <span class="st">"tan4"</span>, size <span class="op">=</span> <span class="fl">0.27</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">leaf_labels</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span><span class="op">)</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"seashell"</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">labels</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/geom_casting.html">geom_casting</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, shape <span class="op">=</span> <span class="va">label</span>, fill <span class="op">=</span> <span class="va">label</span><span class="op">)</span>,</span>
+<span>    colour <span class="op">=</span> <span class="st">"tan4"</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">0.27</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">leaf_labels</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hibiscus"</span>, <span class="st">"oak"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"olivedrab3"</span>, <span class="st">"darkorange"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
-<span>    title <span class="op">=</span> <span class="st">"Leafy Dendrogram (Cartesian)"</span>, </span>
-<span>    shape <span class="op">=</span> <span class="st">"Kyphosis"</span>, fill <span class="op">=</span> <span class="st">"Kyphosis"</span></span>
-<span>    <span class="op">)</span> <span class="op">+</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Leafy Dendrogram (Cartesian)"</span>,</span>
+<span>    shape <span class="op">=</span> <span class="st">"Kyphosis"</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"Kyphosis"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://andrie.github.io/ggdendro/reference/theme_dendro.html" class="external-link">theme_dendro</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
 <span>    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
 <span>    legend.key.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">2</span>, <span class="st">"line"</span><span class="op">)</span>,</span>
 <span>    legend.position <span class="op">=</span> <span class="st">"top"</span></span>
-<span>    <span class="op">)</span></span></code></pre></div>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="example_uses_files/figure-html/unnamed-chunk-3-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
@@ -240,24 +261,24 @@ attention to important groupings.</p>
 arguments, we could visualise a radial dendrogram with the leaves
 rotated consistent with the branches.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://andrie.github.io/ggdendro/reference/dendro_data.html" class="external-link">dendro_data</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"rectangle"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">cluster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree</a></span><span class="op">(</span>k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span>rownames <span class="op">=</span> <span class="st">"label"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span><span class="va">cluster</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/hclust.html" class="external-link">hclust</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">dist</a></span><span class="op">(</span><span class="va">USArrests</span><span class="op">)</span>, <span class="st">"ave"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/cutree.html" class="external-link">cutree</a></span><span class="op">(</span>k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span>rownames <span class="op">=</span> <span class="st">"label"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>cluster <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span>, .keep <span class="op">=</span> <span class="st">"unused"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">num_leaves</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">labels</span><span class="op">)</span></span>
 <span><span class="va">offset</span> <span class="op">&lt;-</span> <span class="fl">15</span> <span class="co"># Degrees by which the first branch is rotated</span></span>
-<span><span class="va">from</span> <span class="op">&lt;-</span>  <span class="fl">90</span> <span class="op">-</span> <span class="va">offset</span> <span class="co"># First text label</span></span>
+<span><span class="va">from</span> <span class="op">&lt;-</span> <span class="fl">90</span> <span class="op">-</span> <span class="va">offset</span> <span class="co"># First text label</span></span>
 <span><span class="va">by</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="op">(</span><span class="fl">360</span> <span class="op">-</span> <span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="va">offset</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">num_leaves</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span> <span class="co"># Degrees between labels</span></span>
 <span></span>
 <span><span class="va">leaves</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">labels</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    angle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="va">from</span>, by <span class="op">=</span> <span class="va">by</span>, length.out <span class="op">=</span> <span class="va">num_leaves</span><span class="op">)</span>, </span>
+<span>    angle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="va">from</span>, by <span class="op">=</span> <span class="va">by</span>, length.out <span class="op">=</span> <span class="va">num_leaves</span><span class="op">)</span>,</span>
 <span>    shape_angle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="va">from</span> <span class="op">+</span> <span class="fl">90</span>, by <span class="op">=</span> <span class="va">by</span>, length.out <span class="op">=</span> <span class="va">num_leaves</span><span class="op">)</span>,</span>
-<span>  <span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">cluster</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/join_by.html" class="external-link">join_by</a></span><span class="op">(</span><span class="va">label</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -267,23 +288,28 @@ rotated consistent with the branches.</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html" class="external-link">geom_text</a></span><span class="op">(</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span>, label <span class="op">=</span> <span class="va">label</span>, angle <span class="op">=</span> <span class="va">angle</span><span class="op">)</span>,</span>
-<span>    size <span class="op">=</span> <span class="fl">3</span>, hjust <span class="op">=</span> <span class="fl">0</span>, nudge_y <span class="op">=</span> <span class="fl">20</span>, data <span class="op">=</span> <span class="va">leaves</span></span>
+<span>    size <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    hjust <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>    nudge_y <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">leaves</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="../reference/geom_casting.html">geom_casting</a></span><span class="op">(</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, angle <span class="op">=</span> <span class="va">shape_angle</span>, group <span class="op">=</span> <span class="va">x</span>, fill <span class="op">=</span> <span class="va">cluster</span>, shape <span class="op">=</span> <span class="va">cluster</span><span class="op">)</span>, </span>
-<span>    vjust <span class="op">=</span> <span class="fl">0.7</span>, size <span class="op">=</span> <span class="fl">0.08</span>, data <span class="op">=</span> <span class="va">leaves</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, angle <span class="op">=</span> <span class="va">shape_angle</span>, group <span class="op">=</span> <span class="va">x</span>, fill <span class="op">=</span> <span class="va">cluster</span>, shape <span class="op">=</span> <span class="va">cluster</span><span class="op">)</span>,</span>
+<span>    vjust <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">0.08</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">leaves</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_y_reverse</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"pink"</span>, <span class="st">"lightgreen"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"oak"</span>, <span class="st">"hibiscus"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Leafy Dendrogram (Radial)"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_radial.html" class="external-link">coord_radial</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://andrie.github.io/ggdendro/reference/theme_dendro.html" class="external-link">theme_dendro</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://andrie.github.io/ggdendro/reference/theme_dendro.html" class="external-link">theme_dendro</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
 <span>    plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
 <span>    legend.key.size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grid/unit.html" class="external-link">unit</a></span><span class="op">(</span><span class="fl">2</span>, <span class="st">"line"</span><span class="op">)</span>,</span>
 <span>    legend.position <span class="op">=</span> <span class="st">"top"</span></span>
-<span>    <span class="op">)</span></span></code></pre></div>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="example_uses_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" alt="" width="100%"></p>
 </div>
 </div>
