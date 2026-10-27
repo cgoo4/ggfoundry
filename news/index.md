@@ -19,7 +19,9 @@
   accepts `AsIs` shape values, so `aes(shape = I(shape))` may replace
   [`scale_shape_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
   when shapes are named in the data. The quill’s ink-contact anchor
-  applies however the shape name reaches the geom.
+  applies however the shape name reaches the geom
+  ([\#18](https://github.com/cgoo4/ggfoundry/issues/18)
+  [@EvaMaeRey](https://github.com/EvaMaeRey)).
 
 ## ggfoundry 0.4.0
 
