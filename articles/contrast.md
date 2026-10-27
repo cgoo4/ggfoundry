@@ -152,8 +152,8 @@ p2 <- p +
   )
 
 p1 + p2 + plot_layout(guides = "collect", axes = "collect")
-#> Warning in doTryCatch(return(expr), name, parentenv, handler): Invalid image
-#> path or object provided: NA
+#> Warning: `httr` is not installed, so remote images are not checked before they
+#> are downloaded
 ```
 
 ![](contrast_files/figure-html/ggimage-1.png)

@@ -69,20 +69,14 @@ library(forcats)
 library(stringr)
 
 df <- shapes_cast() |>
-  mutate(
-    set = fct_inorder(set),
-    shape = fct_inorder(shape),
-    x = row_number(),
-    .by = set
-  )
+  mutate(x = row_number(), .by = set)
 
 df |>
   ggplot(aes(x, set)) +
-  geom_text(aes(label = shape), nudge_y = -0.5, colour = "grey40", size = 3) +
-  geom_casting(aes(shape = shape), size = 0.11, fill = "skyblue") +
-  scale_shape_manual(values = as.character(df$shape)) +
+  geom_text(aes(label = shape), nudge_y = -0.5, colour = "grey40", size = 2.5) +
+  geom_casting(aes(shape = I(shape)), size = 0.055, fill = "skyblue") +
   scale_x_continuous(expand = expansion(add = 0.5)) +
-  scale_y_discrete(expand = expansion(add = c(0.7, 1.6))) +
+  scale_y_discrete(expand = expansion(add = c(0.7, 1))) +
   labs(
     x = NULL,
     y = NULL,
@@ -91,7 +85,6 @@ df |>
   theme_minimal() +
   theme(
     text = element_text(colour = "grey70"),
-    axis.text.y = element_text(angle = 90, hjust = 0.5),
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank(),
     legend.position = "none"

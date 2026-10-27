@@ -13,6 +13,14 @@
   including after rotation and resizing. Legend keys retain central
   placement.
 
+### Improvements
+
+- [`geom_casting()`](https://cgoo4.github.io/ggfoundry/reference/geom_casting.md)
+  accepts `AsIs` shape values, so `aes(shape = I(shape))` may replace
+  [`scale_shape_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html)
+  when shapes are named in the data. The quill’s ink-contact anchor
+  applies however the shape name reaches the geom.
+
 ## ggfoundry 0.4.0
 
 CRAN release: 2026-09-27
