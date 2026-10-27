@@ -3,7 +3,21 @@
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-cast_shape <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, anchor = TRUE) {
+cast_shape <- \(
+  shape,
+  colour,
+  fill,
+  size,
+  angle,
+  x,
+  y,
+  hjust,
+  vjust,
+  anchor = TRUE
+) {
+  # I() in the aes() hands down an AsIs-wrapped string; normalise so the
+  # quill's ink-contact anchor still matches
+  shape <- as.character(shape)
   col_grob <- picture_lst[grepl(paste0(shape, "_col"), names(picture_lst))][[1]]
   fill_grob <- picture_lst[grepl(paste0(shape, "_fill"), names(picture_lst))][[
     1
@@ -17,8 +31,16 @@ cast_shape <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, anchor = T
   )
 
   if (anchor && identical(shape, "quill")) {
-    grob <- place_template(grob, size, angle, x, y, hjust, vjust,
-                           anchor = shape_anchor(shape))
+    grob <- place_template(
+      grob,
+      size,
+      angle,
+      x,
+      y,
+      hjust,
+      vjust,
+      anchor = shape_anchor(shape)
+    )
   }
   grob
 }
@@ -29,6 +51,7 @@ cast_shape <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, anchor = T
 #' @format NULL
 #' @usage NULL
 cast_style <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, cache) {
+  shape <- as.character(shape)
   key <- paste(shape, colour, fill)
   template <- cache[[key]]
 
@@ -39,8 +62,16 @@ cast_style <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, cache) {
     cache[[key]] <- template
   }
 
-  place_template(template, size, angle, x, y, hjust, vjust,
-                 anchor = shape_anchor(shape))
+  place_template(
+    template,
+    size,
+    angle,
+    x,
+    y,
+    hjust,
+    vjust,
+    anchor = shape_anchor(shape)
+  )
 }
 
 #' Re-place a styled template for one observation
@@ -51,7 +82,16 @@ cast_style <- \(shape, colour, fill, size, angle, x, y, hjust, vjust, cache) {
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-place_template <- \(grob, size, angle, x, y, hjust, vjust, anchor = c(0.5, 0.5)) {
+place_template <- \(
+  grob,
+  size,
+  angle,
+  x,
+  y,
+  hjust,
+  vjust,
+  anchor = c(0.5, 0.5)
+) {
   grob$vp <- place_viewports(grob$vp, size, angle, x, y, hjust, vjust, anchor)
 
   if (inherits(grob, "gTree") && !is.null(grob$children)) {
@@ -79,7 +119,16 @@ place_template <- \(grob, size, angle, x, y, hjust, vjust, anchor = c(0.5, 0.5))
 #' @rdname geom_casting
 #' @format NULL
 #' @usage NULL
-place_viewports <- \(vp, size, angle, x, y, hjust, vjust, anchor = c(0.5, 0.5)) {
+place_viewports <- \(
+  vp,
+  size,
+  angle,
+  x,
+  y,
+  hjust,
+  vjust,
+  anchor = c(0.5, 0.5)
+) {
   if (is.null(vp)) {
     return(NULL)
   }

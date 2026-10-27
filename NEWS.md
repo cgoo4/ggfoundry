@@ -6,6 +6,10 @@
 -   5 shapes added to a new 'halloween' set: `skeleton`, `ghost`, `spiderweb`, `grimreaper` and `gravestone`. All new shapes retain separate colour and fill layers, including outline-only rendering.
 -   The quill anchors its ink contact to the plotting coordinate, including after rotation and resizing. Legend keys retain central placement.
 
+## Improvements
+
+-   `geom_casting()` accepts `AsIs` shape values, so `aes(shape = I(shape))` may replace `scale_shape_manual()` when shapes are named in the data. The quill's ink-contact anchor applies however the shape name reaches the geom.
+
 # ggfoundry 0.4.0
 
 ## New shapes

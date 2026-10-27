@@ -94,3 +94,20 @@ test_that("quill anchor preserves the existing justification adjustments", {
     }
   }
 })
+
+test_that("quill anchor matches even when the shape arrives AsIs-wrapped", {
+  # I(shape) in aes() hands down class "AsIs"; the ink-contact anchor
+  # must still apply (regression for the issue 18 catalogue usage)
+  file <- tempfile(fileext = ".png")
+  grDevices::png(file, width = 700, height = 700, res = 100)
+  tryCatch({
+    target <- unlist(grid::deviceLoc(grid::unit(0.42, "npc"),
+                                      grid::unit(0.46, "npc"), valueOnly = TRUE))
+    grob <- cast_shape(I("quill"), "black", "tan", 0.2, 0, 0.42, 0.46, 0.5, 0.5)
+    expect_equal(writing_halloween_location(grob, c(44, 166)),
+                 target, tolerance = 1e-9)
+  }, finally = {
+    grDevices::dev.off()
+    unlink(file)
+  })
+})
