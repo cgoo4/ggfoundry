@@ -8,7 +8,7 @@
 
 ## Improvements
 
--   `geom_casting()` accepts `AsIs` shape values, so `aes(shape = I(shape))` may replace `scale_shape_manual()` when shapes are named in the data. The quill's ink-contact anchor applies however the shape name reaches the geom.
+-   `geom_casting()` accepts `AsIs` shape values, so `aes(shape = I(shape))` may replace `scale_shape_manual()` when shapes are named in the data. The quill's ink-contact anchor applies however the shape name reaches the geom (#18 @EvaMaeRey).
 
 # ggfoundry 0.4.0
 
